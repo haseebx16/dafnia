@@ -13,7 +13,7 @@ export default function page() {
                 </div>
         <nav className="flex-1 px-4 mt-6 space-y-4">
           <a href="#" className="flex py-2 px-4 rounded transition duration-200 bg-blue-500 text-white">
-                      <FaHome />&nbsp;&nbsp;{" "}Home
+                      <FaHome />&nbsp;&nbsp;{" "}Homee
           </a>
           <a href="#" className="flex py-2 px-4 text-black  rounded  transition duration-200 hover:bg-blue-500 hover:text-white">
             <GoGraph/>&nbsp;&nbsp;{" "}Analytics
