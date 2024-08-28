@@ -6,51 +6,77 @@ import Link from "next/link";
 
 const Login = () => {
   const [selectedCompany, setSelectedCompany] = useState("Dafnia Electronics");
+  const [logoSrc, setLogoSrc] = useState("/logo-dafnia.png");
 
   const handleCompanyChange = (event) => {
-    setSelectedCompany(event.target.value);
+    const company = event.target.value;
+    setSelectedCompany(company);
+
+    if (company === "Dafnia Electronics") {
+      setLogoSrc("/logo-dafnia.png");
+    } else if (company === "Istanbul Electrical") {
+      setLogoSrc("/logo-png.png"); // Replace with your actual logo path
+    }
   };
 
   const buttonColor =
     selectedCompany === "Dafnia Electronics"
       ? "bg-gradient-to-r from-customLeft to-customRight"
       : "bg-blue-500";
-  const backgroundColor =
-    selectedCompany === "Dafnia Electronics" ? "bg-gray-200" : "bg-white";
-  const logoSrc =
-    selectedCompany === "Dafnia Electronics"
-      ? "/logo-dafnia.png"
-      : "/logo-png.png";
-  const round =
-    selectedCompany === "Dafnia Electronics" ? "rounded-l-full" : "";
-
-  const particleColors = {
-    "Istanbul Electrical": {
-      background: "#0054a5",
-    },
-    "Dafnia Electronics": {
-      background: "#1785c0",
-    },
-  };
 
   return (
-    <main className={`min-h-screen flex`}>
-      <div className="relative hidden lg:flex lg:w-1/2 items-center justify-center min-h-screen">
-        <h1 className="sm:block text-white z-20 text-7xl font-bold ml-12">
-          Welcome To {selectedCompany}
-        </h1>
-        <div className="absolute inset-0 z-10 min-h-screen">
-          <ParticlesComponent />
-        </div>
+    <main className="relative min-h-screen flex items-center justify-center">
+      {/* Full Page Animation */}
+      <div className="absolute inset-0 z-0">
+        <ParticlesComponent />
       </div>
-      <div
-        className={`w-full lg:w-1/2 ${round} rounded-b-sm  flex items-center shadow-black shadow-2xl justify-center sm:${backgroundColor} z-50 min-h-screen`}
-      >
-        <div className="bg-white rounded-2xl shadow-2xl backdrop-blur-2xl sm:ml-24 shadow-black p-8 max-w-md w-full">
-          <div className="flex justify-center">
-            <img src={logoSrc} alt="logo" className="h-48 w-48" />
+
+      {/* Centered Form Container with Two Partitions */}
+      <div className="relative z-10 bg-white rounded-2xl shadow-2xl max-w-6xl w-full flex">
+        
+        {/* Left Partition - Main Image */}
+        <div className="w-1/2 flex items-center justify-center">
+          <img src="/login-img.png" alt="Login Illustration" className="w-3/4 h-auto" />
+        </div>
+
+        {/* Right Partition - Login Form */}
+        <div className="w-1/2 p-8 flex flex-col justify-center">
+          
+          {/* Dafnia Logo in the Top Left of the Form */}
+          <div className="absolute top-4 left-4 ml-6">
+            <img src='/logo-dafnia.png' alt="logo" className="h-40 w-40" />
           </div>
-          <form className="space-y-4">
+
+          <div className="flex justify-center ml-6 mb-6">
+            <img src={logoSrc} alt="logo" className="h-44 w-44" />
+          </div>
+
+          {/* Welcome Text */}
+          <div className="text-left text-2xl font-bold mb-6">
+            Welcome To {selectedCompany}
+          </div>
+
+          {/* Login Form */}
+          <form className="space-y-8">
+            <div>
+              <label
+                htmlFor="company"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Company
+              </label>
+              <select
+                id="company"
+                name="company"
+                value={selectedCompany}
+                onChange={handleCompanyChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                required
+              >
+                <option value="Dafnia Electronics">Dafnia Electronics</option>
+                <option value="Istanbul Electrical">Istanbul Electrical</option>
+              </select>
+            </div>
             <div>
               <label
                 htmlFor="username"
@@ -62,7 +88,7 @@ const Login = () => {
                 type="text"
                 id="username"
                 name="username"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 placeholder="Enter your username"
                 required
               />
@@ -78,19 +104,19 @@ const Login = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 block mb-4 w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block mb-4 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 placeholder="Enter your password"
                 required
               />
             </div>
             <Link href="/dashboard">
-            <button
-              type="submit"
-              className={`w-full ${buttonColor} text-white py-2 px-4 rounded-full duration-400 hover:bg-blue-700 focus:outline-none focus:bg-blue-600`}
-            >
-              Sign In
+              <button
+                type="submit"
+                className={`w-full ${buttonColor} text-white py-2 px-4 rounded-md duration-400 hover:bg-blue-700 focus:outline-none mt-4 focus:bg-blue-600`}
+              >
+                Sign In
               </button>
-              </Link>
+            </Link>
             <p className="text-center text-gray-500 hover:underline">
               Forgot Password?
             </p>
