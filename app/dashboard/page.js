@@ -3,11 +3,7 @@ import Link from 'next/link';
 import { FaHome, FaUser } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { IoMdSettings } from "react-icons/io";
-import { PiCashRegisterLight } from "react-icons/pi";
-import { IoIosCash } from "react-icons/io";
-import { SiCashapp } from "react-icons/si";
-import { BsCashCoin } from "react-icons/bs";
-import { LiaCashRegisterSolid } from "react-icons/lia";
+
 
 export default function page() {
   return (
@@ -20,9 +16,9 @@ export default function page() {
           <a href="#" className="flex py-2 px-4 rounded transition duration-200 bg-sky-600 text-white">
             <FaHome />&nbsp;&nbsp;{" "}Home
           </a>
-          <a href="#" className="flex py-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
+          <Link className='mt-2' href="/company"><p className="flex py-2 mt-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
             <GoGraph/>&nbsp;&nbsp;{" "}Company
-          </a>
+          </p></Link>
           <a href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <FaUser/> &nbsp;&nbsp;{" "}Users
           </a>
