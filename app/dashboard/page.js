@@ -56,83 +56,89 @@ export default function page() {
 
         <main className="flex-1 p-6 bg-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <p className="text-gray-600 font-medium text-left  text-xl mb-4">Open AP Invoices</p>
-              <div className='flex justify-center items-center flex-wrap'>
-                <p className="text-gray-600 font-bold text-2xl  ml-12">38</p>
-                <p className='text-gray-600 font-bold text-2xl  ml-16'>150M</p>
-               <p className="bg-blue-300 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+           <div className="bg-white p-6 rounded-lg shadow-md text-center hover:cursor-pointer hover:bg-gradient-to-r from-blue-400 to-sky-900 hover:text-white duration-400 group">
+           <p className="font-bold shadow-gray-500 shadow-sm bg-sky-600 text-white p-2 rounded-md text-xl mb-4 text-center group-hover:bg-white group-hover:text-black">
+              Open AP Invoices
+            </p>
+              <div className="flex justify-center items-center flex-wrap">
+                <p className="text-gray-600 font-bold text-2xl ml-12 group-hover:text-white">38</p>
+                <p className="text-gray-600 font-bold text-2xl ml-16 group-hover:text-white">150M</p>
+                <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold group-hover:text-black">
+                  SAR
+                </p>
               </div>
-              <div className='flex justify-center'>
-                <p className='text-gray-600 font-medium mr-20'>Total</p>
-                <p className='text-gray-600 font-medium'>Value</p>
-              </div>
-              <div className='flex justify-center items-center'>
-
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <p className="text-gray-600 font-medium text-left  text-xl mb-4">Pending AP Invoices</p>
-              <div className='flex justify-center items-center flex-wrap'>
-                <p className="text-gray-600 font-bold text-2xl  ml-12">38</p>
-                <p className='text-gray-600 font-bold text-2xl  ml-16'>150M</p>
-               <p className="bg-blue-300 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
-              </div>
-              <div className='flex justify-center'>
-                <p className='text-gray-600 font-medium mr-20'>Total</p>
-                <p className='text-gray-600 font-medium'>Value</p>
-              </div>
-              <div className='flex justify-center items-center'>
-
+              <div className="flex justify-center">
+                <p className="text-gray-600 font-medium mr-20 group-hover:text-white">Total</p>
+                <p className="text-gray-600 font-medium group-hover:text-white">Value</p>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <p className="text-gray-600 font-medium text-left  text-xl mb-4">Approved AP Invoices</p>
-              <div className='flex justify-center items-center flex-wrap'>
-                <p className="text-gray-600 font-bold text-2xl  ml-12">38</p>
-                <p className='text-gray-600 font-bold text-2xl  ml-16'>150M</p>
-               <p className="bg-blue-300 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
-              </div>
-              <div className='flex justify-center'>
-                <p className='text-gray-600 font-medium mr-20'>Total</p>
-                <p className='text-gray-600 font-medium'>Value</p>
-              </div>
-              <div className='flex justify-center items-center'>
 
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:cursor-pointer hover:bg-gradient-to-r from-blue-400 to-sky-900 hover:text-white duration-400 group">
+              <p className="font-bold shadow-gray-500 shadow-sm bg-sky-600 text-white p-2 rounded-md text-xl mb-4 text-center group-hover:bg-white group-hover:text-black">
+                Pending AP Invoices
+              </p>
+              <div className="flex justify-center items-center flex-wrap">
+                <p className="text-gray-600 font-bold text-2xl ml-12 group-hover:text-white">38</p>
+                <p className="text-gray-600 font-bold text-2xl ml-16 group-hover:text-white">150M</p>
+                <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold group-hover:text-black">
+                  SAR
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <p className="text-gray-600 font-medium mr-20 group-hover:text-white">Total</p>
+                <p className="text-gray-600 font-medium group-hover:text-white">Value</p>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <p className="text-gray-600 font-medium text-left  text-xl mb-4">Open Shipments</p>
-              <div className='flex justify-center items-center flex-wrap'>
-                <p className="text-gray-600 font-bold text-2xl  ml-12">38</p>
-                <p className='text-gray-600 font-bold text-2xl  ml-16'>150M</p>
-               <p className="bg-blue-300 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:cursor-pointer hover:bg-gradient-to-r from-blue-400 to-sky-900 hover:text-white duration-400 group">
+              <p className="font-bold shadow-gray-500 shadow-sm bg-sky-600 text-white p-2 rounded-md text-xl mb-4 text-center group-hover:bg-white group-hover:text-black">
+                Approved AP Invoices
+              </p>
+              <div className="flex justify-center items-center flex-wrap">
+                <p className="text-gray-600 font-bold text-2xl ml-12 group-hover:text-white">38</p>
+                <p className="text-gray-600 font-bold text-2xl ml-16 group-hover:text-white">150M</p>
+                <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold group-hover:text-black">
+                  SAR
+                </p>
               </div>
-              <div className='flex justify-center'>
-                <p className='text-gray-600 font-medium mr-20'>Total</p>
-                <p className='text-gray-600 font-medium'>Value</p>
-              </div>
-              <div className='flex justify-center items-center'>
-
+              <div className="flex justify-center">
+                <p className="text-gray-600 font-medium mr-20 group-hover:text-white">Total</p>
+                <p className="text-gray-600 font-medium group-hover:text-white">Value</p>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <p className="text-gray-600 font-medium text-left  text-xl mb-4">Open DP</p>
-              <div className='flex justify-center items-center flex-wrap'>
-                <p className="text-gray-600 font-bold text-2xl  ml-12">38</p>
-                <p className='text-gray-600 font-bold text-2xl  ml-16'>150M</p>
-               <p className="bg-blue-300 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:cursor-pointer hover:bg-gradient-to-r from-blue-400 to-sky-900 hover:text-white duration-400 group">
+              <p className="font-bold shadow-gray-500 shadow-sm bg-sky-600 text-white p-2 rounded-md text-xl mb-4 text-center group-hover:bg-white group-hover:text-black">
+                Open Shipments
+              </p>
+              <div className="flex justify-center items-center flex-wrap">
+                <p className="text-gray-600 font-bold text-2xl ml-12 group-hover:text-white">38</p>
+                <p className="text-gray-600 font-bold text-2xl ml-16 group-hover:text-white">150M</p>
+                <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold group-hover:text-black">
+                  SAR
+                </p>
               </div>
-              <div className='flex justify-center'>
-                <p className='text-gray-600 font-medium mr-20'>Total</p>
-                <p className='text-gray-600 font-medium'>Value</p>
+              <div className="flex justify-center">
+                <p className="text-gray-600 font-medium mr-20 group-hover:text-white">Total</p>
+                <p className="text-gray-600 font-medium group-hover:text-white">Value</p>
               </div>
-              <div className='flex justify-center items-center'>
+            </div>
 
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:cursor-pointer hover:bg-gradient-to-r from-blue-400 to-sky-900 hover:text-white duration-400 group">
+              <p className="font-bold shadow-gray-500 shadow-sm bg-sky-600 text-white p-2 rounded-md text-xl mb-4 text-center group-hover:bg-white group-hover:text-black">
+                Open DP
+              </p>
+              <div className="flex justify-center items-center flex-wrap">
+                <p className="text-gray-600 font-bold text-2xl ml-12 group-hover:text-white">38</p>
+                <p className="text-gray-600 font-bold text-2xl ml-16 group-hover:text-white">150M</p>
+                <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold group-hover:text-black">
+                  SAR
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <p className="text-gray-600 font-medium mr-20 group-hover:text-white">Total</p>
+                <p className="text-gray-600 font-medium group-hover:text-white">Value</p>
               </div>
             </div>
           </div>

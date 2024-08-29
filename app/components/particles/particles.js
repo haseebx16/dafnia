@@ -20,7 +20,7 @@ const ParticlesComponent = () => {
   const options = useMemo(() => ({
     background: {
       color: {
-        value: "#1785c0",
+        value: "#01153e",
       },
     },
     fpsLimit: 120,
