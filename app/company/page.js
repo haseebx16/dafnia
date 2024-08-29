@@ -76,13 +76,17 @@ const page = () => {
         </div>
       </aside>
       <div className="flex-1 flex flex-col">
-        <header className="flex items-center justify-between p-6 bg-gray-100 border border-gray-100">
+        <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome to Dafnia Portal</h1>
           
         </header>
-        <hr className=" border-gray-700 w-full"/>
         <main className="flex-1 p-6 bg-gray-100">
-        <TableContainer component={Paper}>
+          <div className="flex justify-between items-center">
+            <p className='text-xl mt-1'>Manage Company</p>
+            <button className='p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md'>Create Company</button>
+          </div>
+        <hr className=" border-gray-700 w-full"/>
+        <TableContainer component={Paper} className='mt-8'>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
