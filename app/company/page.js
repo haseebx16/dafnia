@@ -1,8 +1,50 @@
-import React from 'react';
+"use client"
 import Link from 'next/link';
 import { FaHome, FaUser } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { IoMdSettings } from "react-icons/io";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Company 1', "A", "Icon"),
+  createData('Company 2', "A", "Icon"),
+  createData('Company 3', "A", "Icon"),
+  createData('Company 4', "A", "Icon"),
+  createData('Company 5', "A", "Icon"),
+];
 
 const page = () => {
   return (
@@ -35,12 +77,40 @@ const page = () => {
       </aside>
       <div className="flex-1 flex flex-col">
         <header className="flex items-center justify-between p-6 bg-gray-100 border border-gray-100">
-          <h1 className="text-3xl font-semibold">Main Dashboard</h1>
+          <h1 className="text-3xl font-semibold">Welcome to Dafnia Portal</h1>
           
         </header>
         <hr className=" border-gray-700 w-full"/>
-        <main className="flex-1 p-6 bg-gray-100"></main>
+        <main className="flex-1 p-6 bg-gray-100">
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Company ID </StyledTableCell>
+            <StyledTableCell align="right">Company Name</StyledTableCell>
+            <StyledTableCell align="right">Edit</StyledTableCell>
+            
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell component="th" scope="row">
+                {row.name}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.calories}</StyledTableCell>
+              <StyledTableCell align="right">{row.fat}</StyledTableCell>
+              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+        </main>
         </div>
+
       
     </div>
   )
