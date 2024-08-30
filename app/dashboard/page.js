@@ -19,12 +19,12 @@ export default function page() {
           <Link className='mt-2' href="/company"><p className="flex py-2 mt-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
             <GoGraph/>&nbsp;&nbsp;{" "}Company
           </p></Link>
-          <a href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
+          <Link href="/users"><p href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <FaUser/> &nbsp;&nbsp;{" "}Users
-          </a>
-          <a href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
+          </p></Link>
+          <p href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <IoMdSettings/>&nbsp;&nbsp;{" "}Settings
-          </a>
+          </p>
         </nav>
         <div className="p-6">
           <Link href="/">

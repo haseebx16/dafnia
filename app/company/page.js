@@ -92,12 +92,12 @@ const page = () => {
               <GoGraph/>&nbsp;&nbsp;Company
             </p>
           </Link>
-          <a href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
+          <Link href="/users"><p href="#" className="flex py-2 mt-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <FaUser />&nbsp;&nbsp;Users
-          </a>
-          <a href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
+          </p></Link>
+          <p href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <IoMdSettings />&nbsp;&nbsp;Settings
-          </a>
+          </p>
         </nav>
         <div className="p-6">
           <Link href="/">
@@ -114,7 +114,7 @@ const page = () => {
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Manage Company</p>
-            <button className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md" onClick={handleOpen}>Create Company</button>
+           <Link href="/create-company"> <button className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md">Create Company</button></Link>
           </div>
           <hr className="border-gray-700 w-full" />
           <input 
@@ -146,7 +146,7 @@ const page = () => {
               </Typography>
               <hr className="border-gray-700 w-full mt-2" />
               <form onSubmit="">
-                <Grid container spacing={3} mt={2}>
+                <Grid container spacing={2} mt={2}>
                   <Grid item xs={6}>
                     <TextField
                       fullWidth
@@ -189,7 +189,18 @@ const page = () => {
                       variant="outlined"
                     />
                   </Grid>
-                  <Grid item xs={10}></Grid>
+                  <Grid item xs={8}></Grid>
+                  <Grid item xs={2}>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      onClick={handleClose}
+                      sx={{ bgcolor: '#0284c7', '&:hover': { bgcolor: 'deepskyblue' } }}
+                    >
+                      Close
+                    </Button>
+                  </Grid>
                   <Grid item xs={2}>
                     <Button
                       type="submit"
