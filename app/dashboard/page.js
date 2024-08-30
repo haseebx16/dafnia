@@ -36,8 +36,8 @@ export default function page() {
       </aside>
 
       <div className="flex-1 flex flex-col">
-        <header className="flex items-center justify-between p-6 bg-gray-100 border border-gray-100">
-          <h1 className="text-3xl font-semibold">Main Dashboard</h1>
+        <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
+          <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
           
         </header>
           <hr className=" border-gray-700 w-full"/>
