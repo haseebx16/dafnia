@@ -25,6 +25,11 @@ export default function page() {
           <p href="#" className="flex py-2 px-4 text-black  rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <IoMdSettings/>&nbsp;&nbsp;{" "}Settings
           </p>
+          <Link href="/roles">
+          <p href="#" className="flex py-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
+            <FaHome />&nbsp;&nbsp;{" "}Roles
+          </p>
+          </Link>
         </nav>
         <div className="p-6">
           <Link href="/">
