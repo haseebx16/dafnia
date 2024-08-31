@@ -1,8 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaHome, FaUser } from "react-icons/fa";
-import { GoGraph } from "react-icons/go";
-import { IoMdSettings } from "react-icons/io";
 import Sidebar from '../components/Layout/sidebar';
 
 export default function page() {
@@ -13,9 +10,9 @@ export default function page() {
       <div className="flex-1 flex flex-col">
         <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
               Logout
-            </button> 
+            </button> </Link>
 
           
         </header>

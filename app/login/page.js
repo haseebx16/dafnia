@@ -5,8 +5,13 @@ import ParticlesComponent from "../components/particles/particles";
 import Link from "next/link";
 
 const Login = () => {
-  const [selectedCompany, setSelectedCompany] = useState("Dafnia Electronics");
-  const [logoSrc, setLogoSrc] = useState("/logo-dafnia.png");
+  const [selectedCompany, setSelectedCompany] = useState("Select Company");
+  const [logoSrc, setLogoSrc] = useState("");
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [userNameError, setUserNameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [companyError, setCompanyError] = useState(false);
 
   const handleCompanyChange = (event) => {
     const company = event.target.value;
@@ -15,7 +20,51 @@ const Login = () => {
     if (company === "Dafnia Electronics") {
       setLogoSrc("/logo-dafnia.png");
     } else if (company === "Istanbul Electrical") {
-      setLogoSrc("/logo-png.png"); // Replace with your actual logo path
+      setLogoSrc("/logo-png.png");
+    }
+    else {
+      setLogoSrc('');
+    }
+  };
+
+  const handleChangeUserName = (e) => {
+    setUserName(e.target.value);
+  }
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const handleSubmit = () => {
+    let hasError = false;
+
+    if (userName === "" || userName !== "admin") {
+      setUserNameError(true);
+      console.log("Invalid Username !");
+      hasError = true;
+    } else {
+      setUserNameError(false);
+    }
+
+    if (password === "") {
+      setPasswordError(true);
+      console.log("Invalid Password !");
+      hasError = true;
+    } else {
+      setPasswordError(false);
+    }
+
+    if(selectedCompany == "Select Company") {
+      setCompanyError(true);
+      console.log("Invalid Company")
+      hasError = true;  
+    }
+    else {
+      setCompanyError(false);
+    }
+
+    if (!hasError) {
+      window.location.href = '/dashboard';
     }
   };
 
@@ -44,25 +93,28 @@ const Login = () => {
           
           {/* Dafnia Logo in the Top Left of the Form */}
           <div className="absolute top-4 left-4 ml-6">
-            <img src='/logo-dafnia.png' alt="logo" className="h-40 w-40" />
+            <img src='/logo-dafnia.png'  className="h-40 w-auto" />
           </div>
 
           <div className="flex justify-center ml-6 mb-6">
-            <img src={logoSrc} alt="logo" className="h-44 w-44" />
+            <img src={logoSrc}  className="h-44 w-auto" />
           </div>
 
           {/* Welcome Text */}
           <div className="text-left text-2xl font-bold mb-6">
-            Welcome To {selectedCompany}
+            {selectedCompany}
           </div>
 
           {/* Login Form */}
           <form className="space-y-8">
+          {companyError && (
+                  <p className="p-2 bg-red-200 text-red-500 w-full rounded-md">Choose A Company</p>
+                )}
             <div>
               <label
                 htmlFor="company"
                 className="block text-sm font-medium text-gray-700"
-              >
+                >
                 Company
               </label>
               <select
@@ -73,10 +125,14 @@ const Login = () => {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 required
               >
+                <option value="Select Company">Select Company</option>
                 <option value="Dafnia Electronics">Dafnia Electronics</option>
                 <option value="Istanbul Electrical">Istanbul Electrical</option>
               </select>
             </div>
+                {userNameError && (
+                  <p className="p-2 bg-red-200 text-red-500 w-full rounded-md">Invalid User Name or Password</p>
+                )}
             <div>
               <label
                 htmlFor="username"
@@ -88,11 +144,16 @@ const Login = () => {
                 type="text"
                 id="username"
                 name="username"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                value={userName}
+                onChange={handleChangeUserName}
+                className={`mt-1 block w-full px-3 py-2 border ${
+                  userNameError ? "border-red-500" : "border-gray-300"
+                } rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                 placeholder="Enter your username"
                 required
               />
             </div>
+            
             <div>
               <label
                 htmlFor="password"
@@ -104,19 +165,24 @@ const Login = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 block mb-4 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                value={password}
+                onChange={handleChangePassword}
+                className={`mt-1 block mb-4 w-full px-3 py-2 border ${
+                  passwordError ? "border-red-500" : "border-gray-300"
+                } rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                 placeholder="Enter your password"
                 required
               />
             </div>
-            <Link href="/dashboard">
+           
               <button
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
                 className={`w-full ${buttonColor} text-white py-2 px-4 rounded-md duration-400 hover:bg-blue-700 focus:outline-none mt-4 focus:bg-blue-600`}
               >
                 Sign In
               </button>
-            </Link>
+            
             <p className="text-center text-gray-500 hover:underline">
               Forgot Password?
             </p>

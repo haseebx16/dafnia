@@ -21,9 +21,15 @@ const page = () => {
     <div className="flex min-h-screen">
       <Sidebar/>
       <div className='flex-1 flex-col flex'>
-        <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
-          <h1 className="text-3xl font-semibold">Welcome to Dafnia Portal</h1>
+      <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
+          <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
+           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+              Logout
+            </button> </Link>
+
+          
         </header>
+          <hr className=" border-gray-700 w-full"/>
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Create User</p>
@@ -39,6 +45,9 @@ const page = () => {
                       name="name"
                       label="Name"
                       variant="outlined"
+                      sx={{
+                        backgroundColor: 'white',
+                      }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -50,6 +59,9 @@ const page = () => {
                       label="User Name"
                       type="text"
                       variant="outlined"
+                      sx={{
+                        backgroundColor: 'white',
+                      }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -60,6 +72,9 @@ const page = () => {
                       label="User Email"
                       rows={4}
                       variant="outlined"
+                      sx={{
+                        backgroundColor: 'white',
+                      }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -72,6 +87,9 @@ const page = () => {
                       disabled
                       rows={4}
                       variant="outlined"
+                      sx={{
+                        backgroundColor: 'white',
+                      }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -83,6 +101,9 @@ const page = () => {
                         value={dropdownValue}
                         label="Select Option"
                         onChange={handleDropdownChange}
+                        sx={{
+                          backgroundColor: 'white',
+                        }}
                         >
                         <MenuItem value="">
                             <em>None</em>
@@ -102,6 +123,9 @@ const page = () => {
                         value={dropdownTwo}
                         label="Select Option"
                         onChange={handleDropdownChangeTwo}
+                        sx={{
+                          backgroundColor: 'white',
+                        }}
                         >
                         <MenuItem value="">
                             <em>None</em>
@@ -112,8 +136,8 @@ const page = () => {
                         </Select>
                     </FormControl>
                     </Grid>
-                  <Grid item xs={8}></Grid>
-                  <Grid item xs={2}>
+                  <Grid item xs={10}></Grid>
+                  <Grid item xs={1}>
                     <Link href='/users'><Button
                       type="submit"
                       fullWidth
@@ -121,10 +145,10 @@ const page = () => {
                       
                       sx={{ bgcolor: '#0284c7', '&:hover': { bgcolor: 'deepskyblue' } }}
                     >
-                      Go Back
+                      Cancel
                     </Button></Link>
                   </Grid>
-                  <Grid item xs={2}>
+                  <Grid item xs={1}>
                     <Link href="/users"><Button
                       type="submit"
                       fullWidth
