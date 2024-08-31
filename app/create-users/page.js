@@ -30,11 +30,11 @@ const page = () => {
             </p>
           </Link> 
           <Link href="/company">
-            <p className="flex py-2 mt-2 px-4 rounded transition duration-200 bg-sky-600 text-white">
+            <p className="flex py-2 mt-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
               <GoGraph/>&nbsp;&nbsp;Company
             </p>
           </Link>
-          <a href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
+          <a href="/users" className="flex py-2 px-4 rounded transition duration-200 bg-sky-600 text-white">
             <FaUser />&nbsp;&nbsp;Users
           </a>
           <a href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">

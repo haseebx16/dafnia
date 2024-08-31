@@ -28,13 +28,13 @@ const page = () => {
               <GoGraph/>&nbsp;&nbsp;Company
             </p>
           </Link>
-          <a href="#" className="flex py-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
+          <a href="/users" className="flex py-2 px-4 text-black  rounded  transition duration-200 hover:bg-sky-600 hover:text-white">
             <FaUser />&nbsp;&nbsp;Users
           </a>
           <a href="#" className="flex py-2 px-4 text-black rounded transition duration-200 hover:bg-sky-600 hover:text-white">
             <IoMdSettings />&nbsp;&nbsp;Settings
           </a>
-          <a href="#" className="flex py-2 px-4 rounded transition duration-200 bg-sky-600 text-white">
+          <a href="/roles" className="flex py-2 px-4 rounded transition duration-200 bg-sky-600 text-white">
             <FaHome />&nbsp;&nbsp;{" "}Roles
           </a>
         </nav>
