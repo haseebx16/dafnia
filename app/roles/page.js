@@ -94,57 +94,49 @@ const Page = () => {
                   </FormControl>
                 </Grid>
                 { role != "Select A Role" && (
-                <Grid item xs={12} md={6} className='ml-2'>
+                <Grid item xs={12} md={6} className='ml-4'>
                   <FormGroup>
                     <FormControlLabel
-                      control={<Checkbox checked={permissions.vendors} onChange={handlePermissionChange} name="vendors" />}
-                      label="Vendors"
+                      control={<Checkbox checked={permissions.vendors} onChange={handlePermissionChange} name="Sales Quotation" />}
+                      label="Sales Quotation"
                     />
                     <FormControlLabel
-                      control={<Checkbox checked={permissions.users} onChange={handlePermissionChange} name="users" />}
-                      label="Users"
+                      control={<Checkbox checked={permissions.users} onChange={handlePermissionChange} name="Sales Order" />}
+                      label="Sales Order"
                     />
                     <FormControlLabel
                       control={<Checkbox checked={permissions.quotationRequest} onChange={handlePermissionChange} name="quotationRequest" />}
-                      label="Quotation Request"
+                      label="A/R Down Payment Invoice"
                     />
                     <FormControlLabel
                       control={<Checkbox checked={permissions.invoiceRequest} onChange={handlePermissionChange} name="invoiceRequest" />}
-                      label="Invoice Request"
+                      label="Incoming Payment"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.purchaseRequest} onChange={handlePermissionChange} name="purchaseRequest" />}
-                      label="PurchaseRequest"
+                      label="A/R Reserve Invoice"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.downPaymentRequest} onChange={handlePermissionChange} name="downPaymentRequest" />}
-                      label="DownPaymentRequest"
+                      label="Inventory Transfer"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.shipmentRequest} onChange={handlePermissionChange} name="shipmentRequest" />}
-                      label="ShipmentRequest"
+                      label="Delivery"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.accountRequest} onChange={handlePermissionChange} name="accountRequest" />}
-                      label="AccountRequest"
+                      label="Return"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.documents} onChange={handlePermissionChange} name="documents" />}
-                      label="Documents"
+                      label="A/R Invoice"
                     />
                      <FormControlLabel
                       control={<Checkbox checked={permissions.notifications} onChange={handlePermissionChange} name="notifications" />}
-                      label="Notifications"
+                      label="A/R Credit Memo"
                     />
-                     <FormControlLabel
-                      control={<Checkbox checked={permissions.vendorLedger} onChange={handlePermissionChange} name="vendorLedger" />}
-                      label="VendorLedger"
-                    />
-                     <FormControlLabel
-                      control={<Checkbox checked={permissions.payableAgeingReport} onChange={handlePermissionChange} name="payableAgeingReport" />}
-                      label="PayableAgeingReport"
-                    />
-                    {/* Add more checkboxes as needed */}
+                    
                   </FormGroup>
                 </Grid>
             ) }
