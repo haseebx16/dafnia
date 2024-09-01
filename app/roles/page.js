@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import { Checkbox, FormGroup, FormControlLabel, FormControl, Select, MenuItem, Button, Grid, Paper } from '@mui/material';
 import Sidebar from '../components/Layout/sidebar';
+import Link from 'next/link';
 
 const Page = () => {
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('Select A Role');
   const [permissions, setPermissions] = useState({
     vendors: false,
     users: false,
@@ -35,17 +36,17 @@ const Page = () => {
     });
   };
 
-  const handleSubmit = () => {
-    console.log("Role:", role);
-    console.log("Permissions:", permissions);
-  };
-
   return (
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-1 flex flex-col">
-        <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
-          <h1 className="text-3xl font-semibold">Welcome to Dafnia Portal</h1>
+      <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
+          <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
+           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+              Logout
+            </button> </Link>
+
+          
         </header>
         <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
           {/* Main form container with background and border */}
@@ -66,7 +67,7 @@ const Page = () => {
                   <p className="text-xl mt-1 text-black">Roles</p>
                   <hr className="border-gray-700 w-full" />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                   <FormControl fullWidth>
                     <Select
                       value={role}
@@ -81,22 +82,19 @@ const Page = () => {
                         width: '660px'
                       }}
                     >
-                      <MenuItem value="">
+                      <MenuItem value="Select A Role">
                         <em>Select a Role</em>
                       </MenuItem>
-                      <MenuItem value="Finance">Finance</MenuItem>
-                      <MenuItem value="Admin">Admin</MenuItem>
-                      <MenuItem value="User">User</MenuItem>
-                      <MenuItem value="Employee">Employee</MenuItem>
-                      <MenuItem value="Developer">Developer</MenuItem>
-                      <MenuItem value="Software-Enginner">Software Enginner</MenuItem>
+                      <MenuItem value="Finance">Inventory</MenuItem>
+                      <MenuItem value="Admin">Sales</MenuItem>
+                      <MenuItem value="User">Procurement</MenuItem>
 
                       {/* Add more roles as needed */}
                     </Select>
                   </FormControl>
                 </Grid>
-
-                <Grid item xs={12} md={6} className='ml-0'>
+                { role != "Select A Role" && (
+                <Grid item xs={12} md={6} className='ml-2'>
                   <FormGroup>
                     <FormControlLabel
                       control={<Checkbox checked={permissions.vendors} onChange={handlePermissionChange} name="vendors" />}
@@ -149,7 +147,8 @@ const Page = () => {
                     {/* Add more checkboxes as needed */}
                   </FormGroup>
                 </Grid>
-              </Grid>
+            ) }
+            </Grid>
               {/* <Button
                 variant="contained"
                 color="primary"

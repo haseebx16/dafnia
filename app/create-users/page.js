@@ -108,9 +108,9 @@ const page = () => {
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <MenuItem value="option1">Finance</MenuItem>
-                        <MenuItem value="option2">Department</MenuItem>
-                        <MenuItem value="option3">Development</MenuItem>
+                        <MenuItem value="option1">Inventory</MenuItem>
+                        <MenuItem value="option2">Sales</MenuItem>
+                        <MenuItem value="option3">Procurement</MenuItem>
                         </Select>
                     </FormControl>
                     </Grid>
