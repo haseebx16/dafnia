@@ -86,7 +86,7 @@ const Login = () => {
         
         {/* Left Partition - Main Image */}
         <div className="w-1/2 flex items-center justify-center">
-        <img src="/main.pic.jpeg" alt="Login Illustration" className="w-3/4 h-auto" />
+        <img src="/sap.jpg" alt="Login Illustration" className="w-full h-auto" />
         </div>
 
         {/* Right Partition - Login Form */}

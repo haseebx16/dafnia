@@ -19,13 +19,11 @@ const Sidebar = () => {
   return (
     <div className='flex min-h-screen'>
       <aside
-        className="w-80 text-white flex flex-col bg-white"
-        
-        
-      >
+        className="w-80 text-white flex flex-col bg-white">
         <div className='flex justify-center items-center'>
-          <img src="/logo-dafnia.png" className='w-auto h-36 mt-6' />
+          <img src="/logo-dafnia.png" className='w-auto h-36' />
         </div>
+          
         <nav className="flex-1 px-4 mt-6 space-y-4">
           <Link href="/dashboard">
           <p
@@ -123,7 +121,7 @@ const Sidebar = () => {
               <FaHome />&nbsp;&nbsp;Roles
             </p>
           </Link>
-          <Link href="/settings">
+          {/* <Link href="/settings">
           <p
             className="flex py-2 px-4 mt-2 rounded transition duration-200"
             style={{
@@ -146,7 +144,7 @@ const Sidebar = () => {
           >
               <IoMdSettings />&nbsp;&nbsp;Settings
             </p>
-          </Link>
+          </Link> */}
         </nav>
       </aside>
     </div>

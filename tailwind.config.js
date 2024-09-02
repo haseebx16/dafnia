@@ -12,6 +12,9 @@ module.exports = {
         "customLeft": '#08549f',
         "customRight": '#6dcff6',
         "sidebar": "#d7effc",
+      },
+      height: {
+        '22': '22px'
       }
     },
   },
