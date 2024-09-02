@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ParticlesComponent from "../components/particles/particles";
 import Link from "next/link";
+import { useColor } from "../context/ColorContext"; 
 
 const Login = () => {
   const [selectedCompany, setSelectedCompany] = useState("Select Company");
@@ -12,7 +13,7 @@ const Login = () => {
   const [userNameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [companyError, setCompanyError] = useState(false);
-
+ const {primaryColor} = useColor();
   const handleCompanyChange = (event) => {
     const company = event.target.value;
     setSelectedCompany(company);
@@ -85,7 +86,7 @@ const Login = () => {
         
         {/* Left Partition - Main Image */}
         <div className="w-1/2 flex items-center justify-center">
-          <img src="/login-img.png" alt="Login Illustration" className="w-3/4 h-auto" />
+        <img src="/main.pic.jpeg" alt="Login Illustration" className="w-3/4 h-auto" />
         </div>
 
         {/* Right Partition - Login Form */}
@@ -178,7 +179,8 @@ const Login = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className={`w-full ${buttonColor} text-white py-2 px-4 rounded-md duration-400 hover:bg-blue-700 focus:outline-none mt-4 focus:bg-blue-600`}
+                style={{ backgroundColor: primaryColor }}
+                className={`w-full text-white py-2 px-4 rounded-md duration-400 focus:outline-none mt-4`}
               >
                 Sign In
               </button>
@@ -194,3 +196,4 @@ const Login = () => {
 };
 
 export default Login;
+

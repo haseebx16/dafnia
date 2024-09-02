@@ -1,9 +1,11 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
+import { useColor } from '../../context/ColorContext'; // Import the color context
 
 const ParticlesComponent = () => {
   const [init, setInit] = useState(false);
+  const {primaryColor} = useColor();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -20,7 +22,7 @@ const ParticlesComponent = () => {
   const options = useMemo(() => ({
     background: {
       color: {
-        value: "#1785c0",
+        value: primaryColor,
       },
     },
     fpsLimit: 120,
