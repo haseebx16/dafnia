@@ -1,28 +1,28 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { ChromePicker } from 'react-color';
 import Sidebar from '../components/Layout/sidebar';
+import { useColor } from '../context/ColorContext'; // Import the color context
 
 const Page = () => {
-  const [primaryColor, setPrimaryColor] = useState('#0284c7');
-  const [secondaryColor, setSecondaryColor] = useState('#ffffff');
+  const { primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor } = useColor(); // Get colors from context
 
   return (
     <div className="flex min-h-screen">
       <Sidebar />
       <div className='flex-1 flex-col flex'>
-      <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
+        <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+          <Link href='/'>
+            <button className="px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: primaryColor }}>
               Logout
-            </button> </Link>
-
-          
+            </button>
+          </Link>
         </header>
-          <hr className=" border-gray-700 w-full"/>
+        <hr className="border-gray-700 w-full" />
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Create Company</p>
@@ -37,9 +37,7 @@ const Page = () => {
                   name="name"
                   label="Company Name"
                   variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                  }}
+                  sx={{ backgroundColor: 'white' }}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -50,9 +48,7 @@ const Page = () => {
                   label="Description"
                   type="text"
                   variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                  }}
+                  sx={{ backgroundColor: 'white' }}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -61,23 +57,18 @@ const Page = () => {
                   id="SAP"
                   name="SAP"
                   label="SAP Company"
-                  rows={4}
                   variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                  }}
+                  sx={{ backgroundColor: 'white' }}
                 />
               </Grid>
               <Grid item xs={6}>
                 <TextField
                   fullWidth
                   id="file"
-                  type='file'
+                  type="file"
                   name="file"
                   variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                  }}
+                  sx={{ backgroundColor: 'white' }}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -98,11 +89,10 @@ const Page = () => {
               <Grid item xs={1}>
                 <Link href='/company'>
                   <Button
-                    type="submit"
                     fullWidth
                     variant="contained"
                     sx={{
-                      bgcolor: '#0284c7',
+                      bgcolor: primaryColor,
                       textTransform: 'none',
                       '&:hover': { bgcolor: 'deepskyblue' }
                     }}
@@ -114,11 +104,10 @@ const Page = () => {
               <Grid item xs={1}>
                 <Link href='/company'>
                   <Button
-                    type="submit"
                     fullWidth
                     variant="contained"
                     sx={{
-                      bgcolor: '#0284c7',
+                      bgcolor: primaryColor,
                       textTransform: 'none',
                       '&:hover': { bgcolor: 'deepskyblue' }
                     }}
@@ -133,6 +122,6 @@ const Page = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Page;

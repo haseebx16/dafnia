@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Checkbox, FormGroup, FormControlLabel, FormControl, Select, MenuItem, Button, Grid, Paper } from '@mui/material';
 import Sidebar from '../components/Layout/sidebar';
 import Link from 'next/link';
+import { useColor } from '../context/ColorContext';
 
 const Page = () => {
   const [role, setRole] = useState('Select A Role');
@@ -36,13 +37,15 @@ const Page = () => {
     });
   };
 
+  const { primaryColor } = useColor();
+
   return (
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-1 flex flex-col">
       <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+           <Link href='/'><button className=" px-4 py-2 text-white rounded hover:bg-sky-600" style={{ backgroundColor: primaryColor }}>
               Logout
             </button> </Link>
 

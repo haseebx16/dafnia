@@ -9,6 +9,10 @@ import { IoMdSettings } from "react-icons/io";
 import { Button, Grid, TextField } from '@mui/material';
 import {Select, MenuItem, InputLabel, FormControl} from "@mui/material"
 import Sidebar from '../components/Layout/sidebar';
+import { useColor } from '../context/ColorContext';
+
+
+
 const page = () => {
 
     const [dropdownValue, setDropdownValue] = useState("");
@@ -17,13 +21,15 @@ const page = () => {
     const handleDropdownChange = (event) => setDropdownValue(event.target.value);
     const handleDropdownChangeTwo = (event) => setDropdownTwo(event.target.value);
 
+    const { primaryColor } = useColor();
+
   return (
     <div className="flex min-h-screen">
       <Sidebar/>
       <div className='flex-1 flex-col flex'>
       <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button className=" px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+           <Link href='/'><button className=" px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: primaryColor }}>
               Logout
             </button> </Link>
 
@@ -143,18 +149,19 @@ const page = () => {
                       fullWidth
                       variant="contained"
                       
-                      sx={{ bgcolor: '#0284c7', '&:hover': { bgcolor: 'deepskyblue' } }}
+                      sx={{ bgcolor: primaryColor, '&:hover': { bgcolor: 'deepskyblue' } }}
                     >
                       Cancel
                     </Button></Link>
                   </Grid>
                   <Grid item xs={1}>
-                    <Link href="/users"><Button
+                    <Link href="/users">
+                    <Button
                       type="submit"
                       fullWidth
                       variant="contained"
-                
-                      sx={{ bgcolor: '#0284c7', '&:hover': { bgcolor: 'deepskyblue' } }}
+                      
+                      sx={{ bgcolor: primaryColor, '&:hover': { bgcolor: 'deepskyblue' } }}
                     >
                       Save
                     </Button></Link>

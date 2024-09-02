@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Sidebar from '../components/Layout/sidebar';
 import { useState } from 'react';
+import { useColor } from '../context/ColorContext';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,6 +56,8 @@ const Page = () => {
     row.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const { primaryColor } = useColor();
+
   return (
     <div className="flex min-h-screen">
       <Sidebar />
@@ -62,7 +65,9 @@ const Page = () => {
         <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
           <Link href='/'>
-            <button className="px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-600">
+            <button 
+              style={{ backgroundColor: primaryColor }}
+              className="px-4 py-2 text-white rounded hover:bg-opacity-90">
               Logout
             </button>
           </Link>
@@ -72,7 +77,7 @@ const Page = () => {
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Manage Company</p>
             <Link href="/create-company">
-              <button className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md">
+              <button className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md" style={{ backgroundColor: primaryColor }}>
                 Create Company
               </button>
             </Link>
