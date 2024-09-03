@@ -55,8 +55,10 @@ const Page = () => {
   const filteredRows = rows.filter((row) =>
     row.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const [isHovered, setIsHovered] = useState(false);
+  const { primaryColor, secondaryColor } = useColor();
 
-  const { primaryColor } = useColor();
+  const [create, setCreate] = useState(false);
 
   return (
     <div className="flex min-h-screen">
@@ -66,7 +68,8 @@ const Page = () => {
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
           <Link href='/'>
             <button 
-              style={{ backgroundColor: primaryColor }}
+              onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+              style={{ backgroundColor: isHovered ? secondaryColor : primaryColor }}
               className="px-4 py-2 text-white rounded hover:bg-opacity-90">
               Logout
             </button>
@@ -77,7 +80,10 @@ const Page = () => {
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Manage Company</p>
             <Link href="/create-company">
-              <button className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md" style={{ backgroundColor: primaryColor }}>
+              <button
+              onMouseEnter={() => setCreate(true)} onMouseLeave={() => setCreate(false)}
+              style={{ backgroundColor: create ? secondaryColor : primaryColor }} 
+              className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md" >
                 Create Company
               </button>
             </Link>

@@ -4,10 +4,12 @@ import React from 'react';
 import Link from 'next/link';
 import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
+import { useState } from 'react';
 
 export default function page() {
 
-  const { primaryColor } = useColor();
+  const [isHovered, setIsHovered] = useState(false);
+  const { primaryColor, secondaryColor } = useColor();
 
   return (
     <div className="flex min-h-screen">
@@ -16,7 +18,7 @@ export default function page() {
       <div className="flex-1 flex flex-col">
         <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button className=" px-4 py-2 text-white rounded hover:bg-sky-600 shadow-gray-400 shadow-md" style={{ backgroundColor: primaryColor }}>
+           <Link href='/'><button onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className=" px-4 py-2 text-white rounded hover:bg-sky-600 shadow-gray-400 shadow-md" style={{ backgroundColor: isHovered ? secondaryColor : primaryColor }}>
               Logout
             </button> </Link>
 

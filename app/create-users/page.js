@@ -17,11 +17,14 @@ const page = () => {
 
     const [dropdownValue, setDropdownValue] = useState("");
     const [dropdownTwo, setDropdownTwo] = useState('');
+    const [isHovered, setIsHovered] = useState(false);
+    const [isHoveredTwo, setIsHoveredTwo] = useState(false);
+    const [isHoveredThree, setIsHoveredThree] = useState(false);
 
     const handleDropdownChange = (event) => setDropdownValue(event.target.value);
     const handleDropdownChangeTwo = (event) => setDropdownTwo(event.target.value);
 
-    const { primaryColor } = useColor();
+    const { primaryColor, secondaryColor } = useColor();
 
   return (
     <div className="flex min-h-screen">
@@ -29,7 +32,7 @@ const page = () => {
       <div className='flex-1 flex-col flex'>
       <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button className=" px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: primaryColor }}>
+           <Link href='/'><button onMouseEnter={() => setIsHoveredThree(true)} onMouseLeave={() => setIsHoveredThree(false)} className=" px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: isHoveredThree ? secondaryColor : primaryColor }}>
               Logout
             </button> </Link>
 
@@ -148,8 +151,13 @@ const page = () => {
                       type="submit"
                       fullWidth
                       variant="contained"
-                      
-                      sx={{ bgcolor: primaryColor, '&:hover': { bgcolor: 'deepskyblue' } }}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      sx={{
+                        bgcolor: isHovered ? secondaryColor : primaryColor,
+                        textTransform: 'none',
+                        '&:hover': { bgcolor: secondaryColor }
+                      }}
                     >
                       Cancel
                     </Button></Link>
@@ -160,8 +168,13 @@ const page = () => {
                       type="submit"
                       fullWidth
                       variant="contained"
-                      
-                      sx={{ bgcolor: primaryColor, '&:hover': { bgcolor: 'deepskyblue' } }}
+                      onMouseEnter={() => setIsHoveredTwo(true)}
+                      onMouseLeave={() => setIsHoveredTwo(false)}
+                      sx={{
+                        bgcolor: isHoveredTwo ? secondaryColor : primaryColor,
+                        textTransform: 'none',
+                        '&:hover': { bgcolor: secondaryColor }
+                      }}
                     >
                       Save
                     </Button></Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';  // useState is imported
 import Link from 'next/link';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { ChromePicker } from 'react-color';
@@ -9,6 +9,9 @@ import { useColor } from '../context/ColorContext'; // Import the color context
 
 const Page = () => {
   const { primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor } = useColor(); // Get colors from context
+  const [createCompany, setCreateCompany] = useState(false);  // For Logout button hover effect
+  const [isSaveHovered, setIsSaveHovered] = useState(false);  // Hover state for Save button
+  const [isCancelHovered, setIsCancelHovered] = useState(false);  // Hover state for Cancel button
 
   return (
     <div className="flex min-h-screen">
@@ -17,7 +20,12 @@ const Page = () => {
         <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
           <Link href='/'>
-            <button className="px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: primaryColor }}>
+            <button 
+              className="px-4 py-2 text-white rounded"
+              onMouseEnter={() => setCreateCompany(true)} 
+              onMouseLeave={() => setCreateCompany(false)}
+              style={{ backgroundColor: createCompany ? secondaryColor : primaryColor }}
+            >
               Logout
             </button>
           </Link>
@@ -92,10 +100,12 @@ const Page = () => {
                     fullWidth
                     variant="contained"
                     sx={{
-                      bgcolor: primaryColor,
+                      bgcolor: isCancelHovered ? secondaryColor : primaryColor,
                       textTransform: 'none',
-                      '&:hover': { bgcolor: 'deepskyblue' }
+                      '&:hover': { bgcolor: secondaryColor }
                     }}
+                    onMouseEnter={() => setIsCancelHovered(true)}
+                    onMouseLeave={() => setIsCancelHovered(false)}
                   >
                     Cancel
                   </Button>
@@ -107,10 +117,12 @@ const Page = () => {
                     fullWidth
                     variant="contained"
                     sx={{
-                      bgcolor: primaryColor,
+                      bgcolor: isSaveHovered ? secondaryColor : primaryColor,
                       textTransform: 'none',
-                      '&:hover': { bgcolor: 'deepskyblue' }
+                      '&:hover': { bgcolor: secondaryColor }
                     }}
+                    onMouseEnter={() => setIsSaveHovered(true)}
+                    onMouseLeave={() => setIsSaveHovered(false)}
                   >
                     Save
                   </Button>
