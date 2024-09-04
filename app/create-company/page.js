@@ -86,13 +86,7 @@ const Page = () => {
                   onChangeComplete={(color) => setPrimaryColor(color.hex)}
                 />
               </Grid>
-              <Grid item xs={6}>
-                <Typography>Secondary Color</Typography>
-                <ChromePicker
-                  color={secondaryColor}
-                  onChangeComplete={(color) => setSecondaryColor(color.hex)}
-                />
-              </Grid>
+             
               <Grid item xs={10}></Grid>
               <Grid item xs={1}>
                 <Link href='/company'>

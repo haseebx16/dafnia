@@ -23,8 +23,11 @@ const Login = () => {
     } else if (company === "Istanbul Electrical") {
       setLogoSrc("/logo-png.png");
     }
+    else if (company === 'Select Company') {
+      setLogoSrc('/logo-dafnia.png');
+    }
     else {
-      setLogoSrc('');
+      setLogoSrc('')
     }
   };
 
@@ -82,23 +85,19 @@ const Login = () => {
       </div>
 
       {/* Centered Form Container with Two Partitions */}
-      <div className="relative z-10 bg-white rounded-2xl shadow-2xl max-w-6xl w-full flex">
+      <div className="relative z-10 bg-white  rounded-2xl shadow-2xl max-w-6xl w-full flex">
         
         {/* Left Partition - Main Image */}
         <div className="w-1/2 flex items-center justify-center">
-        <img src="/sap.jpg" alt="Login Illustration" className="w-full h-auto" />
+            <img src={logoSrc}  className="h-72 w-auto" />
         </div>
 
         {/* Right Partition - Login Form */}
-        <div className="w-1/2 p-8 flex flex-col justify-center">
-          
-          {/* Dafnia Logo in the Top Left of the Form */}
-          <div className="absolute top-4 left-4 ml-6">
-            <img src='/logo-dafnia.png'  className="h-40 w-auto" />
-          </div>
+        <div className="w-1/2 h-auto p-8 flex flex-col justify-center">
 
+            
           <div className="flex justify-center ml-6 mb-6">
-            <img src={logoSrc}  className="h-44 w-auto" />
+            
           </div>
 
           {/* Welcome Text */}
