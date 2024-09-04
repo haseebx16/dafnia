@@ -10,7 +10,7 @@ import { Button, Grid, TextField } from '@mui/material';
 import {Select, MenuItem, InputLabel, FormControl} from "@mui/material"
 import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
-
+import CustomButton from '../components/logout-button/button';
 
 
 const page = () => {
@@ -32,9 +32,9 @@ const page = () => {
       <div className='flex-1 flex-col flex'>
       <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
           <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'><button onMouseEnter={() => setIsHoveredThree(true)} onMouseLeave={() => setIsHoveredThree(false)} className=" px-4 py-2  text-white rounded hover:bg-sky-600" style={{ backgroundColor: isHoveredThree ? secondaryColor : primaryColor }}>
-              Logout
-            </button> </Link>
+           <Link href='/'>
+              <CustomButton title="Logout"/>
+            </Link>
 
           
         </header>

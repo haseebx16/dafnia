@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ParticlesComponent from "../components/particles/particles";
-import Link from "next/link";
+import { font } from "../components/font/poppins";
 import { useColor } from "../context/ColorContext"; 
 
 const Login = () => {
@@ -13,18 +13,17 @@ const Login = () => {
   const [userNameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [companyError, setCompanyError] = useState(false);
- const {primaryColor} = useColor();
+  const {primaryColor} = useColor();
+
+
   const handleCompanyChange = (event) => {
     const company = event.target.value;
     setSelectedCompany(company);
 
     if (company === "Dafnia Electronics") {
-      setLogoSrc("/logo-dafnia.png");
+      setLogoSrc("/dafnia-png.png");
     } else if (company === "Istanbul Electrical") {
       setLogoSrc("/logo-png.png");
-    }
-    else if (company === 'Select Company') {
-      setLogoSrc('/logo-dafnia.png');
     }
     else {
       setLogoSrc('')
@@ -72,13 +71,13 @@ const Login = () => {
     }
   };
 
-  const buttonColor =
+  const companySize =
     selectedCompany === "Dafnia Electronics"
-      ? "bg-gradient-to-r from-customLeft to-customRight"
+      ? "h-80 w-auto"
       : "bg-blue-500";
 
   return (
-    <main className="relative min-h-screen flex items-center justify-center">
+    <main className={`${font.className} relative min-h-screen flex items-center justify-center`}>
       {/* Full Page Animation */}
       <div className="absolute inset-0 z-0">
         <ParticlesComponent />
@@ -88,17 +87,18 @@ const Login = () => {
       <div className="relative z-10 bg-white  rounded-2xl shadow-2xl max-w-6xl w-full flex">
         
         {/* Left Partition - Main Image */}
-        <div className="w-1/2 flex items-center justify-center">
-            <img src={logoSrc}  className="h-72 w-auto" />
+        <div className="w-1/2 flex items-end mb-12 justify-center">
+            <img src={logoSrc}  className="h-80 w-auto" />
         </div>
 
         {/* Right Partition - Login Form */}
         <div className="w-1/2 h-auto p-8 flex flex-col justify-center">
 
-            
-          <div className="flex justify-center ml-6 mb-6">
-            
+        {(selectedCompany == "Istanbul Electrical" || selectedCompany == "Select Company") && (
+        <div className="absolute top-4 left-4 ml-6">
+            <img src='/dafnia-png.png'  className="h-32 w-auto" />
           </div>
+          )}
 
           {/* Welcome Text */}
           <div className="text-left text-2xl font-bold mb-6">
@@ -113,7 +113,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="company"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-md font-medium text-gray-700"
                 >
                 Company
               </label>
@@ -136,7 +136,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="username"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-md font-medium text-gray-700"
               >
                 Username
               </label>
@@ -157,7 +157,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-md font-medium text-gray-700"
               >
                 Password
               </label>
