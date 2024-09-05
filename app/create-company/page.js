@@ -17,7 +17,7 @@ const Page = () => {
 
   return (
     
-      <div className='flex-1 flex-col flex'>
+      <div className='flex-1 flex-col flex min-h-screen'>
       <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
         <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
