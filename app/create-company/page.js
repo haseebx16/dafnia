@@ -52,7 +52,7 @@ const Page = () => {
               <Grid item xs={10}></Grid>
               <Grid item xs={1}>
                 <Link href='/company'>
-                  <CustomButton title="Cancel"/>
+                  <CustomButton title="save"/>
                 </Link>
               </Grid>
               <Grid item xs={1}>

@@ -15,15 +15,17 @@ import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import { Pagination } from '@mui/material';    
 import CustomButton from '../components/logout-button/button';
+import { font } from '../components/font/poppins';
+import { IoMdAdd } from "react-icons/io";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
     color: theme.palette.common.black,
-    fontSize: 12,
+    fontSize: 18,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 15,
+    fontSize: 18,
   },
 }));
 
@@ -64,7 +66,7 @@ const Page = () => {
 
   return (
     
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className={`${font.className} flex-1 flex flex-col min-h-screen`}>
       <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
         <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
@@ -78,16 +80,17 @@ const Page = () => {
         <div className="flex flex-1">
           {/* Sidebar */}
           <Sidebar />
-        <main className="flex-1 p-6 bg-gray-100">
+        <main className="flex-1 p-5 bg-gray-100">
           <div className="flex justify-between items-center">
-            <p className="text-3xl font-bold mt-1 text-black">Manage Users</p>
+            <p className="text-2xl font-bold  text-black">Manage Users</p>
             <Link href="/create-users">
               <button
-                className="p-2 mt-5 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+                className="p-2 mt-5 text-mb flex rounded-md mb-6 text-white shadow-gray-400 shadow-md font-semibold"
                 onMouseEnter={() => setIsCreateHovered(true)} 
                 onMouseLeave={() => setIsCreateHovered(false)}
                 style={{ backgroundColor: isCreateHovered ? secondaryColor : primaryColor }}
               >
+                <IoMdAdd size={24} />
                 Create Users
               </button>
             </Link>
@@ -117,9 +120,9 @@ const Page = () => {
                     </StyledTableCell>
                     <StyledTableCell align="left">{row.name}</StyledTableCell>
                     <StyledTableCell align="left">
-                      <div className="flex">
-                        <FaRegEye />
-                      </div>
+                    <div className="flex">
+                   <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
+                  </div>
                     </StyledTableCell>
                   </StyledTableRow>
                 ))}
@@ -127,7 +130,7 @@ const Page = () => {
             </Table>
           </TableContainer>
           <div className="flex justify-end my-5">
-            <Pagination count={5} variant="outlined" color="primary" />
+            <Pagination count={2} variant="outlined" color="primary" />
           </div>
         </main>
       </div>

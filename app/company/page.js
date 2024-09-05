@@ -13,10 +13,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout/Layout';  // Ensure this is correctly imported
 import CustomButton from '../components/logout-button/button';
-import { font } from '../components/font/poppins';
 import { Pagination } from '@mui/material';
+import { IoMdAdd } from "react-icons/io";
+  
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -25,7 +26,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontSize: 18,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 16,
+    fontSize: 18,
   },
 }));
 
@@ -42,15 +43,20 @@ function createData(id, name, action) {
   return { id, name, action };
 }
 
-const initialRows = [
+const allRows = [
   createData('CM-001', "Pinnacle", ""),
   createData('CM-002', "Dafnia", ""),
   createData('CM-003', "i-MSC", ""),
+  createData('CM-004', "TechCorp", ""),
+  createData('CM-005', "AlphaTech", ""),
+  createData('CM-006', "CyberNet", ""),
 ];
+
+const rowsPerPage = 3;
 
 const Page = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [rows, setRows] = useState(initialRows);
+  const [page, setPage] = useState(1);
   const [create, setCreate] = useState(false);
 
   const { primaryColor, secondaryColor } = useColor();
@@ -59,21 +65,31 @@ const Page = () => {
     setSearchQuery(event.target.value);
   };
 
-  const filteredRows = rows.filter((row) =>
+  const filteredRows = allRows.filter((row) =>
     row.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const paginatedRows = filteredRows.slice(
+    (page - 1) * rowsPerPage,
+    page * rowsPerPage
+  );
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
   return (
-    <Layout className={`${font.className}`}>
-      <div className={`${font.className} flex justify-between items-center`}>
+    <Layout>  {/* Ensure Layout is correctly wrapping your content */}
+      <div className="flex justify-between items-center">
         <p className="text-2xl font-bold mt-1 text-black">Manage Company</p>
         <Link href="/create-company">
           <button
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
             style={{ backgroundColor: create ? secondaryColor : primaryColor }}
-            className="p-2 mt-5 bg-sky-600 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+            className="p-2 mt-5 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
+            <IoMdAdd size={24} />
             Create Company
           </button>
         </Link>
@@ -87,25 +103,26 @@ const Page = () => {
         className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
       />
       <TableContainer component={Paper} className="mt-8">
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <Table sx={{ minWidth: 500, maxwidth:600, }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Company ID</StyledTableCell>
-              <StyledTableCell align="left">Company Name</StyledTableCell>
-              <StyledTableCell align="left">Edit</StyledTableCell>
+              <StyledTableCell className="font-bold" >Company ID</StyledTableCell>
+              <StyledTableCell className="font-bold" align="left">Company Name</StyledTableCell>
+              <StyledTableCell className ="font-bold" align="left">Edit</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredRows.map((row) => (
+            {paginatedRows.map((row) => (
               <StyledTableRow key={row.id}>
                 <StyledTableCell component="th" scope="row">
                   {row.id}
                 </StyledTableCell>
                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                 <StyledTableCell align="left">
-                  <div className="flex">
-                    <FaRegEye />
+                <div className="flex">
+                   <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
                   </div>
+
                 </StyledTableCell>
               </StyledTableRow>
             ))}
@@ -113,8 +130,14 @@ const Page = () => {
         </Table>
       </TableContainer>
       <div className="flex justify-end my-5">
-  <Pagination count={5} variant="outlined" color="primary" />
-</div>
+        <Pagination
+          count={Math.ceil(filteredRows.length / rowsPerPage)}
+          page={page}
+          onChange={handlePageChange}
+          variant="outlined"
+          color="primary"
+        />
+      </div>
     </Layout>
   );
 };

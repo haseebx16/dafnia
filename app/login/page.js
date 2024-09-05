@@ -22,8 +22,8 @@ const Login = () => {
 
     if (company === "Dafnia Electronics") {
       setLogoSrc("/logo-dafnia.png");
-    } else if (company === "Istanbul Electrical") {
-      setLogoSrc("/logo-png.png");
+    } else if (company === "Sub-Company-2") {
+      setLogoSrc("/logo-dafnia.png");
     }
     else {
       setLogoSrc('')
@@ -127,7 +127,7 @@ const Login = () => {
               >
                 <option value="Select Company">Select Company</option>
                 <option value="Dafnia Electronics">Dafnia Electronics</option>
-                <option value="Istanbul Electrical">Istanbul Electrical</option>
+                <option value="Sub-Company-2">Sub-Company-2</option>
               </select>
             </div>
                 {userNameError && (
