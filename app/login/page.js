@@ -21,7 +21,7 @@ const Login = () => {
     setSelectedCompany(company);
 
     if (company === "Dafnia Electronics") {
-      setLogoSrc("/dafnia-png.png");
+      setLogoSrc("/logo-dafnia.png");
     } else if (company === "Istanbul Electrical") {
       setLogoSrc("/logo-png.png");
     }
@@ -96,7 +96,7 @@ const Login = () => {
 
         {(selectedCompany == "Istanbul Electrical" || selectedCompany == "Select Company") && (
         <div className="absolute top-4 left-4 ml-6">
-            <img src='/dafnia-png.png'  className="h-32 w-auto" />
+            <img src='/logo-dafnia.png'  className="h-32 w-auto" />
           </div>
           )}
 

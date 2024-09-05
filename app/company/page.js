@@ -16,6 +16,7 @@ import { useColor } from '../context/ColorContext';
 import Layout from '../components/Layout/Layout';
 import CustomButton from '../components/logout-button/button';
 import { font } from '../components/font/poppins';
+import { Pagination } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -111,6 +112,9 @@ const Page = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <div className="flex justify-end my-5">
+  <Pagination count={5} variant="outlined" color="primary" />
+</div>
     </Layout>
   );
 };

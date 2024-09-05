@@ -13,6 +13,7 @@ import Paper from '@mui/material/Paper';
 import { useState } from "react";
 import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
+import { Pagination } from '@mui/material';    
 import CustomButton from '../components/logout-button/button';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -79,7 +80,7 @@ const Page = () => {
           <Sidebar />
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
-            <p className="text-xl mt-1 text-black">Manage Users</p>
+            <p className="text-3xl font-bold mt-1 text-black">Manage Users</p>
             <Link href="/create-users">
               <button
                 className="p-2 mt-5 text-mb font-medium rounded-md mb-6 text-white shadow-gray-400 shadow-md"
@@ -99,13 +100,13 @@ const Page = () => {
             onChange={handleSearch} 
             className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
           />
-          <TableContainer component={Paper} className="mt-8">
+          <TableContainer component={Paper} className="mt-8 ">
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell>User ID</StyledTableCell>
-                  <StyledTableCell align="left">User Name</StyledTableCell>
-                  <StyledTableCell align="left">Edit</StyledTableCell>
+                  <StyledTableCell className="font-bold text-2xl">User ID</StyledTableCell>
+                  <StyledTableCell className="font-bold text-2xl" align="left">User Name</StyledTableCell>
+                  <StyledTableCell className="font-bold text-2xl" align="left">Edit</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -125,6 +126,9 @@ const Page = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <div className="flex justify-end my-5">
+            <Pagination count={5} variant="outlined" color="primary" />
+          </div>
         </main>
       </div>
     </div>
@@ -132,4 +136,3 @@ const Page = () => {
 };
 
 export default Page;
-            
