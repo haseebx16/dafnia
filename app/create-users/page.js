@@ -27,18 +27,21 @@ const page = () => {
     const { primaryColor, secondaryColor } = useColor();
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar/>
-      <div className='flex-1 flex-col flex'>
-      <header className="flex items-center justify-between p-6 bg-white border border-gray-100">
-          <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-           <Link href='/'>
-              <CustomButton title="Logout"/>
-            </Link>
+      <div className='flex-1 flex-col flex  min-h-screen'>
+      {/* Header */}
+      <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
+        <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
+        <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
+        <Link href='/'>
+          <CustomButton title="Logout" />
+        </Link>
+      </header>
+      <hr className='w-full border-gray-600'/>
 
-          
-        </header>
-          <hr className=" border-gray-700 w-full"/>
+        {/* Main Content */}
+        <div className="flex flex-1">
+          {/* Sidebar */}
+          <Sidebar />
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
             <p className="text-xl mt-1 text-black">Create User</p>
