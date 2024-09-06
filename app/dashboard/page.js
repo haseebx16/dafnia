@@ -6,28 +6,13 @@ import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
 import { font } from '../components/font/poppins';
+import Layout from '../components/Layout/Layout';
 
 export default function Page() {
   const { primaryColor } = useColor();
 
   return (
-    <div className={`${font.className} min-h-screen flex flex-col`}>
-      {/* Header */}
-      <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
-        <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
-        <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-        <Link href='/'>
-          <CustomButton title="Logout" />
-        </Link>
-      </header>
-      <hr className='w-full border-gray-600'/>
-
-      {/* Main Content */}
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <Sidebar />
-
-        {/* Main Dashboard Content */}
+    <Layout>
         <main className="flex-1 p-3 bg-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Card 1 */}
@@ -95,7 +80,6 @@ export default function Page() {
             </div>
           </div>
         </main>
-      </div>
-    </div>
+      </Layout>
   );
 }

@@ -13,6 +13,7 @@ import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
 import { font } from '../components/font/poppins';
 import { IoMdArrowBack } from "react-icons/io";
+import Layout from '../components/Layout/Layout';
 
 const page = () => {
 
@@ -28,21 +29,7 @@ const page = () => {
     const { primaryColor, secondaryColor } = useColor();
 
   return (
-    <div className={`${font.className} flex-1 flex-col flex  min-h-screen`}>
-      {/* Header */}
-      <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
-        <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
-        <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-        <Link href='/'>
-          <CustomButton title="Logout" />
-        </Link>
-      </header>
-      <hr className='w-full border-gray-600'/>
-
-        {/* Main Content */}
-        <div className="flex flex-1">
-          {/* Sidebar */}
-          <Sidebar />
+    <Layout>
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex space-x-4 items-center">
           <Link href="/users"><IoMdArrowBack size={36} className='mt-1 border-2 border-blue-600 p-2 rounded-full'/></Link>
@@ -162,11 +149,9 @@ const page = () => {
                 </Link>
                   </Grid>
                 </Grid>
-              </form>
-            
-        </main>     
-      </div>
-    </div>
+              </form>          
+        </main>
+        </Layout>     
   )
 }
 

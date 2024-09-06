@@ -10,6 +10,7 @@ import CustomButton from '../components/logout-button/button';
 import RoundedField from '../components/text-field/field';
 import { font } from '../components/font/poppins';
 import { IoMdArrowBack } from 'react-icons/io';
+import Layout from '../components/Layout/Layout';
 
 const Page = () => {
   const { primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor } = useColor(); // Get colors from context
@@ -18,22 +19,9 @@ const Page = () => {
   const [isCancelHovered, setIsCancelHovered] = useState(false);  // Hover state for Cancel button
 
   return (
-    
-    <div className={`${font.className} flex-1 flex-col flex min-h-screen`}>
-      <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
-        <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
-        <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
-        <Link href='/'>
-          <CustomButton title="Logout" />
-        </Link>
-      </header>
-      <hr className='w-full border-gray-600'/>
-        {/* Main Content */}
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <Sidebar />
+        <Layout>
         <main className="flex-1 p-6 bg-gray-100">
-          <div className="flex items-center">
+          <div className="flex space-x-4 items-center">
           <Link href="/company"><IoMdArrowBack size={36} className='mt-1 border-2 border-blue-600 p-2 rounded-full'/></Link>
           <p className="text-2xl font-bold mt-1 text-black">Create Company</p>
           </div>
@@ -65,8 +53,7 @@ const Page = () => {
             </Grid>
           </form>
         </main>
-      </div>
-    </div>
+        </Layout>
   );
 };
 
