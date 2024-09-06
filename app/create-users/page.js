@@ -12,7 +12,7 @@ import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
 import { font } from '../components/font/poppins';
-
+import { IoMdArrowBack } from "react-icons/io";
 
 const page = () => {
 
@@ -44,7 +44,8 @@ const page = () => {
           {/* Sidebar */}
           <Sidebar />
         <main className="flex-1 p-6 bg-gray-100">
-          <div className="flex justify-between items-center">
+          <div className="flex space-x-4 items-center">
+          <Link href="/users"><IoMdArrowBack size={36} className='mt-1 border-2 border-blue-600 p-2 rounded-full'/></Link>
           <p className="text-2xl font-bold mt-1 text-black">Create User</p>
           </div>
           <hr className="border-gray-700 w-full mt-4" />

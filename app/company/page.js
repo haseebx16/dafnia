@@ -13,11 +13,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/Layout/Layout';  // Ensure this is correctly imported
-import CustomButton from '../components/logout-button/button';
-import { Pagination } from '@mui/material';
+import Layout from '../components/Layout/Layout';
 import { IoMdAdd } from "react-icons/io";
-  
+import Pagination from '../components/pagination/Pagination';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -79,7 +77,7 @@ const Page = () => {
   };
 
   return (
-    <Layout>  {/* Ensure Layout is correctly wrapping your content */}
+    <Layout>
       <div className="flex justify-between items-center">
         <p className="text-2xl font-bold mt-1 text-black">Manage Company</p>
         <Link href="/create-company">
@@ -87,7 +85,7 @@ const Page = () => {
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
             style={{ backgroundColor: create ? secondaryColor : primaryColor }}
-            className="p-2 mt-5 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+            className="p-2 mt-5 flex bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
             <IoMdAdd size={24} />
             Create Company
@@ -103,12 +101,12 @@ const Page = () => {
         className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
       />
       <TableContainer component={Paper} className="mt-8">
-        <Table sx={{ minWidth: 500, maxwidth:600, }} aria-label="customized table">
+        <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="font-bold" >Company ID</StyledTableCell>
+              <StyledTableCell className="font-bold">Company ID</StyledTableCell>
               <StyledTableCell className="font-bold" align="left">Company Name</StyledTableCell>
-              <StyledTableCell className ="font-bold" align="left">Edit</StyledTableCell>
+              <StyledTableCell className="font-bold" align="left">Edit</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -119,25 +117,20 @@ const Page = () => {
                 </StyledTableCell>
                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                 <StyledTableCell align="left">
-                <div className="flex">
-                   <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
+                  <div className="flex">
+                    <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
                   </div>
-
                 </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <div className="flex justify-end my-5">
-        <Pagination
-          count={Math.ceil(filteredRows.length / rowsPerPage)}
-          page={page}
-          onChange={handlePageChange}
-          variant="outlined"
-          color="primary"
-        />
-      </div>
+      <Pagination
+        count={Math.ceil(filteredRows.length / rowsPerPage)}
+        page={page}
+        onPageChange={handlePageChange}
+      />
     </Layout>
   );
 };
