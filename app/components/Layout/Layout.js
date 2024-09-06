@@ -15,7 +15,7 @@ export default function Layout({ children }) {
   return (
     <div className={`${font.className} min-h-screen flex flex-col`}>
       {/* Navbar / Header */}
-      <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
+      <header className="flex items-center justify-between px-6 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' alt="Dafnia Logo" />
         <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
         <Link href='/'>

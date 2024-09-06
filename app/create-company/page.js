@@ -8,6 +8,7 @@ import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
 import RoundedField from '../components/text-field/field';
+import { font } from '../components/font/poppins';
 
 const Page = () => {
   const { primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor } = useColor(); // Get colors from context
@@ -17,7 +18,7 @@ const Page = () => {
 
   return (
     
-      <div className='flex-1 flex-col flex min-h-screen'>
+    <div className={`${font.className} flex-1 flex-col flex min-h-screen`}>
       <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
         <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
@@ -35,7 +36,7 @@ const Page = () => {
           <p className="text-2xl font-bold mt-1 text-black">Create Company</p>
           </div>
           <hr className="border-gray-700 w-full mt-4" />
-          <form onSubmit="">
+          <form onSubmit="" className='bg-white p-6 pb-8 pt-1 rounded-xl mt-2 min-h-52 '>
             <Grid container spacing={2} mt={2} >
               <RoundedField id="company" name="company" label="Company Name" type="text" />
               <RoundedField id="desc" name="desc" label="Description" type="text"/>
@@ -48,7 +49,6 @@ const Page = () => {
                   onChangeComplete={(color) => setPrimaryColor(color.hex)}
                 />
               </Grid>
-             
               <Grid item xs={10}></Grid>
               <Grid item xs={1}>
                 <Link href='/company'>

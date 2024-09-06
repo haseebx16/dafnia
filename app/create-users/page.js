@@ -11,6 +11,7 @@ import {Select, MenuItem, InputLabel, FormControl} from "@mui/material"
 import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
+import { font } from '../components/font/poppins';
 
 
 const page = () => {
@@ -27,7 +28,7 @@ const page = () => {
     const { primaryColor, secondaryColor } = useColor();
 
   return (
-      <div className='flex-1 flex-col flex  min-h-screen'>
+    <div className={`${font.className} flex-1 flex-col flex  min-h-screen`}>
       {/* Header */}
       <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
@@ -47,7 +48,7 @@ const page = () => {
           <p className="text-2xl font-bold mt-1 text-black">Create User</p>
           </div>
           <hr className="border-gray-700 w-full mt-4" />
-              <form onSubmit="">
+              <form onSubmit="" className='bg-white p-6 pb-8 pt-1 rounded-xl mt-2 min-h-52 '>
                 <Grid container spacing={2} mt={2}>
                   <Grid item xs={6}>
                     <TextField
@@ -58,7 +59,7 @@ const page = () => {
                       label="Name"
                       variant="outlined"
                       sx={{
-                        backgroundColor: 'white',
+                        backgroundColor: '#f7fafc',
                       }}
                     />
                   </Grid>
@@ -72,7 +73,7 @@ const page = () => {
                       type="text"
                       variant="outlined"
                       sx={{
-                        backgroundColor: 'white',
+                        backgroundColor: '#f7fafc',
                       }}
                     />
                   </Grid>
@@ -85,7 +86,7 @@ const page = () => {
                       rows={4}
                       variant="outlined"
                       sx={{
-                        backgroundColor: 'white',
+                        backgroundColor: '#f7fafc',
                       }}
                     />
                   </Grid>
@@ -100,7 +101,7 @@ const page = () => {
                       rows={4}
                       variant="outlined"
                       sx={{
-                        backgroundColor: 'white',
+                        backgroundColor: '#f7fafc',
                       }}
                     />
                   </Grid>
@@ -114,7 +115,7 @@ const page = () => {
                         label="Select Option"
                         onChange={handleDropdownChange}
                         sx={{
-                          backgroundColor: 'white',
+                          backgroundColor: '#f7fafc',
                         }}
                         >
                         <MenuItem value="">
@@ -136,7 +137,7 @@ const page = () => {
                         label="Select Option"
                         onChange={handleDropdownChangeTwo}
                         sx={{
-                          backgroundColor: 'white',
+                          backgroundColor: '#f7fafc',
                         }}
                         >
                         <MenuItem value="">
@@ -149,38 +150,15 @@ const page = () => {
                     </FormControl>
                     </Grid>
                   <Grid item xs={10}></Grid>
-                  <Grid item xs={1}>
-                    <Link href='/users'><Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
-                      sx={{
-                        bgcolor: isHovered ? secondaryColor : primaryColor,
-                        textTransform: 'none',
-                        '&:hover': { bgcolor: secondaryColor }
-                      }}
-                    >
-                      Back
-                    </Button></Link>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <Link href="/users">
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      onMouseEnter={() => setIsHoveredTwo(true)}
-                      onMouseLeave={() => setIsHoveredTwo(false)}
-                      sx={{
-                        bgcolor: isHoveredTwo ? secondaryColor : primaryColor,
-                        textTransform: 'none',
-                        '&:hover': { bgcolor: secondaryColor }
-                      }}
-                    >
-                      Save
-                    </Button></Link>
+                  <Grid item xs={1} className='mt-44'>
+                  <Link href='/users' >
+                  <CustomButton title="Back"/>
+                </Link>
+              </Grid>
+              <Grid item xs={1} className='mt-44'>
+                <Link href='/users'>
+                  <CustomButton title="Save"/>
+                </Link>
                   </Grid>
                 </Grid>
               </form>

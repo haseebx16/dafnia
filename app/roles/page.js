@@ -6,6 +6,7 @@ import Sidebar from '../components/Layout/sidebar';
 import Link from 'next/link';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
+import { font } from '../components/font/poppins';
 
 const Page = () => {
   const [role, setRole] = useState('Select A Role');
@@ -111,7 +112,7 @@ const Page = () => {
   const { primaryColor, secondaryColor } = useColor();
 
   return (
-      <div className="flex-1 flex flex-col  min-h-screen">
+    <div className={`${font.className} flex-1 flex flex-col  min-h-screen`}>
       <header className="flex items-center justify-between px-12 bg-blue-50 w-full border border-gray-100">
         <img src="/dafnia-png.png" className='w-auto h-24 p-2' />
         <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
@@ -139,7 +140,7 @@ const Page = () => {
           >
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <p className="text-xl mt-1 text-black">Roles</p>
+                <p className="text-2xl font-bold mt-1 text-black">Roles</p>
                 <hr className="border-gray-700 w-full" />
               </Grid>
               <Grid item xs={6} md={6}>

@@ -12,7 +12,7 @@ const RoundedField = ({ id, name, label, type, ...props }) => {
             label={label}
             type={type}
             variant="outlined"
-            sx={{ backgroundColor: 'white',
+            sx={{ backgroundColor: '#f7fafc',
                 '& .MuiOutlinedInput-root' : {
                     borderRadius: '8px'
                 }
