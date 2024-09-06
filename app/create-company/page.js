@@ -32,7 +32,7 @@ const Page = () => {
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex justify-between items-center">
-            <p className="text-xl mt-1 text-black">Create Company</p>
+          <p className="text-2xl font-bold mt-1 text-black">Create Company</p>
           </div>
           <hr className="border-gray-700 w-full mt-4" />
           <form onSubmit="">
@@ -52,7 +52,7 @@ const Page = () => {
               <Grid item xs={10}></Grid>
               <Grid item xs={1}>
                 <Link href='/company'>
-                  <CustomButton title="save"/>
+                  <CustomButton title="Back"/>
                 </Link>
               </Grid>
               <Grid item xs={1}>
