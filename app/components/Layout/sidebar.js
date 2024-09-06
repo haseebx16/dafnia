@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { font } from '../font/poppins';
 import { useColor } from '../../context/ColorContext'; 
@@ -49,7 +49,7 @@ const Sidebar = () => {
         {renderLink('/dashboard', FaHome, 'Home')}
         {renderLink('/company', GoGraph, 'Company')}
         {renderLink('/users', FaUser, 'Users')}
-        {renderLink('/roles', FaUser, 'Roles')}
+        {renderLink('/roles', FaUsers, 'Roles')}
       </nav>
     </aside>
   );
