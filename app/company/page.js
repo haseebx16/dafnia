@@ -99,8 +99,9 @@ const Page = () => {
         value={searchQuery} 
         onChange={handleSearch} 
         className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+        style={{ maxWidth: '1200px' }}
       />
-      <TableContainer component={Paper} className="mt-8">
+      <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
         <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
           <TableHead>
             <TableRow>

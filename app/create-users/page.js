@@ -115,28 +115,31 @@ const page = () => {
                         </Select>
                     </FormControl>
                     </Grid>
-                    <Grid item xs={6}>
-                    <FormControl fullWidth>
+                    
+                      <Grid item xs={6}>
+                        <FormControl fullWidth variant='outlined'>
                         <InputLabel id="dropdown-label">Select Line Manager</InputLabel>
-                        <Select
-                        labelId="dropdown-label"
-                        id="dropdown"
-                        value={dropdownTwo}
-                        label="Select Option"
-                        onChange={handleDropdownChangeTwo}
-                        sx={{
-                          backgroundColor: '#f7fafc',
-                        }}
-                        >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="option1">Ayan Rabbani</MenuItem>
-                        <MenuItem value="option2">Ali Ahmed</MenuItem>
-                        <MenuItem value="option3">Fasih Siddiqui</MenuItem>
-                        </Select>
-                    </FormControl>
-                    </Grid>
+                          <Select
+                            labelId="dropdown-label"
+                            id="dropdown"
+                            value={dropdownTwo}
+                            label="Select Line Manager"
+                            onChange={handleDropdownChangeTwo}
+                            sx={{
+                              backgroundColor: '#f7fafc',
+                              
+                            }}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value="option1">Ayan Rabbani</MenuItem>
+                            <MenuItem value="option2">Ali Ahmed</MenuItem>
+                            <MenuItem value="option3">Fasih Siddiqui</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Grid>
+                    
                   <Grid item xs={10}></Grid>
                   <Grid item xs={1} className='mt-44'>
                   <Link href='/users' >
