@@ -105,9 +105,9 @@ const Page = () => {
         <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="font-bold ">User IDs</StyledTableCell>
-              <StyledTableCell className="font-bold flex no-select" align='left'>User Names <p className='flex text-white'>Login</p></StyledTableCell>
-              <StyledTableCell className="font-bold" align="left">Edit</StyledTableCell>
+              <StyledTableCell className="font-bold " sx={{ width: '20%' }}>User IDs</StyledTableCell>
+              <StyledTableCell className="font-bold" align='left' sx={{ width: '20%' }}>User Names</StyledTableCell>
+              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Edit</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
