@@ -6,6 +6,7 @@ import { FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { font } from '../font/poppins';
 import { useColor } from '../../context/ColorContext'; 
+import { MdOutlineInventory2 } from "react-icons/md";
 
 const Sidebar = () => {
   const { primaryColor } = useColor();
@@ -50,6 +51,7 @@ const Sidebar = () => {
         {renderLink('/company', GoGraph, 'Company')}
         {renderLink('/users', FaUser, 'Users')}
         {renderLink('/roles', FaUsers, 'Roles')}
+        {renderLink('/invenory-', MdOutlineInventory2 , 'Inventory-REQ')}
       </nav>
     </aside>
   );
