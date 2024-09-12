@@ -79,7 +79,7 @@ const Page = () => {
   return (
     <Layout>
       <div className="flex justify-between items-center">
-        <p className="text-2xl font-bold mt-1 text-black">Manage Company</p>
+        <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Company</p>
         <Link href="/create-company">
           <button
             onMouseEnter={() => setCreate(true)}
@@ -93,45 +93,59 @@ const Page = () => {
         </Link>
       </div>
       <hr className="border-gray-700 w-full" />
-      <input 
-        type="text" 
-        placeholder="Search by Company ID" 
-        value={searchQuery} 
-        onChange={handleSearch} 
-        className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-        style={{ maxWidth: '1200px' }}
-      />
-      <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
-        <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell className="font-bold" sx={{ width: '20%' }}>Company ID</StyledTableCell>
-              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Company Name</StyledTableCell>
-              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Edit</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {paginatedRows.map((row) => (
-              <StyledTableRow key={row.id}>
-                <StyledTableCell component="th" scope="row">
-                  {row.id}
-                </StyledTableCell>
-                <StyledTableCell align="left">{row.name}</StyledTableCell>
-                <StyledTableCell align="left">
-                  <div className="flex">
-                    <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
-                  </div>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Pagination
-        count={Math.ceil(filteredRows.length / rowsPerPage)}
-        page={page}
-        onPageChange={handlePageChange}
-      />
+      
+      {/* Centering the input field */}
+      <div className="w-full flex justify-center mt-8">
+        <input 
+          type="text" 
+          placeholder="Search by Company ID" 
+          value={searchQuery} 
+          onChange={handleSearch} 
+          className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+          style={{ maxWidth: '1200px' }}
+        />
+      </div>
+      
+      {/* Centering the table */}
+      <div className="w-full flex justify-center">
+        <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
+          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell className="font-bold" sx={{ width: '20%' }}>Company ID</StyledTableCell>
+                <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Company Name</StyledTableCell>
+                <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Edit</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {paginatedRows.map((row) => (
+                <StyledTableRow key={row.id}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.id}
+                  </StyledTableCell>
+                  <StyledTableCell align="left">{row.name}</StyledTableCell>
+                  <StyledTableCell align="left">
+                    <div className="flex">
+                      <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
+                    </div>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+      
+      {/* Pagination */}
+      <div className='mr-28'>
+      <div className="w-full flex justify-end mt-8">
+        <Pagination
+          count={Math.ceil(filteredRows.length / rowsPerPage)}
+          page={page}
+          onPageChange={handlePageChange}
+        />
+      </div>
+      </div>
     </Layout>
   );
 };

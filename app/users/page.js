@@ -78,14 +78,14 @@ const Page = () => {
 
   return (
     <Layout>
-      <div className="flex justify-between items-center">
-        <p className="text-2xl font-bold mt-1 text-black">Manage Users</p>
+      <div className="flex items-center justify-between">
+        <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Users</p>
         <Link href="/create-users">
           <button
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
             style={{ backgroundColor: create ? secondaryColor : primaryColor }}
-            className="p-2 mt-5 flex bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+            className="p-2 mt-5 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
             <IoMdAdd size={24} />
             Create Users
@@ -93,14 +93,17 @@ const Page = () => {
         </Link>
       </div>
       <hr className="border-gray-700 w-full" />
-      <input 
-        type="text" 
-        placeholder="Search by User ID" 
-        value={searchQuery} 
-        onChange={handleSearch} 
-        className="w-full p-3 border mt-8 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-        style={{ maxWidth: '1200px' }}
-      />
+      <div className="w-full flex justify-center mt-8">
+        <input 
+          type="text" 
+          placeholder="Search by User ID" 
+          value={searchQuery} 
+          onChange={handleSearch} 
+          className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+          style={{ maxWidth: '1200px' }}
+        />
+      </div>
+      <div className="w-full flex justify-center ">
       <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
         <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
           <TableHead>
@@ -127,11 +130,16 @@ const Page = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination
-        count={Math.ceil(filteredRows.length / rowsPerPage)}
-        page={page}
-        onPageChange={handlePageChange}
-      />
+      </div>
+      <div className='mr-28'>
+      <div className="w-full flex justify-end items-center mt-8">
+        <Pagination
+          count={Math.ceil(filteredRows.length / rowsPerPage)}
+          page={page}
+          onPageChange={handlePageChange}
+        />
+      </div>
+      </div>
     </Layout>
   );
 };
