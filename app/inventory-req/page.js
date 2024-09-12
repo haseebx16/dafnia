@@ -67,16 +67,16 @@ function Page() {
         <hr className="border-t-2 border-gray-700 mt-5 " />
       </div>
 
-        <div className="grid grid-cols-2 gap-96 bg-white p-8">
-        <div className="space-y-4 ml-12">
+        <div className="grid grid-cols-2 gap-96 bg-white p-6">
+        <div className="space-y-2 ml-1">
             {/* Business Partner Dropdown */}
-            <div className="flex items-center bg-blue-50 py-2 px-8 rounded-md">
+            <div className="flex items-center mt-2 bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 text-sm w-32">Business Partner: </label>
               <select
                 name="businessPartner"
                 value={formData.businessPartner}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1  rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Partner</option>
                 <option value="Partner1">Partner 1</option>
@@ -86,13 +86,13 @@ function Page() {
             </div>
 
             {/* Name Dropdown */}
-            <div className="flex items-center mt-2 bg-blue-50 py-2 px-8 rounded-md">
+            <div className="flex items-center mt-2 bg-blue-50 py-2 px-4 rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Name: </label>
               <select
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Name</option>
                 <option value="Name1">Name 1</option>
@@ -102,13 +102,13 @@ function Page() {
             </div>
 
             {/* Contact Person Dropdown */}
-            <div className="flex items-center mt-2 bg-blue-50 py-2 px-8 rounded-md">
+            <div className="flex items-center mt-2 bg-blue-50 py-2 px-4 rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Contact Person: </label>
               <select
                 name="contactPerson"
                 value={formData.contactPerson}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Contact Person</option>
                 <option value="Person1">Person 1</option>
@@ -118,13 +118,13 @@ function Page() {
             </div>
 
             {/* Ship To Dropdown */}
-            <div className="flex items-center mt-2 bg-blue-50 py-2 px-8 rounded-md">
+            <div className="flex items-center mt-2 bg-blue-50 py-2 px-4 rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Ship To: </label>
               <select
                 name="shipTo"
                 value={formData.shipTo}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Location</option>
                 <option value="Location1">Location 1</option>
@@ -134,15 +134,15 @@ function Page() {
             </div>
           </div>
           {/* Left Column */}
-          <div className="space-y-1 flex flex-col items-end mr-12 justify-end">
+          <div className="space-y-1 flex flex-col items-end mr-4 justify-end">
             {/* No. Dropdown */}
-            <div className="flex items-center">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">No: </label>
               <select
                 name="no"
                 value={formData.no}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select No</option>
                 <option value="Primary">Primary</option>
@@ -151,61 +151,61 @@ function Page() {
             </div>
 
             {/* Status Input */}
-            <div className="flex items-center">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Status: </label>
               <input
                 type="text"
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
             </div>
 
             {/* Posting Date */}
-            <div className="flex items-center">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Posting Date: </label>
               <input
                 type="date"
                 name="postingDate"
                 value={formData.postingDate}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
             </div>
 
             {/* Due Date */}
-            <div className="flex items-center">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Due Date: </label>
               <input
                 type="date"
                 name="dueDate"
                 value={formData.dueDate}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
             </div>
 
             {/* Document Date */}
-            <div className="flex items-center ">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">Document Date: </label>
               <input
                 type="date"
                 name="documentDate"
                 value={formData.documentDate}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
             </div>
             
             {/* From Warehouse Dropdown */}
-            <div className="flex items-center ">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">From Warehouse: </label>
               <select
                 name="fromWarehouse"
                 value={formData.fromWarehouse}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Warehouse</option>
                 <option value="WHS-0001">WHS-0001</option>
@@ -214,13 +214,13 @@ function Page() {
             </div>
 
             {/* To Warehouse Dropdown */}
-            <div className="flex items-center ">
+            <div className="flex items-center bg-blue-50 py-2 px-4   rounded-md">
               <label className="block text-gray-700 mb-1 text-sm w-32">To Warehouse: </label>
               <select
                 name="toWarehouse"
                 value={formData.toWarehouse}
                 onChange={handleChange}
-                className="w-60 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <option value="">Select Warehouse</option>
                 <option value="WHS-0001">WHS-0001</option>
