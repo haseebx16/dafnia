@@ -63,96 +63,69 @@ function Page() {
     <Layout>
       <div className=''>
         {/* Title Section */}
-        <div className="mt-4">
+      <div className="mt-4">
         <p className="text-2xl ml-4  font-bold text-black mt-7">Inventory Transfer Request</p>
         <hr className="border-t-2 border-gray-700 mt-5 " />
       </div>
+     
+{/* Main Section */}
+<div className="bg-white p-6 rounded-lg mt-2 flex flex-col space-y-1">
+  
+  {/* Section for left and right columns */}
+  <div className="flex">
+    
+    {/* left section */}
+    <div className="flex-1 p-2">                  
+      <h1 className='font-bold text-xl mb-2'>Sending Site:</h1>             
+      <RoundedField id="company" name="company" label="Ship-From Site ID" type="text" className='bg-bl' status='' />
+    </div>
+    
+    {/* Right Column */}
+    <div className="flex-1 p-2">                  
+      <h1 className='font-bold text-xl mb-2'>Receiving Site:</h1>
+      <RoundedField id="company" name="company" label="Ship-To Site ID" type="text" className='bg-bl' status='' />
+    </div>
 
-        <div className="grid grid-cols-2 gap-96 bg-white p-6 rounded-lg mt-2">
-        <div className="space-y-2 ml-1">
-            {/* Business Partner Dropdown */}
-            <h1 className='text-xl font-bold'>Sending Site:</h1>
-           
-              
-              <RoundedField id="company" name="company" label="Ship-From Site ID" type="text" className='bg-bl' status='' />
-         
-            <div className="grid grid-cols-3 gap-96 bg-white p-6"></div>
-              <h1 className='text-xl font-bold'>General:</h1>
-            {/* <div className="flex items-center mt-2 bg-blue-50 py-2 px-4   rounded-md">
-              
-              <label className="block text-gray-700 text-sm w-32">Business Partner: </label>
-              <select
-                name="businessPartner"
-                value={formData.businessPartner}
-                onChange={handleChange}
-                className="w-72 border border-gray-300 p-1  rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-              >
-                <option value="">Select Partner</option>
-                <option value="Partner1">Partner 1</option>
-                <option value="Partner2">Partner 2</option>
-                <option value="Partner3">Partner 3</option>
-              </select>
-            </div> */}
-      <div className="space-y-1 flex items-start">
-    {/* Status Input */}
-    <div className="flex items-center bg-blue-50 py-2 px-4 rounded-md">
-      <label className="block text-gray-700 mb-1 text-sm w-32">Ship-To Site ID: </label>
-      <input
-        type="text"
-        name="status"
-        value={formData.status}
-        onChange={handleChange}
-        className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-      />
-    </div>
-    <div className="flex items-center bg-blue-50 py-2 px-4 rounded-md">
-      <label className="block text-gray-700 mb-1 text-sm w-32">Ship-To Site ID: </label>
-      <input
-        type="text"
-        name="status"
-        value={formData.status}
-        onChange={handleChange}
-        className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-      />
-    </div>
-    <div className="flex items-center bg-blue-50 py-2 px-4 rounded-md">
-      <label className="block text-gray-700 mb-1 text-sm w-32">Ship-To Site ID: </label>
-      <input
-        type="text"
-        name="status"
-        value={formData.status}
-        onChange={handleChange}
-        className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-      />
-    </div>
   </div>
-            
-           
-           
 
-           
-          </div>
-          {/* right Column */}
-       {/* Right Column */}
-<div className="flex flex-col">
-  <h1 className='font-bold text-xl mb-2'>Receiving Site:</h1>
-
-  <div className="space-y-1 flex flex-col items-start">
-    {/* Status Input */}
-    <div className="flex items-center bg-blue-50 py-2 px-4 rounded-md">
-      <label className="block text-gray-700 mb-1 text-sm w-32">Ship-To Site ID: </label>
-      <input
-        type="text"
-        name="status"
-        value={formData.status}
-        onChange={handleChange}
-        className="w-72 border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-      />
+  {/* General Column */}
+  <h1 className='font-bold text-xl mb-2 p-2'>General</h1>
+  <div className="flex flex-wrap gap-4 pl-2">
+   
+    <div className="flex-1 col-start-4"> {/* Adjust min-width to account for gaps */}
+      <RoundedField id="company" name="company" label="Business Partner" type="text" className='w-full' status='' />
     </div>
+   
+    <div className="flex-1 col-start-4">
+      <RoundedField id="company" name="company" label="Name" type="text" className='w-full' status='' />
+    </div>
+   
+    <div className="flex-1 col-start-4">
+      <RoundedField id="company" name="company" label="Number" type="text" className='w-full' status='' />
+    </div>
+
+    <div className="flex-1"> {/* Adjust min-width to account for gaps */}
+      <RoundedField id="company" name="company" label="Document Date" type="text" className='w-full' status='' />
+    </div>
+   
+    <div className="flex-1">
+      <RoundedField id="company" name="company" label="Dua Date" type="text" className='w-full' status='' />
+    </div>
+   
+    <div className="flex-1">
+      <RoundedField id="company" name="company" label="Posting date" type="text" className='w-full' status='' />
+    </div>
+
+    <div className="flex-1">
+      <RoundedField id="company" name="company" label="Status" type="text" className='w-full' status='' />
+    </div>
+
   </div>
+
 </div>
 
-        </div>
+
+
 
         {/* Items Table */}
         <div className='mt-8'>
@@ -160,17 +133,11 @@ function Page() {
             <Table component={Paper}>
               <TableHead>
                 <TableRow>
+                  <TableCell className='text-blue-600 text-lg font-bold'>S.#</TableCell>
                   <TableCell className='text-blue-600 text-lg font-bold'>Item No.</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Description</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>From Warehouse</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>To Warehouse</TableCell>
+                  <TableCell className='text-blue-600 text-lg font-bold'>Description</TableCell>                 
                   <TableCell className='text-blue-600 text-lg font-bold'>Quantity</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>UOM Code</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>UOM Name</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Moisture</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Rejection</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Grade</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Value</TableCell>
+                  <TableCell className='text-blue-600 text-lg font-bold'>UOM </TableCell>
                   <TableCell className='text-blue-600 text-lg font-bold'>Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -185,20 +152,8 @@ function Page() {
                         onChange={(e) => handleInputChange(index, e)}
                       />
                     </TableCell>
-                    <TableCell>
-                      <TextField
-                        name="fromWarehouse"
-                        value={row.fromWarehouse}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        name="toWarehouse"
-                        value={row.toWarehouse}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
+                    
+                   
                     <TableCell>
                       <TextField
                         name="quantity"
@@ -208,18 +163,12 @@ function Page() {
                     </TableCell>
                     <TableCell>
                       <TextField
-                        name="uomCode"
-                        value={row.uomCode}
+                        name="uom"
+                        value={row.uom}
                         onChange={(e) => handleInputChange(index, e)}
                       />
                     </TableCell>
-                    <TableCell>
-                      <TextField
-                        name="uomName"
-                        value={row.uomName}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
+                   
                     <TableCell>
                       <TextField
                         name="moisture"
@@ -227,20 +176,7 @@ function Page() {
                         onChange={(e) => handleInputChange(index, e)}
                       />
                     </TableCell>
-                    <TableCell>
-                      <TextField
-                        name="rejection"
-                        value={row.rejection}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        name="grade"
-                        value={row.grade}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
+                  
                     <TableCell>
                       <TextField
                         name="value"
