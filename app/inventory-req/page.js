@@ -106,18 +106,36 @@ function Page() {
     </div>
     <div className="flex flex-wrap gap-5 pl-2">
     <div className="flex-1 mt-2"> {/* Adjust min-width to account for gaps */}
-      <RoundedField id="company" name="company" label="Document Date" type="text" className='w-full' status='' />
+      <RoundedField id="company" name="company" label="Post Date" type="text" className='w-full' status='' />
     </div>
    
     <div className="flex-1 mt-2">
-      <RoundedField id="company" name="company" label="Dua Date" type="text" className='w-full' status='' />
+      <RoundedField id="company" name="company" label="Due Date" type="text" className='w-full' status='' />
     </div>
    
     <div className="flex-1 mt-2">
-      <RoundedField id="company" name="company" label="Posting date" type="text" className='w-full' status='' />
+      <RoundedField id="company" name="company" label="Document date" type="text" className='w-full' status='' />
     </div>
     
-    
+    <div className="w-full mt-2">
+  <div style={{ maxWidth: '49%' }}> 
+    <div className='w-full'>
+      <label htmlFor="status" className="block text-sm font-medium text-gray-700">
+      <h1 className='font-bold text-xl mb-2'>Status:</h1>
+      </label>
+      <select 
+        id="status" 
+        name="status" 
+        className='w-full border border-gray-300 rounded-md bg-gray-50 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 p-2 text-lg'
+      >
+        <option value="pending">Open</option>
+        <option value="approved">Closed</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
 
   </div>
 
