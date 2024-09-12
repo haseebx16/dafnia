@@ -103,22 +103,21 @@ function Page() {
     <div className="flex-1 col-start-4">
       <RoundedField id="company" name="company" label="Number" type="text" className='w-full' status='' />
     </div>
-
-    <div className="flex-1"> {/* Adjust min-width to account for gaps */}
+    </div>
+    <div className="flex flex-wrap gap-5 pl-2">
+    <div className="flex-1 mt-2"> {/* Adjust min-width to account for gaps */}
       <RoundedField id="company" name="company" label="Document Date" type="text" className='w-full' status='' />
     </div>
    
-    <div className="flex-1">
+    <div className="flex-1 mt-2">
       <RoundedField id="company" name="company" label="Dua Date" type="text" className='w-full' status='' />
     </div>
    
-    <div className="flex-1">
+    <div className="flex-1 mt-2">
       <RoundedField id="company" name="company" label="Posting date" type="text" className='w-full' status='' />
     </div>
-
-    <div className="flex-1">
-      <RoundedField id="company" name="company" label="Status" type="text" className='w-full' status='' />
-    </div>
+    
+    
 
   </div>
 
