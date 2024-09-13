@@ -73,8 +73,12 @@ function Page() {
       </div>
 
         
-        <div className="grid grid-cols-2 gap-8 bg-white p-12">
-
+        <div className="grid grid-cols-2 gap-20 bg-white p-6"
+        style={{
+          border: '1px solid #d0d0d0',
+          borderRadius: '9px',
+        }}>
+        
           {/* Left column */}
           <div className="space-y-4">
             {/* Business Partner Dropdown */}
@@ -97,12 +101,12 @@ function Page() {
               labelSpace="Name"
             />
         
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
 
             {/* Contact Person Dropdown */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
             <UserDropdown
-              grids={4}
+              grids={3}
               label="Contact Person"
               option1="Person 1"
               option2="Person 2"
@@ -112,7 +116,7 @@ function Page() {
             </div>
 
             {/* Ship To Dropdown */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
             <UserDropdown
               grids={4}
               label="Ship To"
@@ -127,10 +131,10 @@ function Page() {
 
           {/* Right column */}
           <div className="space-y-4">
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             
             {/* No. Dropdown */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
             <UserDropdown
               grids={6}
               label="Number"
@@ -143,7 +147,7 @@ function Page() {
 
 
             {/* Status Input */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
             <UserDropdown
               grids={6}
               label="Status"
@@ -155,7 +159,9 @@ function Page() {
               </div>
 
 
-             <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '20px', width: '100%'}}>
+
+             <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '10px', width: '100%'}}>
+
                 {/* Posting Date */}
                 <div style={{ flex: '1 1 33%' }}>
                     <RoundedField 
@@ -190,10 +196,10 @@ function Page() {
             
            
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
 
             {/* To Warehouse Dropdown */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
               <UserDropdown
               grids={6}
                 label="To Warehouse"
@@ -205,7 +211,7 @@ function Page() {
             </div>
 
             {/* From Warehouse Dropdown */}
-            <div style={{ flex: '1 1 45%' }}>
+            <div style={{ flex: '1 1 40%' }}>
               <UserDropdown
               grids={6}
                 label="From Warehouse"
@@ -221,18 +227,20 @@ function Page() {
         </div>
 
         {/* Items Table */}
-        <div className='mt-8'>
+        <div className='mt-4'>
           <div className="mt-4">
+          <p className="text-lg font-bold mt-1 text-black">Contents</p>
+    
             <Table component={Paper}>
-              <TableHead>
+              <TableHead>                
                 <TableRow>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Item No.</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Description</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>From Warehouse</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>To Warehouse</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Quantity</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>UOM Code</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Actions</TableCell>
+                  <TableCell className=' text-lg font-bold'>Item No.</TableCell>
+                  <TableCell className=' text-lg font-bold'>Description</TableCell>
+                  <TableCell className=' text-lg font-bold'>From Warehouse</TableCell>
+                  <TableCell className=' text-lg font-bold'>To Warehouse</TableCell>
+                  <TableCell className=' text-lg font-bold'>Quantity</TableCell>
+                  <TableCell className=' text-lg font-bold'>UOM Code</TableCell>
+                  <TableCell className=' text-lg font-bold'>Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -276,25 +284,26 @@ function Page() {
                     </TableCell>
                     <TableCell>
                       <Button
-                        color="secondary"
+                        color="primary"
                         onClick={() => handleDeleteRow(index)}
                       >
-                        <RiDeleteBin6Line size={"24px"}/>
+                        <RiDeleteBin6Line size={"30px"}/>
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
-            </Table>
-          </div>
-          <Button
+              <Button 
             variant="contained"
             color="primary"
             onClick={handleAddRow}
-            className="mt-4"
+            className="mt-4 m-4"
           >
             Add Row
           </Button>
+            </Table>
+          </div>
+         
         </div>
       </div>
     </Layout>
