@@ -16,16 +16,8 @@ const UserDropdown = ({ label, dropdownValue, handleDropdownChange, option1, opt
                         label={labelSpace}
                         className='rounded-md'
                         onChange={handleDropdownChange}
-                        sx={{ 
+                        sx={{
                           backgroundColor: secondaryColor,
-                          '& .MuiOutlinedInput-root': {
-                            borderRadius: '8px',
-                            padding: '0px'
-                          },
-                          '& .MuiOutlinedInput-input': {
-                            height: '30px',
-                            padding: '8px 8px', 
-                          }
                         }}
                         >
                         <MenuItem value="">
