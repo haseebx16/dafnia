@@ -159,7 +159,9 @@ function Page() {
               </div>
 
 
+
              <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '10px', width: '100%'}}>
+
                 {/* Posting Date */}
                 <div style={{ flex: '1 1 33%' }}>
                     <RoundedField 
