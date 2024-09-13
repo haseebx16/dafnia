@@ -82,6 +82,7 @@ const Sidebar = () => {
           {isInventoryOpen && (
             <div className="mr-4 w-full font-light text-sm">
               {renderLink('/inventory-req', null, 'Inventory Transfer Req.', true)} {/* Removed the icon */}
+              {renderLink('/goodReceiptPO', null, 'Good Receipt PO.', true)}
             </div>
           )}
         </div>
