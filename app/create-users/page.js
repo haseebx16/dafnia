@@ -3,30 +3,23 @@
 import React from 'react';
 import { useState } from "react"
 import Link from 'next/link';
-import { FaHome, FaUser } from "react-icons/fa";
-import { GoGraph } from "react-icons/go";
-import { IoMdSettings } from "react-icons/io";
 import { Button, Grid, TextField } from '@mui/material';
 import {Select, MenuItem, InputLabel, FormControl} from "@mui/material"
-import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/logout-button/button';
-import { font } from '../components/font/poppins';
 import { IoMdArrowBack } from "react-icons/io";
 import Layout from '../components/Layout/Layout';
+import CancelButton from '../components/Cancel-Button/CancelButton';
+import RoundedField from '../components/text-field/field';
+import UserDropdown from '../components/Dropdown/UserDropdown';
 
 const page = () => {
 
     const [dropdownValue, setDropdownValue] = useState("");
     const [dropdownTwo, setDropdownTwo] = useState('');
-    const [isHovered, setIsHovered] = useState(false);
-    const [isHoveredTwo, setIsHoveredTwo] = useState(false);
-    const [isHoveredThree, setIsHoveredThree] = useState(false);
 
     const handleDropdownChange = (event) => setDropdownValue(event.target.value);
     const handleDropdownChangeTwo = (event) => setDropdownTwo(event.target.value);
-
-    const { primaryColor, secondaryColor } = useColor();
 
   return (
     <Layout>
@@ -38,112 +31,19 @@ const page = () => {
           <hr className="border-gray-700 w-full mt-4" />
               <form onSubmit="" className='bg-white p-6 pb-8 pt-1 rounded-xl mt-2 min-h-52 '>
                 <Grid container spacing={2} mt={2}>
-                  <Grid item xs={6}>
-                    <TextField
-                      fullWidth
-                      
-                      id="name"
-                      name="name"
-                      label="Name"
-                      variant="outlined"
-                      sx={{
-                        backgroundColor: '#f7fafc',
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <TextField
-                      fullWidth
-                      
-                      id="email"
-                      name="email"
-                      label="User Name"
-                      type="text"
-                      variant="outlined"
-                      sx={{
-                        backgroundColor: '#f7fafc',
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <TextField
-                      fullWidth
-                      id="SAP"
-                      name="SAP"
-                      label="User Email"
-                      rows={4}
-                      variant="outlined"
-                      sx={{
-                        backgroundColor: '#f7fafc',
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <TextField
-                      fullWidth
-                      id="file"
-                      type='text'
-                      name="file"
-                      label="Department"
-                      disabled
-                      rows={4}
-                      variant="outlined"
-                      sx={{
-                        backgroundColor: '#f7fafc',
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <FormControl fullWidth>
-                        <InputLabel id="dropdown-label">Select Role</InputLabel>
-                        <Select
-                        labelId="dropdown-label"
-                        id="dropdown"
-                        value={dropdownValue}
-                        label="Select Option"
-                        onChange={handleDropdownChange}
-                        sx={{
-                          backgroundColor: '#f7fafc',
-                        }}
-                        >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value="option1">Inventory</MenuItem>
-                        <MenuItem value="option2">Sales</MenuItem>
-                        <MenuItem value="option3">Procurement</MenuItem>
-                        </Select>
-                    </FormControl>
-                    </Grid>
-                    
-                      <Grid item xs={6}>
-                        <FormControl fullWidth variant='outlined'>
-                        <InputLabel id="dropdown-label">Select Line Manager</InputLabel>
-                          <Select
-                            labelId="dropdown-label"
-                            id="dropdown"
-                            value={dropdownTwo}
-                            label="Select Line Manager"
-                            onChange={handleDropdownChangeTwo}
-                            sx={{
-                              backgroundColor: '#f7fafc',
-                              
-                            }}
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value="option1">Ayan Rabbani</MenuItem>
-                            <MenuItem value="option2">Ali Ahmed</MenuItem>
-                            <MenuItem value="option3">Fasih Siddiqui</MenuItem>
-                          </Select>
-                        </FormControl>
-                      </Grid>
+                  
+                  <RoundedField grids={6} id="User" name="User ID" label="User ID" type="text" />
+                  
+                  <RoundedField grids={6} id="User-Name" name="User Name" label="User Name" type="text" />
+                  <RoundedField grids={6} id="User-Email" name="User Email" label="User Email" type="text" />
+                  <RoundedField grids={6} id="Department" name="Department" label="Department" type="text" />
+                  <UserDropdown grids={6} label="Select Role" option1="Inventory" option2="Procurement" option3="Sales" labelSpace="Select Role"/>
+                  <UserDropdown grids={6} label="Select Line Manager" option1="Ayan Rabbani" option2="Ali Ahmed" option3="Ahmed Raza" labelSpace="Select Line Manager"/>
                     
                   <Grid item xs={10}></Grid>
                   <Grid item xs={1} className='mt-44'>
                   <Link href='/users' >
-                  <CustomButton title="Back"/>
+                  <CancelButton title="Cancel"/>
                 </Link>
               </Grid>
               <Grid item xs={1} className='mt-44'>

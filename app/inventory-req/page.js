@@ -2,7 +2,7 @@
 import Layout from '../components/Layout/Layout';
 import React, { useState } from 'react';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import RoundedField from '../components/text-field/field';
+import { useColor } from '../context/ColorContext';
 
 import {
     Grid,
@@ -17,6 +17,8 @@ import {
     Select,
     MenuItem,
   } from '@mui/material';
+import UserDropdown from '../components/Dropdown/UserDropdown';
+import RoundedField from '../components/text-field/field';
   
 
 function Page() {
@@ -59,90 +61,115 @@ function Page() {
     setRows(updatedRows);
   };
 
+  const { secondaryColor } = useColor();
+
   return (
     <Layout>
       <div className=''>
         {/* Title Section */}
-      <div className="mt-4">
-        <p className="text-2xl ml-4  font-bold text-black mt-7">Inventory Transfer Request</p>
+        <div className="mt-4">
+        <p className="text-2xl font-bold text-black mt-7">Inventory Transfer Request</p>
         <hr className="border-t-2 border-gray-700 mt-5 " />
       </div>
-     
-{/* Main Section */}
-<div className="bg-white p-6 rounded-lg mt-2 flex flex-col space-y-1">
-  
-  {/* Section for left and right columns */}
-  <div className="flex">
-    
-    {/* left section */}
-    <div className="flex-1 p-2">                  
-      <h1 className='font-bold text-xl mb-2'>Sending Site:</h1>             
-      <RoundedField id="company" name="company" label="Ship-From Site ID" type="text" className='bg-bl' status='' />
-    </div>
-    
-    {/* Right Column */}
-    <div className="flex-1 p-2">                  
-      <h1 className='font-bold text-xl mb-2'>Receiving Site:</h1>
-      <RoundedField id="company" name="company" label="Ship-To Site ID" type="text" className='bg-bl' status='' />
-    </div>
 
-  </div>
+        
+        <div className="grid grid-cols-2 gap-8 bg-white p-12">
+          {/* Left column */}
+          <div className="space-y-4">
+            {/* Business Partner Dropdown */}
+            <UserDropdown
+              grids={4}
+              label="Business Partner"
+              option1="Partner 1"
+              option2="Partner 2"
+              option3="Partner 3"
+              labelSpace="Business Partner"
+            />
 
-  {/* General Column */}
-  <h1 className='font-bold text-xl mb-2 p-2'>General</h1>
-  <div className="flex flex-wrap gap-4 pl-2">
-   
-    <div className="flex-1 col-start-4"> {/* Adjust min-width to account for gaps */}
-      <RoundedField id="company" name="company" label="Business Partner" type="text" className='w-full' status='' />
-    </div>
-   
-    <div className="flex-1 col-start-4">
-      <RoundedField id="company" name="company" label="Name" type="text" className='w-full' status='' />
-    </div>
-   
-    <div className="flex-1 col-start-4">
-      <RoundedField id="company" name="company" label="Number" type="text" className='w-full' status='' />
-    </div>
-    </div>
-    <div className="flex flex-wrap gap-5 pl-2">
-    <div className="flex-1 mt-2"> {/* Adjust min-width to account for gaps */}
-      <RoundedField id="company" name="company" label="Post Date" type="text" className='w-full' status='' />
-    </div>
-   
-    <div className="flex-1 mt-2">
-      <RoundedField id="company" name="company" label="Due Date" type="text" className='w-full' status='' />
-    </div>
-   
-    <div className="flex-1 mt-2">
-      <RoundedField id="company" name="company" label="Document date" type="text" className='w-full' status='' />
-    </div>
-    
-    <div className="w-full mt-2">
-  <div style={{ maxWidth: '49%' }}> 
-    <div className='w-full'>
-      <label htmlFor="status" className="block text-sm font-medium text-gray-700">
-      <h1 className='font-bold text-xl mb-2'>Status:</h1>
-      </label>
-      <select 
-        id="status" 
-        name="status" 
-        className='w-full border border-gray-300 rounded-md bg-gray-50 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 p-2 text-lg'
-      >
-        <option value="pending">Open</option>
-        <option value="approved">Closed</option>
-      </select>
-    </div>
-  </div>
-</div>
+            {/* Name Dropdown */}
+            <UserDropdown
+              grids={4}
+              label="Name"
+              option1="Name 1"
+              option2="Name 2"
+              option3="Name 3"
+              labelSpace="Name"
+            />
 
+            {/* Contact Person Dropdown */}
+            <UserDropdown
+              grids={4}
+              label="Contact Person"
+              option1="Person 1"
+              option2="Person 2"
+              option3="Person 3"
+              labelSpace="Contact Person"
+            />
 
+            {/* Ship To Dropdown */}
+            <UserDropdown
+              grids={4}
+              label="Ship To"
+              option1="Location 1"
+              option2="Location 2"
+              option3="Location 3"
+              labelSpace="Ship To"
+            />
+          </div>
 
-  </div>
+          {/* Right column */}
+          <div className="space-y-4">
+            {/* No. Dropdown */}
+            <UserDropdown
+              grids={6}
+              label="Number"
+              option1="No 1"
+              option2="No 2"
+              option3="No 3"
+              labelSpace="Select Name"
+            />
 
-</div>
+            {/* Status Input */}
+            <UserDropdown
+              grids={6}
+              label="Status"
+              option1="Open"
+              option2="Close"
+              labelSpace="Status"
+            />
 
+            {/* Posting Date */}
+            <RoundedField grids={6} label="Posting Date" id="pDate" name="pDate" type="text"/>
 
+            {/* Due Date */}
+            <RoundedField grids={6} label="Due Date" id="dDate" name="dDate" type="text"/>
 
+            {/* Document Date */}
+            <RoundedField grids={6} label="Document Date" id="DocDate" name="DocDate" type="text"/>
+
+            {/* From Warehouse Dropdown */}
+           
+              <UserDropdown
+                grids={6}
+                label="From Warehouse"
+                option1="Warehouse 1"
+                option2="Warehouse 2"
+                option3="Warehouse 3"
+                labelSpace="From Warehouse"
+              />
+
+              {/* To Warehouse Dropdown */}
+              <UserDropdown
+                grids={6}
+                label="To Warehouse"
+                option1="Warehouse 1"
+                option2="Warehouse 2"
+                option3="Warehouse 3"
+                labelSpace="To Warehouse"
+              />
+            
+          </div>
+        </div>
 
         {/* Items Table */}
         <div className='mt-8'>
@@ -150,11 +177,12 @@ function Page() {
             <Table component={Paper}>
               <TableHead>
                 <TableRow>
-                  <TableCell className='text-blue-600 text-lg font-bold'>S.#</TableCell>
                   <TableCell className='text-blue-600 text-lg font-bold'>Item No.</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>Description</TableCell>                 
+                  <TableCell className='text-blue-600 text-lg font-bold'>Description</TableCell>
+                  <TableCell className='text-blue-600 text-lg font-bold'>From Warehouse</TableCell>
+                  <TableCell className='text-blue-600 text-lg font-bold'>To Warehouse</TableCell>
                   <TableCell className='text-blue-600 text-lg font-bold'>Quantity</TableCell>
-                  <TableCell className='text-blue-600 text-lg font-bold'>UOM </TableCell>
+                  <TableCell className='text-blue-600 text-lg font-bold'>UOM Code</TableCell>
                   <TableCell className='text-blue-600 text-lg font-bold'>Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -169,8 +197,20 @@ function Page() {
                         onChange={(e) => handleInputChange(index, e)}
                       />
                     </TableCell>
-                    
-                   
+                    <TableCell>
+                      <TextField
+                        name="fromWarehouse"
+                        value={row.fromWarehouse}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        name="toWarehouse"
+                        value={row.toWarehouse}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
                     <TableCell>
                       <TextField
                         name="quantity"
@@ -180,30 +220,17 @@ function Page() {
                     </TableCell>
                     <TableCell>
                       <TextField
-                        name="uom"
-                        value={row.uom}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
-                   
-                    <TableCell>
-                      <TextField
-                        name="moisture"
-                        value={row.moisture}
-                        onChange={(e) => handleInputChange(index, e)}
-                      />
-                    </TableCell>
-                  
-                    <TableCell>
-                      <TextField
-                        name="value"
-                        value={row.value}
+                        name="uomCode"
+                        value={row.uomCode}
                         onChange={(e) => handleInputChange(index, e)}
                       />
                     </TableCell>
                     <TableCell>
-                      <Button className='text-blue-600 hover:text-red-600' onClick={() => handleDeleteRow(index)}>
-                        <RiDeleteBin6Line size={24} />
+                      <Button
+                        color="secondary"
+                        onClick={() => handleDeleteRow(index)}
+                      >
+                        <RiDeleteBin6Line size={"24px"}/>
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -211,7 +238,12 @@ function Page() {
               </TableBody>
             </Table>
           </div>
-          <Button variant="contained" color="primary" onClick={handleAddRow} className="mt-4">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddRow}
+            className="mt-4"
+          >
             Add Row
           </Button>
         </div>

@@ -45,9 +45,9 @@ const allRows = [
   createData('U-001', "Ali Arif", ""),
   createData('U-002', "Ali Ahmed", ""),
   createData('U-003', "Ayaan Rabbani", ""),
-  createData('U-004', "Bilal Khan", ""),
-  createData('U-005', "Adnan Syed", ""),
-  createData('U-006', "Zubair Kazmi", ""),
+  createData('U-004', "Ahmed Saeed", ""),
+  createData('U-005', "Mustafa Khan", ""),
+  createData('U-006', "Ibrahim Rabbani", ""),
 ];
 
 const rowsPerPage = 3;
@@ -84,7 +84,7 @@ const Page = () => {
           <button
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
-            style={{ backgroundColor: create ? secondaryColor : primaryColor }}
+            style={{ backgroundColor: create ? primaryColor : primaryColor }}
             className="p-2 mt-5 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
             <IoMdAdd size={24} />
@@ -108,9 +108,9 @@ const Page = () => {
         <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="font-bold " sx={{ width: '20%' }}>User IDs</StyledTableCell>
-              <StyledTableCell className="font-bold" align='left' sx={{ width: '20%' }}>User Names</StyledTableCell>
-              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Edit</StyledTableCell>
+              <StyledTableCell className="font-bold " sx={{ width: '20%' }}>User ID</StyledTableCell>
+              <StyledTableCell className="font-bold" align='left' sx={{ width: '20%' }}>User Name</StyledTableCell>
+              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

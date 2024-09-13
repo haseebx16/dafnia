@@ -14,7 +14,7 @@ const CustomButton = ({ title, func }) => {
               onMouseEnter={() => setCreateCompany(true)} 
               onMouseLeave={() => setCreateCompany(false)}
               onClick={func}
-              style={{ backgroundColor: createCompany ? secondaryColor : primaryColor }}
+              style={{ backgroundColor: createCompany ? primaryColor : primaryColor }}
             >
               {title}
         </button>

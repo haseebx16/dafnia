@@ -42,9 +42,9 @@ function createData(id, name, action) {
 }
 
 const allRows = [
-  createData('CM-001', "Pinnacle", ""),
-  createData('CM-002', "Dafnia", ""),
-  createData('CM-003', "i-MSC", ""),
+  createData('CM-001', "Techno", ""),
+  createData('CM-002', "Oppo", ""),
+  createData('CM-003', "Infinix", ""),
   createData('CM-004', "TechCorp", ""),
   createData('CM-005', "AlphaTech", ""),
   createData('CM-006', "CyberNet", ""),
@@ -84,7 +84,7 @@ const Page = () => {
           <button
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
-            style={{ backgroundColor: create ? secondaryColor : primaryColor }}
+            style={{ backgroundColor: create ? primaryColor : primaryColor }}
             className="p-2 mt-5 flex bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
             <IoMdAdd size={24} />
@@ -114,7 +114,7 @@ const Page = () => {
               <TableRow>
                 <StyledTableCell className="font-bold" sx={{ width: '20%' }}>Company ID</StyledTableCell>
                 <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Company Name</StyledTableCell>
-                <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Edit</StyledTableCell>
+                <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Action</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

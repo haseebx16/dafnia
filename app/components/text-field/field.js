@@ -1,9 +1,15 @@
+"use client"
+
 import React from 'react'
 import { TextField, Grid } from '@mui/material'
+import { useColor } from '@/app/context/ColorContext'
 
-const RoundedField = ({ id, name, label, type, ...props }) => {
+const RoundedField = ({ id, name, label, type, grids,...props }) => {
+
+  const { secondaryColor } = useColor();
+
   return (
-    <Grid item xs={6}>
+    <Grid item xs={grids}>
         <TextField
             fullWidth
             id={id}
@@ -12,7 +18,7 @@ const RoundedField = ({ id, name, label, type, ...props }) => {
             label={label}
             type={type}
             variant="outlined"
-            sx={{ backgroundColor: '#f7fafc',
+            sx={{ backgroundColor: secondaryColor,
                 '& .MuiOutlinedInput-root' : {
                     borderRadius: '8px'
                 }
