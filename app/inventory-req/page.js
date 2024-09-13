@@ -155,35 +155,39 @@ function Page() {
               </div>
 
 
-             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {/* Posting Date */}
-            <div style={{ flex: '1 1 45%' }}>
-            <RoundedField 
-            grids={4} label="Posting Date" 
-            id="pDate" 
-            name="pDate" 
-            type="text"
-            />
-            </div>
+             <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '20px', width: '100%'}}>
+                {/* Posting Date */}
+                <div style={{ flex: '1 1 33%' }}>
+                    <RoundedField 
+                      grids={2} label="Posting Date" 
+                      id="pDate" 
+                      name="pDate" 
+                      type="text"
+                    />
+                </div>
+                <div style={{ flex: "1 1 33%" }}>
+                  <RoundedField grids={2} 
+                      label="Document Date" 
+                      id="DocDate" 
+                      name="DocDate" 
+                      type="text"
+                    />
+                </div>
 
-            {/* Due Date */}
-            <div style={{ flex: '1 1 45%' }}>
-            <RoundedField 
-            grids={4} 
-            label="Due Date" 
-            id="dDate" 
-            name="dDate" 
-            type="text"/>
-            </div>
+                {/* Due Date */}
+                <div style={{ flex: '1 1 33%' }}>
+                <RoundedField 
+                      grids={2} 
+                      label="Due Date" 
+                      id="dDate" 
+                      name="dDate" 
+                      type="text"
+                    />
+                </div>
             </div>
             
             {/* Document Date */}
             
-            <RoundedField grids={6} 
-            label="Document Date" 
-            id="DocDate" 
-            name="DocDate" 
-            type="text"/>
            
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
