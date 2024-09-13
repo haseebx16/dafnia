@@ -104,14 +104,42 @@ function Page() {
 
           {/* Left column */}
           <div className="space-y-4">
-            <UserDropdown grids={4} label="Business Partner" option1="Partner 1" option2="Partner 2" option3="Partner 3" labelSpace="Business Partner" />
-            <UserDropdown grids={4} label="Name" option1="Name 1" option2="Name 2" option3="Name 3" labelSpace="Name" />
+            <UserDropdown 
+            grids={4} 
+            label="Business Partner" 
+            option1="Partner 1" 
+            option2="Partner 2" 
+            option3="Partner 3" 
+            labelSpace="Business Partner" />
+
+            <UserDropdown 
+            grids={4} 
+            label="Name" 
+            option1="Name 1" 
+            option2="Name 2" 
+            option3="Name 3" 
+            labelSpace="Name" />
+
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={3} label="Contact Person" option1="Person 1" option2="Person 2" option3="Person 3" labelSpace="Contact Person" />
+
+            <UserDropdown 
+            grids={3} 
+            label="Contact Person" 
+            option1="Person 1" 
+            option2="Person 2" 
+            option3="Person 3" 
+            labelSpace="Contact Person" />
               </div>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={4} label="Ship To" option1="Location 1" option2="Location 2" option3="Location 3" labelSpace="Ship To" />
+                
+            <UserDropdown 
+            grids={4} 
+            label="Ship To" 
+            option1="Location 1" 
+            option2="Location 2" 
+            option3="Location 3" 
+            labelSpace="Ship To" />
               </div>
             </div>
           </div>
@@ -120,38 +148,82 @@ function Page() {
           <div className="space-y-4">
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={6} label="Number" option1="No 1" option2="No 2" option3="No 3" labelSpace="Number" />
+
+                <UserDropdown 
+                grids={6} 
+                label="Number" 
+                option1="No 1" 
+                option2="No 2" 
+                option3="No 3" 
+                labelSpace="Number" />
               </div>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={6} label="Status" option1="Open" option2="Close" labelSpace="Status" />
+                <UserDropdown 
+                grids={6} 
+                label="Status" 
+                option1="Open" 
+                option2="Close" 
+                labelSpace="Status" />
               </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '10px', width: '100%' }}>
               <div style={{ flex: '1 1 33%' }}>
-                <RoundedField grids={2} label="Posting Date" id="pDate" name="pDate" type="text" />
+
+                <RoundedField 
+                grids={2} 
+                label="Posting Date" 
+                id="pDate" 
+                name="pDate" 
+                type="text" />
               </div>
               <div style={{ flex: '1 1 33%' }}>
-                <RoundedField grids={2} label="Document Date" id="DocDate" name="DocDate" type="text" />
+
+                <RoundedField 
+                grids={2} 
+                label="Document Date" 
+                id="DocDate" 
+                name="DocDate" 
+                type="text" />
               </div>
               <div style={{ flex: '1 1 33%' }}>
-                <RoundedField grids={2} label="Due Date" id="dDate" name="dDate" type="text" />
+
+                <RoundedField 
+                grids={2} 
+                label="Due Date" 
+                id="dDate" 
+                name="dDate" 
+                type="text" />
               </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={6} label="To Warehouse" option1="Warehouse 1" option2="Warehouse 2" option3="Warehouse 3" labelSpace="To Warehouse" />
+
+                <UserDropdown 
+                grids={6} 
+                label="To Warehouse" 
+                option1="Warehouse 1" 
+                option2="Warehouse 2" 
+                option3="Warehouse 3" 
+                labelSpace="To Warehouse" />
               </div>
               <div style={{ flex: '1 1 40%' }}>
-                <UserDropdown grids={6} label="From Warehouse" option1="Warehouse 1" option2="Warehouse 2" option3="Warehouse 3" labelSpace="From Warehouse" />
+
+                <UserDropdown 
+                grids={6} 
+                label="From Warehouse" 
+                option1="Warehouse 1" 
+                option2="Warehouse 2" 
+                option3="Warehouse 3" 
+                labelSpace="From Warehouse" />
               </div>
             </div>
           </div>
         </div>
 
         {/* Tabs Section */}
-        <div className='mt-4'>
+        <div className='mt-4 '>
           <Tabs value={tabValue} onChange={handleTabChange}>
-            <Tab label="Content" />
+            <Tab label= "Content" />
             <Tab label="Attachments" />
           </Tabs>
 
@@ -214,27 +286,101 @@ function Page() {
                         color="primary"
                         onClick={() => handleDeleteRow(index)}
                       >
-                        <RiDeleteBin6Line />
+                        <RiDeleteBin6Line style={{ fontSize: '24px' }} />
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
-            </Table>
-            <Button
+              <Button
               variant="contained"
               color="primary"
               onClick={handleAddRow}
-              className="mt-4"
+              className="mt-4 m-4"
             >
               Add Item
             </Button>
+            </Table>
+            
           </TabPanel>
+
+
+
+
 
           <TabPanel value={tabValue} index={1}>
             {/* Attachments Section */}
-            <p className="text-lg font-bold mt-1 text-black">Attachments</p>
-            <p>No attachments available.</p>
+            <Table component={Paper}>
+              <TableHead>
+                <TableRow>
+                  <TableCell className='text-lg font-bold'>Item No.</TableCell>
+                  <TableCell className='text-lg font-bold'>Target Path</TableCell>
+                  <TableCell className='text-lg font-bold'>File Name</TableCell>
+                  <TableCell className='text-lg font-bold'>Attachment Date</TableCell>
+                  <TableCell className='text-lg font-bold'>Free Text</TableCell>
+                  <TableCell className='text-lg font-bold'>Copy to Target Document</TableCell>
+                  <TableCell className='text-lg font-bold'>Action</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{row.itemNo}</TableCell>
+                    <TableCell>
+                      <TextField
+                        name="targetpath"
+                        value={row.targetpath}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        name="filename"
+                        value={row.attachmentdate}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        name="attacheddata"
+                        value={row.attacheddata}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                    <TextField
+                        name="freetext"
+                        value={row.freetext}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        name="copytotargetdocument"
+                        value={row.copytotargetdocument}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        color="primary"
+                        onClick={() => handleDeleteRow(index)}
+                      >
+                        <RiDeleteBin6Line style={{ fontSize: '24px' }} />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <Button
+              variant="contained"
+              color="primary"
+              onClick={handleAddRow}
+              className="mt-4 m-4"
+            >
+              Add Item
+            </Button>
+            </Table>
           </TabPanel>
         </div>
       </div>
