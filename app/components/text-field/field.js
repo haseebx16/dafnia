@@ -18,11 +18,17 @@ const RoundedField = ({ id, name, label, type, grids,...props }) => {
             label={label}
             type={type}
             variant="outlined"
-            sx={{ backgroundColor: secondaryColor,
-                '& .MuiOutlinedInput-root' : {
-                    borderRadius: '8px'
-                }
-             }}
+            sx={{ 
+              backgroundColor: secondaryColor,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '8px',
+                padding: '0px'
+              },
+              '& .MuiOutlinedInput-input': {
+                height: '30px',
+                padding: '8px 8px', 
+              }
+            }}
              {...props}
         />
     </Grid>

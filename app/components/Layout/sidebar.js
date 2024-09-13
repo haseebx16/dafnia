@@ -7,12 +7,13 @@ import { GoGraph } from "react-icons/go";
 import { font } from '../font/poppins';
 import { useColor } from '../../context/ColorContext'; 
 import { MdOutlineInventory2 } from "react-icons/md";
-import { TbPointFilled } from "react-icons/tb";
+import { BiPurchaseTagAlt } from "react-icons/bi";
 
 const Sidebar = () => {
   const { primaryColor } = useColor();
   const [activeTab, setActiveTab] = useState('');
-  const [isInventoryOpen, setIsInventoryOpen] = useState(false); // State to toggle inventory sub-menu
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false);
+  const [purchase, setPurchase] = useState(false);
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -53,7 +54,6 @@ const Sidebar = () => {
         {renderLink('/company', GoGraph, 'Company')}
         {renderLink('/users', FaUser, 'Users')}
         {renderLink('/roles', FaUsers, 'Roles')}
-        {/* {renderLink('/inventory-req', MdOutlineInventory2, "Inventory")} */}
 
         {/* Inventory Main Tab */}
         <div>
@@ -75,13 +75,43 @@ const Sidebar = () => {
                 e.target.style.color = 'black';
               }
             }}
-            onClick={() => setIsInventoryOpen(!isInventoryOpen)} // Toggle the inventory sub-menu
+            onClick={() => setIsInventoryOpen(!isInventoryOpen)}
           >
             <MdOutlineInventory2 size={"24px"}/>&nbsp;&nbsp;Inventory
           </p>
           {isInventoryOpen && (
             <div className="mr-4 w-full font-light text-sm">
-              {renderLink('/inventory-req', null, 'Inventory Transfer Req.', true)} {/* Removed the icon */}
+              {renderLink('/inventory-req', null, 'Inventory Transfer Req.', true)}
+           </div>
+          )}
+        </div>
+        <div>
+          <p
+            className="flex items-center py-2 px-4 rounded transition duration-200 cursor-pointer"
+            style={{
+              backgroundColor: purchase ? primaryColor : 'transparent',
+              color: purchase ? 'white' : 'black',
+            }}
+            onMouseEnter={(e) => {
+              if (!purchase) {
+                e.target.style.backgroundColor = primaryColor;
+                e.target.style.color = 'white';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!purchase) {
+                e.target.style.backgroundColor = 'transparent';
+                e.target.style.color = 'black';
+              }
+            }}
+            onClick={() => setPurchase(!purchase)}
+          >
+            <BiPurchaseTagAlt
+            size={"24px"}/>&nbsp;&nbsp;Purchase
+          </p>
+          {purchase && (
+            <div className="mr-4 w-full font-light text-sm">
+              {renderLink('/purchase-order', null, 'Purchase Order PO.', true)}
             </div>
           )}
         </div>
