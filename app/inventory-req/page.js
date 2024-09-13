@@ -118,7 +118,7 @@ function Page() {
               label="Ship To"
               option1="Location 1"
               option2="Location 2"
-              option3="Location 3"
+              option3="Location 4"
               labelSpace="Ship To"
             />
             </div>
