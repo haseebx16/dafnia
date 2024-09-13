@@ -74,6 +74,7 @@ function Page() {
 
         
         <div className="grid grid-cols-2 gap-8 bg-white p-12">
+
           {/* Left column */}
           <div className="space-y-4">
             {/* Business Partner Dropdown */}
@@ -95,8 +96,11 @@ function Page() {
               option3="Name 3"
               labelSpace="Name"
             />
+        
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
 
             {/* Contact Person Dropdown */}
+            <div style={{ flex: '1 1 45%' }}>
             <UserDropdown
               grids={4}
               label="Contact Person"
@@ -105,8 +109,10 @@ function Page() {
               option3="Person 3"
               labelSpace="Contact Person"
             />
+            </div>
 
             {/* Ship To Dropdown */}
+            <div style={{ flex: '1 1 45%' }}>
             <UserDropdown
               grids={4}
               label="Ship To"
@@ -115,21 +121,29 @@ function Page() {
               option3="Location 3"
               labelSpace="Ship To"
             />
+            </div>
+          </div>
           </div>
 
           {/* Right column */}
           <div className="space-y-4">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            
             {/* No. Dropdown */}
+            <div style={{ flex: '1 1 45%' }}>
             <UserDropdown
               grids={6}
               label="Number"
               option1="No 1"
               option2="No 2"
               option3="No 3"
-              labelSpace="Select Name"
+              labelSpace="Number"
             />
+            </div>
+
 
             {/* Status Input */}
+            <div style={{ flex: '1 1 45%' }}>
             <UserDropdown
               grids={6}
               label="Status"
@@ -137,36 +151,67 @@ function Page() {
               option2="Close"
               labelSpace="Status"
             />
+              </div>
+              </div>
 
+
+             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
             {/* Posting Date */}
-            <RoundedField grids={6} label="Posting Date" id="pDate" name="pDate" type="text"/>
+            <div style={{ flex: '1 1 45%' }}>
+            <RoundedField 
+            grids={4} label="Posting Date" 
+            id="pDate" 
+            name="pDate" 
+            type="text"
+            />
+            </div>
 
             {/* Due Date */}
-            <RoundedField grids={6} label="Due Date" id="dDate" name="dDate" type="text"/>
-
+            <div style={{ flex: '1 1 45%' }}>
+            <RoundedField 
+            grids={4} 
+            label="Due Date" 
+            id="dDate" 
+            name="dDate" 
+            type="text"/>
+            </div>
+            </div>
+            
             {/* Document Date */}
-            <RoundedField grids={6} label="Document Date" id="DocDate" name="DocDate" type="text"/>
+            
+            <RoundedField grids={6} 
+            label="Document Date" 
+            id="DocDate" 
+            name="DocDate" 
+            type="text"/>
+           
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+
+            {/* To Warehouse Dropdown */}
+            <div style={{ flex: '1 1 45%' }}>
+              <UserDropdown
+              grids={6}
+                label="To Warehouse"
+                option1="Warehouse 1"
+                option2="Warehouse 2"
+                option3="Warehouse 3"
+                labelSpace="To Warehouse "
+              />
+            </div>
 
             {/* From Warehouse Dropdown */}
-           
+            <div style={{ flex: '1 1 45%' }}>
               <UserDropdown
-                grids={6}
+              grids={6}
                 label="From Warehouse"
                 option1="Warehouse 1"
                 option2="Warehouse 2"
                 option3="Warehouse 3"
                 labelSpace="From Warehouse"
               />
-
-              {/* To Warehouse Dropdown */}
-              <UserDropdown
-                grids={6}
-                label="To Warehouse"
-                option1="Warehouse 1"
-                option2="Warehouse 2"
-                option3="Warehouse 3"
-                labelSpace="To Warehouse"
-              />
+            </div>
+          </div>
             
           </div>
         </div>
