@@ -63,6 +63,7 @@ function Page() {
   const [rows, setRows] = useState([
     { itemNo: 1, description: '', fromWarehouse: 'WHS-0001', toWarehouse: 'WHS-0001', quantity: '', uomCode: '', uomName: '', moisture: '0.00', rejection: '', grade: '', value: '' },
   ]);
+  
 
   const handleInputChange = (index, e) => {
     const { name, value } = e.target;
@@ -79,7 +80,29 @@ function Page() {
     const updatedRows = rows.filter((_, rowIndex) => rowIndex !== index);
     setRows(updatedRows);
   };
+ {/* Attachment Section */}
 
+  const [rowsA, setRowsA] = useState([
+    { itemNo: 1, targetpath: '', filename: '', attacheddate: '', freetext: '', copytotargetdocument: '' },
+  ]);
+  
+
+  const handleInputChangeA = (index, e) => {
+    const { name, value } = e.target;
+    const updatedRows = [...rowsA];
+    updatedRows[index][name] = value;
+    setRowsA(updatedRows);
+  };
+
+  const handleAddRowA = () => {
+    setRowsA([...rowsA, { itemNo: rowsA.length + 1, targetpath: '', filename: '', attacheddate: '', freetext: '', copytotargetdocument: '' }]);
+  };
+
+  const handleDeleteRowA = (index) => {
+    const updatedRows = rowsA.filter((_, rowIndex) => rowIndex !== index);
+    setRowsA(updatedRows);
+  };
+{/* Attachment Section Ends here */}
   const { secondaryColor } = useColor();
   const [tabValue, setTabValue] = useState(0);
 
@@ -87,30 +110,41 @@ function Page() {
     setTabValue(newValue);
   };
 
+  const { primaryColor } = useColor();
+
   return (
     <Layout>
       <div className="">
         {/* Title Section */}
         <div className="mt-4">
-          <p className="text-2xl font-bold text-black mt-7">Inventory Transfer Request</p>
+          <p className="text-2xl font-bold text-black mt-7 ml-4">Inventory Transfer Request</p>
           <hr className="border-t-2 border-gray-700 mt-5 " />
         </div>
 
-        <div className="grid grid-cols-2 gap-20 bg-white p-6"
+        <div className="grid grid-cols-2 mt-2 gap-20 bg-white p-6"
           style={{
-            border: '1px solid #d0d0d0',
-            borderRadius: '9px',
+            border: '2px solid #d0d0d0',
+            borderRadius: '10px',
           }}>
 
           {/* Left column */}
           <div className="space-y-4">
+            
             <UserDropdown 
             grids={4} 
             label="Business Partner" 
             option1="Partner 1" 
             option2="Partner 2" 
             option3="Partner 3" 
-            labelSpace="Business Partner" />
+            labelSpace="Business Partner" 
+            sx={{
+              '& .MuiInputLabel-root': { // Align the label text
+                textAlign: 'center',       // or 'center', 'right'
+              },
+              '& .MuiSelect-select': {    // Align the dropdown text
+                textAlign: 'center',        // or 'center', 'right'
+              }
+            }}/>
 
             <UserDropdown 
             grids={4} 
@@ -206,7 +240,7 @@ function Page() {
                 option3="Warehouse 3" 
                 labelSpace="To Warehouse" />
               </div>
-              <div style={{ flex: '1 1 40%' }}>
+              <div style={{ flex: '1 1 40%'}}>
 
                 <UserDropdown 
                 grids={6} 
@@ -220,32 +254,50 @@ function Page() {
           </div>
         </div>
 
+
         {/* Tabs Section */}
-        <div className='mt-4 '>
-          <Tabs value={tabValue} onChange={handleTabChange}>
-            <Tab label= "Content" />
-            <Tab label="Attachments" />
-          </Tabs>
+        
+        <div className=" mt-2 p-1" 
+          style={{
+            border: '3px solid #d0d0d0',
+            borderRadius: '10px',
+            background: secondaryColor ,
+          }}>
+
+        <div className='mt-4'>
+        <Tabs value={tabValue} onChange={handleTabChange}>
+          <Tab label="Content" sx={{ fontWeight: 'bold' }} />
+          <Tab label="Attachments" sx={{ fontWeight: 'bold' }} />
+        </Tabs>
 
           {/* Tab Panels */}
           <TabPanel value={tabValue} index={0}>
           
-            <Table component={Paper}>
+          <Table component={Paper} className="shadow-sm shadow-black">
               <TableHead>
                 <TableRow>
-                  <TableCell className='text-lg font-bold'>Item No.</TableCell>
-                  <TableCell className='text-lg font-bold'>Description</TableCell>
-                  <TableCell className='text-lg font-bold'>From Warehouse</TableCell>
-                  <TableCell className='text-lg font-bold'>To Warehouse</TableCell>
-                  <TableCell className='text-lg font-bold'>Quantity</TableCell>
-                  <TableCell className='text-lg font-bold'>UOM Code</TableCell>
-                  <TableCell className='text-lg font-bold'>Action</TableCell>
+                  <TableCell className='text-md font-bold'>S No.</TableCell>
+                  <TableCell className='text-md font-bold'>Item no.</TableCell>
+                  <TableCell className='text-md font-bold'>Description</TableCell>
+                  <TableCell className='text-md font-bold'>From Warehouse</TableCell>
+                  <TableCell className='text-md font-bold'>To Warehouse</TableCell>
+                  <TableCell className='text-md font-bold'>Quantity</TableCell>
+                  <TableCell className='text-md font-bold'>UOM Code</TableCell>
+                  <TableCell className='text-md font-bold'>Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {rows.map((row, index) => (
                   <TableRow key={index}>
                     <TableCell>{row.itemNo}</TableCell>
+                    
+                    <TableCell>
+                      <TextField
+                        name="itemno."
+                        value={row.item}
+                        onChange={(e) => handleInputChange(index, e)}
+                      />
+                    </TableCell>
                     <TableCell>
                       <TextField
                         name="description"
@@ -286,103 +338,110 @@ function Page() {
                         color="primary"
                         onClick={() => handleDeleteRow(index)}
                       >
-                        <RiDeleteBin6Line style={{ fontSize: '24px' }} />
+                        <RiDeleteBin6Line style={{ fontSize: '20px' }} />
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
               <Button
-              variant="contained"
-              color="primary"
-              onClick={handleAddRow}
-              className="mt-4 m-4"
-            >
-              Add Item
-            </Button>
+                variant="contained"
+                color="primary"
+                onClick={handleAddRow}
+                className="mt-4 m-2"
+                style={{
+                  whiteSpace: 'nowrap',   // Prevent text wrapping
+                  width: '102px', 
+                  background: primaryColor,        // Ensure consistent button width
+                }}
+              >
+                Add Item
+              </Button>
             </Table>
             
           </TabPanel>
-
-
-
-
-
+          
           <TabPanel value={tabValue} index={1}>
             {/* Attachments Section */}
-            <Table component={Paper}>
+            <Table component={Paper} className="shadow-sm shadow-black">
               <TableHead>
                 <TableRow>
-                  <TableCell className='text-lg font-bold'>Item No.</TableCell>
-                  <TableCell className='text-lg font-bold'>Target Path</TableCell>
-                  <TableCell className='text-lg font-bold'>File Name</TableCell>
-                  <TableCell className='text-lg font-bold'>Attachment Date</TableCell>
-                  <TableCell className='text-lg font-bold'>Free Text</TableCell>
-                  <TableCell className='text-lg font-bold'>Copy to Target Document</TableCell>
-                  <TableCell className='text-lg font-bold'>Action</TableCell>
+                  <TableCell className='text-md font-bold'>S No.</TableCell>
+                  <TableCell className='text-md font-bold'>Target Path</TableCell>
+                  <TableCell className='text-md font-bold'>File Name</TableCell>
+                  <TableCell className='text-md font-bold'>Attachment Date</TableCell>
+                  <TableCell className='text-md font-bold'>Free Text</TableCell>
+                  <TableCell className='text-md font-bold'>Copy to Target Doc.</TableCell>
+                  <TableCell className='text-md font-bold'>Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row, index) => (
+                {rowsA.map((row, index) => (
                   <TableRow key={index}>
                     <TableCell>{row.itemNo}</TableCell>
                     <TableCell>
                       <TextField
                         name="targetpath"
                         value={row.targetpath}
-                        onChange={(e) => handleInputChange(index, e)}
+                        onChange={(e) => handleInputChangeA(index, e)}
                       />
                     </TableCell>
                     <TableCell>
                       <TextField
                         name="filename"
                         value={row.attachmentdate}
-                        onChange={(e) => handleInputChange(index, e)}
+                        onChange={(e) => handleInputChangeA(index, e)}
                       />
                     </TableCell>
                     <TableCell>
                       <TextField
-                        name="attacheddata"
-                        value={row.attacheddata}
-                        onChange={(e) => handleInputChange(index, e)}
+                        name="attacheddate"
+                        value={row.attacheddate}
+                        onChange={(e) => handleInputChangeA(index, e)}
                       />
                     </TableCell>
                     <TableCell>
                     <TextField
                         name="freetext"
                         value={row.freetext}
-                        onChange={(e) => handleInputChange(index, e)}
+                        onChange={(e) => handleInputChangeA(index, e)}
                       />
                     </TableCell>
                     <TableCell>
                       <TextField
                         name="copytotargetdocument"
                         value={row.copytotargetdocument}
-                        onChange={(e) => handleInputChange(index, e)}
+                        onChange={(e) => handleInputChangeA(index, e)}
                       />
                     </TableCell>
                     <TableCell>
                       <Button
                         color="primary"
-                        onClick={() => handleDeleteRow(index)}
+                        onClick={() => handleDeleteRowA(index)}
                       >
-                        <RiDeleteBin6Line style={{ fontSize: '24px' }} />
+                        <RiDeleteBin6Line style={{ fontSize: '20px' }} />
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
               <Button
-              variant="contained"
-              color="primary"
-              onClick={handleAddRow}
-              className="mt-4 m-4"
-            >
-              Add Item
-            </Button>
+                variant="contained"
+                color="primary"
+                onClick={handleAddRowA}
+                className="mt-4 m-2"
+                style={{
+                  whiteSpace: 'nowrap',   // Prevent text wrapping
+                  width: '102px', 
+                  background: primaryColor,        // Ensure consistent button width
+                }}
+              >
+                Add Item
+              </Button>
             </Table>
           </TabPanel>
         </div>
+      </div>
       </div>
     </Layout>
   );
