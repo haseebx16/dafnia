@@ -73,7 +73,7 @@ function Page() {
       <div className=''>
         {/* Title Section */}
         <div className="mt-4">
-          <p className="text-2xl font-bold text-black mt-7">Purchase Order</p>
+          <p className="text-2xl font-bold text-black mt-7">Sales Order</p>
           <hr className="border-t-2 border-gray-700 mt-5 " />
         </div>
 

@@ -107,7 +107,7 @@ const Sidebar = () => {
             onClick={() => setPurchase(!purchase)}
           >
             <BiPurchaseTagAlt
-            size={"24px"}/>&nbsp;&nbsp;Purchase
+            size={"24px"}/>&nbsp;&nbsp;Sales
           </p>
           {purchase && (
             <div className="mr-4 w-full font-light text-sm">
