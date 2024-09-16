@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { TextField, Grid } from '@mui/material';
+import Grid from '@mui/material/Grid'; 
+
 import { useColor } from '@/app/context/ColorContext';
 
 const TextBar = ({ id, name, label, type, grids, ...props }) => {
@@ -10,37 +11,38 @@ const TextBar = ({ id, name, label, type, grids, ...props }) => {
 
   return (
     <Grid item xs={grids}>
-      <TextField
-        fullWidth
-        id={id}
-        name={name}
-        className='rounded-md'
-        label={label}
-        type={type}
-        variant="outlined"
-        sx={{
-          backgroundColor: secondaryColor,
-          fontSize: '14px',
-          '& .MuiOutlinedInput-root': {
-            borderRadius: '8px',
-            height: '36px',
-            padding: '0px 8px',
-            '& input': {
-              height: '24px',
-              padding: '4px 8px',
-              fontSize: '14px',
-            }
-          },
-          '& .MuiInputLabel-root': {
-            fontSize: '14px',
-            top: '-6px',
-          }, //hello world
-          '& .MuiFormLabel-filled': {
-            top: '0px',
-          },
-        }}
-        {...props}
-      />
+      <div className="space-y-2" style={{ width: "500px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            padding: "4px",
+            background: secondaryColor,
+            borderRadius: "6px",
+            border: "2px solid #ccc",
+          }}
+        >
+          <label style={{ flex: 1, fontWeight: "bold", fontSize: "14px" }}>
+            {label}
+          </label>
+          <input
+            id={id} 
+            name={name} 
+            type={type}
+            placeholder="Enter text here"
+            style={{
+              flex: 2,
+              padding: "2px",
+              fontSize: "12px",
+              borderRadius: "4px",
+              border: "2px solid #ccc",
+              width: '100%',
+            }}
+            {...props} 
+          />
+        </div>
+      </div>
+      
     </Grid>
   );
 };

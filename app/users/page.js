@@ -13,8 +13,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/layout/layout';
-import Pagination from '../components/pagination/pagination'; // Ensure this path is correct
+import Layout from '../components/Layout/Layout';
+import Pagination from '../components/pagination/Pagination';
 import { IoMdAdd } from "react-icons/io";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
