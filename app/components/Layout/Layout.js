@@ -4,9 +4,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Sidebar from './sidebar'; // Assuming Sidebar is already implemented
+import Sidebar from './sidebar';
 import { useColor } from '../../context/ColorContext';
-import CustomButton from '../logout-button/button';
+import CustomButton from '../buttons/customButton/customButton';
 import { font } from '../font/poppins';
 
 export default function Layout({ children }) {

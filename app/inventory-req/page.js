@@ -1,5 +1,5 @@
 "use client";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/layout/layout";
 import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useColor } from "../context/ColorContext";
@@ -17,8 +17,7 @@ import {
   Tab,
   Box,
 } from "@mui/material";
-import UserDropdown from "../components/Dropdown/UserDropdown";
-import RoundedField from "../components/text-field/field";
+import { font } from "../components/font/poppins";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -157,7 +156,7 @@ function Page() {
 
   return (
     <Layout>
-      <div className="">
+      <div className={`${font.className}`}>
 
   {/* Title Section */}
   <div className="mt-4">
@@ -763,18 +762,19 @@ function Page() {
                 />
               </TableCell>
               <TableCell>
-                <Button           
-                  onClick={() => handleDeleteRowA(index)}
-                  sx={{
-                    transition: "background-color 0.3s, color 0.3s",
-                    "&:hover": {
-                      color: "red",
-                    },
-                  }}
-                  style={{ fontSize: "14px" }}
-                >
-                  <RiDeleteBin6Line style={{ fontSize: "16px" }} />
-                </Button>
+              <Button           
+                onClick={() => handleDeleteRowA(index)}
+                sx={{
+                  transition: "background-color 0.3s, color 0.3s",
+                  color: `${primaryColor}`,  // Force apply the primaryColor
+                  fontSize: "14px",
+                  "&:hover": {
+                    color: "red",
+                  },
+                }}
+              >
+                <RiDeleteBin6Line sx={{ fontSize: "16px", color: `inherit` }} />
+              </Button>
               </TableCell>
             </TableRow>
           ))}

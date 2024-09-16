@@ -4,7 +4,7 @@ import React from 'react';
 import { TextField, Grid } from '@mui/material';
 import { useColor } from '@/app/context/ColorContext';
 
-const RoundedField = ({ id, name, label, type, grids, ...props }) => {
+const TextBar = ({ id, name, label, type, grids, ...props }) => {
 
   const { secondaryColor } = useColor();
 
@@ -20,23 +20,23 @@ const RoundedField = ({ id, name, label, type, grids, ...props }) => {
         variant="outlined"
         sx={{
           backgroundColor: secondaryColor,
-          fontSize: '14px', // Adjust font size for the input
+          fontSize: '14px',
           '& .MuiOutlinedInput-root': {
             borderRadius: '8px',
-            height: '36px',  // Adjust the overall height of the TextField
-            padding: '0px 8px',  // Adjust padding for more compactness
+            height: '36px',
+            padding: '0px 8px',
             '& input': {
-              height: '24px',  // Set a specific height for the input text area
-              padding: '4px 8px', // Control padding inside the input
-              fontSize: '14px', // Reduce font size inside the input
+              height: '24px',
+              padding: '4px 8px',
+              fontSize: '14px',
             }
           },
           '& .MuiInputLabel-root': {
-            fontSize: '14px',  // Reduce label font size
-            top: '-6px',  // Align label better with a reduced height
+            fontSize: '14px',
+            top: '-6px',
           },
           '& .MuiFormLabel-filled': {
-            top: '0px',  // Adjust when the input is filled
+            top: '0px',
           },
         }}
         {...props}
@@ -45,4 +45,4 @@ const RoundedField = ({ id, name, label, type, grids, ...props }) => {
   );
 };
 
-export default RoundedField;
+export default TextBar;

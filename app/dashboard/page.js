@@ -1,12 +1,24 @@
 "use client"
 
 import React from 'react';
-import Link from 'next/link';
-import Sidebar from '../components/Layout/sidebar';
 import { useColor } from '../context/ColorContext';
-import CustomButton from '../components/logout-button/button';
-import { font } from '../components/font/poppins';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/layout/layout';
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </div>
+  );
+}
 
 export default function Page() {
   const { primaryColor , secondaryColor } = useColor();
@@ -21,7 +33,7 @@ export default function Page() {
            backgroundImage: `linear-gradient(to bottom, white 1%, ${secondaryColor} 90%, ${primaryColor} 200%)`,
            color: 'black'
          }}>
-      <p className="font-bold text-white p-2 rounded-md text-xl mb-4" style={{ backgroundColor: primaryColor }}>
+      <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
         Open AP Invoices
       </p>
       <div className="flex justify-center items-center flex-wrap">
@@ -41,7 +53,7 @@ export default function Page() {
            backgroundImage: `linear-gradient(to bottom, white 1%, ${secondaryColor} 90%, ${primaryColor} 200%)`,
            color: 'black'
          }}>
-      <p className="font-bold text-white p-2 rounded-md text-xl mb-4" style={{ backgroundColor: primaryColor }}>
+      <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
         Pending AP Invoices
       </p>
       <div className="flex justify-center items-center flex-wrap">
@@ -61,7 +73,7 @@ export default function Page() {
            backgroundImage: `linear-gradient(to bottom, white 1%, ${secondaryColor} 90%, ${primaryColor} 200%)`,
            color: 'black'
          }}>
-      <p className="font-bold text-white p-2 rounded-md text-xl mb-4" style={{ backgroundColor: primaryColor }}>
+      <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
         Approved AP Invoices
       </p>
       <div className="flex justify-center items-center flex-wrap">
@@ -81,7 +93,7 @@ export default function Page() {
            backgroundImage: `linear-gradient(to bottom, white 1%, ${secondaryColor} 90%, ${primaryColor} 200%)`,
            color: 'black'
          }}>
-      <p className="font-bold text-white p-2 rounded-md text-xl mb-4" style={{ backgroundColor: primaryColor }}>
+      <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
         Open Shipments
       </p>
       <div className="flex justify-center items-center flex-wrap">

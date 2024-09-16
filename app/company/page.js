@@ -13,9 +13,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/layout/layout';
 import { IoMdAdd } from "react-icons/io";
-import Pagination from '../components/pagination/Pagination';
+import Pagination from '../components/pagination/pagination';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {

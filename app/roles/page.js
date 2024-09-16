@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import { FormControl, Select, MenuItem, Grid, Paper } from '@mui/material';
 import { useColor } from '../context/ColorContext';
 import { font } from '../components/font/poppins';
-import CheckboxGroup from '../components/Checkbox/Checkbox';
-import Layout from '../components/Layout/Layout';
+import CheckboxGroup from '../components/checkBox/checkBox';
+import Layout from '../components/layout/layout';
 
 const Page = () => {
   const [role, setRole] = useState('Select A Role');
+  const { secondaryColor } = useColor();
 
   const [sales, setSales] = useState({
     SalesBlanketAgreement: false,
@@ -111,9 +112,9 @@ const Page = () => {
                     onChange={handleRoleChange}
                     displayEmpty
                     style={{
-                      backgroundColor: '#F0F8FD',
+                      backgroundColor: secondaryColor,
                       border: '1px solid #d0d0d0',
-                      borderRadius: '4px',
+                      borderRadius: '8px',
                       padding: '10px',
                       height: '48px',
                       width: '660px',
