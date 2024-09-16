@@ -212,7 +212,7 @@ function Page() {
         display: "flex",
         alignItems: "center",
         padding: "4px",
-        background: "#f0f4ff",
+        background: secondaryColor,
         borderRadius: "6px",
         border: "2px solid #ccc",
       }}
@@ -242,7 +242,7 @@ function Page() {
       display: "flex",
       alignItems: "center",
       padding: "4px",
-      background: "#f0f4ff",
+      background: secondaryColor,
       borderRadius: "6px",
       border: "2px solid #ccc",
     }}
@@ -300,7 +300,7 @@ function Page() {
   style={{
     display: "flex",
     flexDirection: "column",
-    gap: "40px", // Adjust this value for more or less space between the fields
+    gap: "40px", 
   }}
 >
 {/* Additional text field below without label */}
@@ -476,7 +476,7 @@ function Page() {
   style={{
     display: "flex",
     flexDirection: "column",
-    gap: "40px", // Adjust this value for more or less space between the fields
+    gap: "40px", 
   }}
 >
   {/* Document Date */}
@@ -588,7 +588,7 @@ function Page() {
 >
   <div className="mt-0 mb-0">
     <Tabs value={tabValue} onChange={handleTabChange}>
-      <Tab label="Content" sx={{ fontWeight: "bold", fontSize: "12px" }} /> 
+      <Tab label="Content" sx={{ fontWeight: "bold", fontSize: "12px"  }} /> 
       <Tab label="Attachments" sx={{ fontWeight: "bold", fontSize: "12px" }} />
     </Tabs>
 
@@ -666,12 +666,17 @@ function Page() {
                 />
               </TableCell>
               <TableCell>
-                <Button
-                  color="primary"
+              <Button           
                   onClick={() => handleDeleteRow(index)}
-                  style={{ fontSize: "14px" }} // Reduced font size for button
+                  sx={{
+                    transition: "background-color 0.3s, color 0.3s",
+                    "&:hover": {
+                      color: "red",
+                    },
+                  }}
+                  style={{ fontSize: "14px" }}
                 >
-                  <RiDeleteBin6Line style={{ fontSize: "16px" }} /> {/* Adjusted icon size */}
+                  <RiDeleteBin6Line style={{ fontSize: "16px" }} />
                 </Button>
               </TableCell>
             </TableRow>
@@ -684,9 +689,9 @@ function Page() {
           className="mt-4 m-2"
           style={{
             whiteSpace: "nowrap",
-            width: "100px", // Reduced button width
+            width: "auto",
             background: primaryColor,
-            fontSize: "14px", // Reduced font size for button
+            fontSize: "12px", 
           }}
         >
           Add Item
@@ -758,8 +763,7 @@ function Page() {
                 />
               </TableCell>
               <TableCell>
-                <Button
-                  color="primary"
+                <Button           
                   onClick={() => handleDeleteRowA(index)}
                   sx={{
                     transition: "background-color 0.3s, color 0.3s",
@@ -767,9 +771,9 @@ function Page() {
                       color: "red",
                     },
                   }}
-                  style={{ fontSize: "14px" }} // Reduced font size for button
+                  style={{ fontSize: "14px" }}
                 >
-                  <RiDeleteBin6Line style={{ fontSize: "16px" }} /> {/* Adjusted icon size */}
+                  <RiDeleteBin6Line style={{ fontSize: "16px" }} />
                 </Button>
               </TableCell>
             </TableRow>
@@ -782,8 +786,8 @@ function Page() {
           className="mt-4 m-2"
           style={{
             whiteSpace: "nowrap",
-            width: "100px",
-            background: secondaryColor,
+            width: "auto",
+            background: primaryColor,
             fontSize: "12px", 
           }}
         >

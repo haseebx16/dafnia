@@ -19,7 +19,14 @@ export default function Layout({ children }) {
       {/* Navbar / Header */}
       <header className="flex items-center justify-between px-6 w-full border border-gray-100"  style={{ background: navbar ? secondaryColor : "bg-blue-50" }}>
         <img src="/dafnia-png.png" className='w-auto h-16 p-2' alt="Dafnia Logo" />
-        <h1 className="text-2xl font-semibold " style={{color: primaryColor}}>Welcome To Dafnia Portal</h1>
+        
+        <h1
+          className="text-2xl font-semibold"
+          style={{ color: primaryColor, filter: 'brightness(70%)' }} 
+        >
+          Welcome To Dafnia Portal
+        </h1>
+
         <Link href='/'>
           <CustomButton title="Logout" />
         </Link>
