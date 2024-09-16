@@ -186,14 +186,14 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Business Partner:
       </label>
       <select
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
         }}
@@ -216,14 +216,14 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Name:
       </label>
       <select
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
         }}
@@ -246,14 +246,14 @@ function Page() {
       border: "2px solid #ccc",
     }}
   >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
       Contact Person:
     </label>
     <select
       style={{
         flex: 2,
         padding: "2px",
-        fontSize: "10px",
+        fontSize: "12px",
         borderRadius: "4px",
         border: "2px solid #ccc",
       }}
@@ -277,14 +277,14 @@ function Page() {
     border: "2px solid #ccc",
   }}
 >
-  <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+  <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
     Ship To:
   </label>
   <select
     style={{
       flex: 2,
       padding: "2px",
-      fontSize: "10px",
+      fontSize: "12px",
       borderRadius: "4px",
       border: "2px solid #ccc",
     }}
@@ -310,7 +310,7 @@ function Page() {
     height: "80px",
     padding: "5px",
     marginTop: "4px",
-    fontSize: "10px",
+    fontSize: "12px",
     border: "2px solid #ccc",
     borderRadius: "4px",
   }}
@@ -328,14 +328,14 @@ function Page() {
       border: "2px solid #ccc",
     }}
   >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
     Price List:
     </label>
     <select
       style={{
         flex: 2,
         padding: "2px",
-        fontSize: "10px",
+        fontSize: "12px",
         borderRadius: "4px",
         border: "2px solid #ccc",
       }}
@@ -364,14 +364,14 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Number:
       </label>
       <select
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
           backgroundColor: "white",
@@ -395,14 +395,14 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Status:
       </label>
       <select
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
           backgroundColor: "white",
@@ -425,7 +425,7 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Posting Date:
       </label>
       <input
@@ -435,7 +435,7 @@ function Page() {
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
           backgroundColor: "white",
@@ -454,7 +454,7 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         Due Date:
       </label>
       <input
@@ -464,7 +464,7 @@ function Page() {
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
           backgroundColor: "white",
@@ -489,7 +489,7 @@ function Page() {
       border: "2px solid #ccc",
     }}
   >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
       Document Date:
     </label>
     <input
@@ -499,7 +499,7 @@ function Page() {
       style={{
         flex: 2,
         padding: "2px",
-        fontSize: "10px",
+        fontSize: "12px",
         borderRadius: "4px",
         border: "2px solid #ccc",
         backgroundColor: "white",
@@ -518,14 +518,14 @@ function Page() {
       border: "2px solid #ccc",
     }}
   >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
       From Warehouse:
     </label>
     <select
       style={{
         flex: 2,
         padding: "2px",
-        fontSize: "10px",
+        fontSize: "12px",
         borderRadius: "4px",
         border: "2px solid #ccc",
         backgroundColor: "white",
@@ -551,14 +551,14 @@ function Page() {
         border: "2px solid #ccc",
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "10px" }}>
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
         To Warehouse:
       </label>
       <select
         style={{
           flex: 2,
           padding: "2px",
-          fontSize: "10px",
+          fontSize: "12px",
           borderRadius: "4px",
           border: "2px solid #ccc",
           backgroundColor: "white",
@@ -616,7 +616,7 @@ function Page() {
                   value={row.item}
                   onChange={(e) => handleInputChange(index, e)}
                   size="small" // Reduced field size
-                  inputProps={{ style: { fontSize: "12px" } }} // Reduced font size inside the field
+                  inputProps={{ style: { fontSize: "12px" } }} 
                 />
               </TableCell>
               <TableCell>
@@ -666,17 +666,18 @@ function Page() {
               </TableCell>
               <TableCell>
               <Button           
-                  onClick={() => handleDeleteRow(index)}
-                  sx={{
-                    transition: "background-color 0.3s, color 0.3s",
-                    "&:hover": {
-                      color: "red",
-                    },
-                  }}
-                  style={{ fontSize: "14px" }}
-                >
-                  <RiDeleteBin6Line style={{ fontSize: "16px" }} />
-                </Button>
+                onClick={() => handleDeleteRow(index)}
+                sx={{
+                  transition: "background-color 0.3s, color 0.3s",
+                  color: `${primaryColor}`,  
+                  fontSize: "16px",
+                  "&:hover": {
+                    color: "red",
+                  },
+                }}
+              >
+                <RiDeleteBin6Line sx={{ fontSize: "16px", color: `inherit` }} />
+              </Button>
               </TableCell>
             </TableRow>
           ))}
@@ -766,8 +767,8 @@ function Page() {
                 onClick={() => handleDeleteRowA(index)}
                 sx={{
                   transition: "background-color 0.3s, color 0.3s",
-                  color: `${primaryColor}`,  // Force apply the primaryColor
-                  fontSize: "14px",
+                  color: `${primaryColor}`,  
+                  fontSize: "16px",
                   "&:hover": {
                     color: "red",
                   },

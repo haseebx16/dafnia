@@ -85,7 +85,7 @@ const Page = () => {
             onMouseEnter={() => setCreate(true)}
             onMouseLeave={() => setCreate(false)}
             style={{ backgroundColor: create ? primaryColor : primaryColor }}
-            className="p-2 mt-5 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+            className="p-2 mt-5 mr-6 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
           >
             <IoMdAdd size={24} />
             Create Users
