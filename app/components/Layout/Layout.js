@@ -18,8 +18,8 @@ export default function Layout({ children }) {
     <div className={`${font.className} min-h-screen flex flex-col`}>
       {/* Navbar / Header */}
       <header className="flex items-center justify-between px-6 w-full border border-gray-100"  style={{ background: navbar ? secondaryColor : "bg-blue-50" }}>
-        <img src="/dafnia-png.png" className='w-auto h-24 p-2' alt="Dafnia Logo" />
-        <h1 className="text-3xl font-semibold">Welcome To Dafnia Portal</h1>
+        <img src="/dafnia-png.png" className='w-auto h-16 p-2' alt="Dafnia Logo" />
+        <h1 className="text-2xl font-semibold " style={{color: primaryColor}}>Welcome To Dafnia Portal</h1>
         <Link href='/'>
           <CustomButton title="Logout" />
         </Link>
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
       {/* Main Content with Sidebar */}
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-3 bg-gray-100">
+        <main className="flex-1  bg-gray-100">
           {children}
         </main>
       </div>
