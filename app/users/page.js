@@ -78,69 +78,90 @@ const Page = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between">
-        <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Users</p>
-        <Link href="/create-users">
-          <button
-            onMouseEnter={() => setCreate(true)}
-            onMouseLeave={() => setCreate(false)}
-            style={{ backgroundColor: create ? primaryColor : primaryColor }}
-            className="p-2 mt-5 mr-6 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
-          >
-            <IoMdAdd size={24} />
-            Create Users
-          </button>
-        </Link>
-      </div>
-      <hr className="border-gray-700 w-full" />
-      <div className="w-full flex justify-center mt-8">
-        <input 
-          type="text" 
-          placeholder="Search by User ID" 
-          value={searchQuery} 
-          onChange={handleSearch} 
-          className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-          style={{ maxWidth: '1200px' }}
-        />
-      </div>
-      <div className="w-full flex justify-center ">
-      <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
-        <Table sx={{ minWidth: 500, maxwidth:600 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell className="font-bold " sx={{ width: '20%' }}>User ID</StyledTableCell>
-              <StyledTableCell className="font-bold" align='left' sx={{ width: '20%' }}>User Name</StyledTableCell>
-              <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Action</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {paginatedRows.map((row) => (
-              <StyledTableRow key={row.id}>
-                <StyledTableCell component="th" scope="row">
-                  {row.id}
-                </StyledTableCell>
-                <StyledTableCell align="left">{row.name}</StyledTableCell>
-                <StyledTableCell align="left">
-                  <div className="flex">
-                    <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
-                  </div>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      </div>
-      <div className='mr-28'>
-      <div className="w-full flex justify-end items-center mt-8">
-        <Pagination
-          count={Math.ceil(filteredRows.length / rowsPerPage)}
-          page={page}
-          onPageChange={handlePageChange}
-        />
-      </div>
-      </div>
-    </Layout>
+    <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
+      <Paper
+        elevation={3}
+        style={{
+          backgroundColor: 'white',
+          border: '1px solid #d0d0d0',
+          borderRadius: '8px',
+          padding: '20px',
+          width: '100%',
+          height: '100%',         
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Users</p>
+          <Link href="/create-users">
+            <button
+              onMouseEnter={() => setCreate(true)}
+              onMouseLeave={() => setCreate(false)}
+              style={{ backgroundColor: create ? primaryColor : primaryColor }}
+              className="p-2 mt-5 mr-6 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
+            >
+              <IoMdAdd size={24} />
+              Create Users
+            </button>
+          </Link>
+        </div>
+        <hr className="border-gray-700 w-full" />
+        
+        {/* Centering the input field */}
+        <div className="w-full flex justify-center mt-8">
+          <input 
+            type="text" 
+            placeholder="Search by User ID" 
+            value={searchQuery} 
+            onChange={handleSearch} 
+            className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+            style={{ maxWidth: '1200px' }}
+          />
+        </div>
+  
+        {/* Table Section */}
+        <div className="w-full flex justify-center">
+          <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
+            <Table sx={{ minWidth: 500, maxwidth: 600 }} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell className="font-bold" sx={{ width: '20%' }}>User ID</StyledTableCell>
+                  <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>User Name</StyledTableCell>
+                  <StyledTableCell className="font-bold" align="left" sx={{ width: '20%' }}>Action</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {paginatedRows.map((row) => (
+                  <StyledTableRow key={row.id}>
+                    <StyledTableCell component="th" scope="row">
+                      {row.id}
+                    </StyledTableCell>
+                    <StyledTableCell align="left">{row.name}</StyledTableCell>
+                    <StyledTableCell align="left">
+                      <div className="flex">
+                        <FaRegEye size={36} className="border-2 border-blue-600 p-2 rounded-full" />
+                      </div>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+  
+        {/* Pagination */}
+        <div className="mr-28">
+          <div className="w-full flex justify-end items-center mt-8">
+            <Pagination
+              count={Math.ceil(filteredRows.length / rowsPerPage)}
+              page={page}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </div>
+      </Paper>
+    </main>
+  </Layout>
+  
   );
 };
 

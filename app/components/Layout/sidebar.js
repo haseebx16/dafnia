@@ -47,7 +47,13 @@ const Sidebar = () => {
   );
 
   return (
-    <aside  className={`${font.className} w-64 text-black `} style={{ background:`linear-gradient(to bottom, white 10%, ${secondaryColor} 60%, ${primaryColor} 200%)`,}} >
+    <aside  className=
+    {`${font.className} w-64 text-black `} 
+    style={{ background:`linear-gradient(to bottom, white 10%,${secondaryColor} 60%, ${primaryColor} 200%)`,
+    
+    }} 
+    >
+
       <nav className="flex-1 px-4 mt-6 space-y-4">
         {renderLink('/dashboard', FaHome, 'Home')}
         {renderLink('/company', GoGraph, 'Company')}

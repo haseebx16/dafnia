@@ -78,6 +78,19 @@ const Page = () => {
 
   return (
     <Layout>
+  <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
+    <Paper
+      elevation={3}
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid #d0d0d0',
+        borderRadius: '8px',
+        padding: '20px',
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      {/* Manage Company Section */}
       <div className="flex justify-between items-center">
         <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Company</p>
         <Link href="/create-company">
@@ -93,7 +106,7 @@ const Page = () => {
         </Link>
       </div>
       <hr className="border-gray-700 w-full" />
-      
+
       {/* Centering the input field */}
       <div className="w-full flex justify-center mt-8">
         <input 
@@ -105,7 +118,7 @@ const Page = () => {
           style={{ maxWidth: '1200px' }}
         />
       </div>
-      
+
       {/* Centering the table */}
       <div className="w-full flex justify-center">
         <TableContainer component={Paper} className="mt-8" sx={{ maxWidth: 1200 }}>
@@ -135,18 +148,21 @@ const Page = () => {
           </Table>
         </TableContainer>
       </div>
-      
+
       {/* Pagination */}
-      <div className='mr-28'>
-      <div className="w-full flex justify-end mt-8">
-        <Pagination
-          count={Math.ceil(filteredRows.length / rowsPerPage)}
-          page={page}
-          onPageChange={handlePageChange}
-        />
+      <div className="mr-28">
+        <div className="w-full flex justify-end mt-8">
+          <Pagination
+            count={Math.ceil(filteredRows.length / rowsPerPage)}
+            page={page}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
-      </div>
-    </Layout>
+    </Paper>
+  </main>
+</Layout>
+
   );
 };
 

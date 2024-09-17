@@ -156,24 +156,35 @@ function Page() {
 
   return (
     <Layout>
+ <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
       <div className={`${font.className}`}>
 
   {/* Title Section */}
-  <div className="mt-4">
-    <p className="text-2xl font-bold text-black mt-7 ml-4">
-      Inventory Transfer Request
-    </p>
-    <hr className="border-t-2 border-gray-700 mt-5 " />
-  </div>
+  <Paper
+        elevation={3}
+        style={{
+          backgroundColor: 'white',
+          border: '1px solid #d0d0d0',
+          borderRadius: '8px',
+          padding: '20px',
+          width: '100%',
+          height: '100%',         
+        }}
+      >
+  <p className="text-2xl font-bold text-black mt-3 ml-2">
+    Inventory Transfer Request
+  </p>
+  <hr className="border-t-2 border-gray-700 mt-5" />
 
-  {/* top Section */}
+
+{/* Top Section */}
 <div
-  className="grid grid-cols-2 mt-2 ml-2 mr-2 gap-96 bg-white p-4 shadow-md shadow-slate-400"
-  style={{
-    border: "2px solid #d0d0d0",
-    borderRadius: "8px",
-  }}
+  className="grid grid-cols-2 mt-2 ml-2 mr-2 gap-80"
+  
 >
+  {/* Your content for the top section goes here */}
+
+
   {/* Left column */}
   <div className="space-y-2" style={{ width: "400px" }}>
     <div
@@ -573,27 +584,53 @@ function Page() {
    
   </div>
 </div>
+</Paper>
 
+<div className="mt-2 mb-0"></div>
 
 {/* bottom Tab section */}
 
-<div
-  className="ml-2 mr-2 mt-2 p-1" 
-  style={{
-    border: "3px solid #d0d0d0",
-    borderRadius: "10px",
-    background: secondaryColor,
-  }}
->
-  <div className="mt-0 mb-0">
-    <Tabs value={tabValue} onChange={handleTabChange}>
-      <Tab label="Content" sx={{ fontWeight: "bold", fontSize: "12px"  }} /> 
-      <Tab label="Attachments" sx={{ fontWeight: "bold", fontSize: "12px" }} />
-    </Tabs>
+<Paper
+      elevation={3}
+      style={{
+        backgroundColor: secondaryColor,
+        border: '1px solid #d0d0d0',
+        borderRadius: '8px',
+        padding: '20px',
+        width: '100%',
+        height: '100%',
+      }}
+    >
+
+  <Tabs
+    value={tabValue}
+    onChange={handleTabChange}
+    sx={{
+      fontWeight: 'bold',
+      fontSize: '14px',
+      '.MuiTab-root': {
+        padding: '2px 1px', 
+      },
+      '.MuiTabs-flexContainer': {
+        justifyContent: 'left', 
+      },
+    }}
+  >
+    <Tab label="Content" sx={{ fontWeight: 'bold',fontSize: '12px' }} />
+
+    <Tab label="Attachments" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
+  </Tabs>
 
     {/* Tab Panels */}
-    <TabPanel value={tabValue} index={0}>
-      <Table component={Paper} className="shadow-sm shadow-black">
+    <TabPanel
+    value={tabValue}
+    index={0}
+    style={{
+      padding: '1px',      
+      overflowY: 'auto', 
+    }}
+  >
+      <Table component={Paper} className="shadow-sm shadow-slate-800">
         <TableHead>
           <TableRow>
             <TableCell className="text-sm font-bold">S No.</TableCell> 
@@ -686,7 +723,7 @@ function Page() {
           variant="contained"
           color="primary"
           onClick={handleAddRow}
-          className="mt-4 m-2"
+          className="mt-2 m-2"
           style={{
             whiteSpace: "nowrap",
             width: "auto",
@@ -699,8 +736,17 @@ function Page() {
       </Table>
     </TabPanel>
 
-    <TabPanel value={tabValue} index={1}>
-      {/* Attachments Section */}
+     {/* Attachments Section */}
+
+     <TabPanel
+    value={tabValue}
+    index={1}
+    style={{
+      padding: '1px',      
+      overflowY: 'auto', 
+    }}
+  >
+     
       <Table component={Paper} className="shadow-sm shadow-black">
         <TableHead>
           <TableRow>
@@ -784,7 +830,7 @@ function Page() {
           variant="contained"
           color="primary"
           onClick={handleAddRowA}
-          className="mt-4 m-2"
+          className="mt-2 m-2"
           style={{
             whiteSpace: "nowrap",
             width: "auto",
@@ -796,10 +842,11 @@ function Page() {
         </Button>
       </Table>
     </TabPanel>
-  </div>
-</div>
+  
+</Paper>
 
   </div>
+  </main>
     </Layout>
   );
 }
