@@ -49,7 +49,8 @@ const Page = () => {
                 name="file"  
                 type="file" 
                 grids={6}
-                onChange={handleImageChange} 
+                onChange={handleImageChange}
+                style={{padding:"0px ", background:"cover", display:"flex-start"}} 
               />
               <Grid item xs={4}>
                 <Typography>Primary Color</Typography>

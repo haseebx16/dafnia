@@ -32,3 +32,9 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}

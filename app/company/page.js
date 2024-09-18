@@ -13,10 +13,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/layout/Layout';
 import { IoMdAdd } from "react-icons/io";
-import Pagination from '../components/pagination/Pagination';
+import Pagination from '../components/pagination/pagination';
 import TextBar from '../components/fields/textField/textBar';
+import AddButton from '../components/buttons/addButton/addButton';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -95,16 +96,7 @@ const Page = () => {
       <div className="flex justify-between items-center">
         <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Company</p>
         <Link href="/create-company">
-          
-          <button
-            onMouseEnter={() => setCreate(true)}
-            onMouseLeave={() => setCreate(false)}
-            style={{ backgroundColor: create ? primaryColor : primaryColor }}
-            className="p-2 mr-6 mt-5 flex bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
-          >
-            <IoMdAdd size={24} />
-            Create Company
-          </button>
+          <AddButton label="Create Company" fontSize="md" primaryColor={primaryColor}/>
         </Link>
       </div>
       <hr className="border-gray-700 w-full" />

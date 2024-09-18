@@ -8,6 +8,7 @@ import { font } from '../font/poppins';
 import { useColor } from '../../context/ColorContext'; 
 import { MdOutlineInventory2 } from "react-icons/md";
 import { TbPointFilled } from "react-icons/tb";
+import { LuPackage } from "react-icons/lu";
 
 const Sidebar = () => {
   const { primaryColor, secondaryColor } = useColor();
@@ -59,6 +60,8 @@ const Sidebar = () => {
         {renderLink('/company', GoGraph, 'Company')}
         {renderLink('/users', FaUser, 'Users')}
         {renderLink('/roles', FaUsers, 'Roles')}
+        {renderLink('/sales-order', LuPackage, 'Sales Order')}
+
         {/* {renderLink('/inventory-req', MdOutlineInventory2, "Inventory")} */}
 
         {/* Inventory Main Tab */}

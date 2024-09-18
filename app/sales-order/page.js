@@ -174,7 +174,7 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-    Inventory Transfer Request
+    Sales Order
   </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 

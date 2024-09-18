@@ -16,6 +16,7 @@ import { useColor } from '../context/ColorContext';
 import Layout from '../components/Layout/Layout';
 import Pagination from '../components/pagination/Pagination';
 import { IoMdAdd } from "react-icons/io";
+import AddButton from '../components/buttons/addButton/addButton';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -76,6 +77,8 @@ const Page = () => {
     setPage(value);
   };
 
+
+
   return (
     <Layout>
     <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
@@ -93,15 +96,7 @@ const Page = () => {
         <div className="flex items-center justify-between">
           <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Users</p>
           <Link href="/create-users">
-            <button
-              onMouseEnter={() => setCreate(true)}
-              onMouseLeave={() => setCreate(false)}
-              style={{ backgroundColor: create ? primaryColor : primaryColor }}
-              className="p-2 mt-5 mr-6 flex  bg-sky-600 text-mb font-bold rounded-md mb-6 text-white shadow-gray-400 shadow-md"
-            >
-              <IoMdAdd size={24} />
-              Create Users
-            </button>
+            <AddButton label="Add Users" primaryColor={primaryColor}/>
           </Link>
         </div>
         <hr className="border-gray-700 w-full" />
