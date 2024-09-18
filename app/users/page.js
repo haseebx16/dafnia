@@ -108,15 +108,19 @@ const Page = () => {
         
         {/* Centering the input field */}
         <div className="w-full flex justify-center mt-8">
-          <input 
-            type="text" 
-            placeholder="Search by User ID" 
-            value={searchQuery} 
-            onChange={handleSearch} 
-            className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
-            style={{ maxWidth: '1200px' }}
-          />
-        </div>
+    <input
+      type="text"
+      placeholder="Search by User ID"
+      value={searchQuery}
+      onChange={handleSearch}
+      className="w-full p-3 border flex justify-center items-center border-gray-300 rounded-md focus:outline-none focus:ring-2"
+      style={{ 
+        maxWidth: '1200px',
+        backgroundColor: secondaryColor,
+        color: 'black', 
+      }}
+    />
+  </div>
   
         {/* Table Section */}
         <div className="w-full flex justify-center">

@@ -33,11 +33,13 @@ const Page = () => {
         <Layout>
         <main className="flex-1 p-6 bg-gray-100">
           <div className="flex space-x-4 items-center">
-          <Link href="/company"><IoMdArrowBack size={36} className='mt-1 border-2 border-blue-600 p-2 rounded-full'/></Link>
+          <Link href="/company"><IoMdArrowBack size={36} className='mt-1 border-2 border-blue-600 p-2 rounded-full'
+          /></Link>
+          
           <p className="text-2xl  mt-1 text-black">Create Company</p>
           </div>
           <hr className="border-gray-700 w-full mt-4" />
-          <form onSubmit="" className='bg-white p-6 pb-8 pt-1 rounded-xl mt-2 min-h-52 '>
+          <form onSubmit="" className='bg-white p-6 pb-9 pt-1 rounded-xl mt-2 min-h-52 '>
             <Grid container spacing={2} mt={2}>
               <TextBar grids={6} id="company" name="company" label="Company Name" type="text" />
               <TextBar grids={6} id="desc" name="desc" label="Description" type="text"/>

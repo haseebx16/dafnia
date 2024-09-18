@@ -27,6 +27,7 @@ export default function Page() {
     <Layout>
        <main className="flex-1 p-3 bg-gray-100">
   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
     {/* Card 1 */}
     <div className="p-6 rounded-lg text-center hover:cursor-pointer duration-400 group shadow-md shadow-slate-400"
          style={{
@@ -39,7 +40,13 @@ export default function Page() {
       <div className="flex justify-center items-center flex-wrap">
         <p className="text-gray-600 font-bold text-2xl ml-12">38</p>
         <p className="text-gray-600 font-bold text-2xl ml-16">150M</p>
-        <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+        <p className="text-xs p-1 rounded-md ml-2 font-bold"
+            style={{
+              backgroundColor: `${primaryColor}20`,
+              color: primaryColor, 
+            }}>SAR</p>
+      
+        
       </div>
       <div className="flex justify-center">
         <p className="text-gray-600 font-medium mr-20">Total</p>
@@ -54,12 +61,16 @@ export default function Page() {
            color: 'black'
          }}>
       <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
-        Pending AP Invoices
+        Open Goods Receipt PO
       </p>
       <div className="flex justify-center items-center flex-wrap">
         <p className="text-gray-600 font-bold text-2xl ml-12">38</p>
         <p className="text-gray-600 font-bold text-2xl ml-16">150M</p>
-        <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+        <p className="text-xs p-1 rounded-md ml-2 font-bold"
+            style={{
+              backgroundColor: `${primaryColor}20`,
+              color: primaryColor, 
+            }}>SAR</p>
       </div>
       <div className="flex justify-center">
         <p className="text-gray-600 font-medium mr-20">Total</p>
@@ -74,13 +85,17 @@ export default function Page() {
            color: 'black'
          }}>
       <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
-        Approved AP Invoices
+        Open Purchase Orders
       </p>
       <div className="flex justify-center items-center flex-wrap">
         <p className="text-gray-600 font-bold text-2xl ml-12">38</p>
         <p className="text-gray-600 font-bold text-2xl ml-16">150M</p>
-        <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
-      </div>
+        <p className="text-xs p-1 rounded-md ml-2 font-bold"
+            style={{
+              backgroundColor: `${primaryColor}20`,
+              color: primaryColor, 
+            }}>SAR</p>
+            </div>
       <div className="flex justify-center">
         <p className="text-gray-600 font-medium mr-20">Total</p>
         <p className="text-gray-600 font-medium">Value</p>
@@ -94,12 +109,16 @@ export default function Page() {
            color: 'black'
          }}>
       <p className="font-bold text-white p-2 rounded-md text-lg mb-4" style={{ backgroundColor: primaryColor }}>
-        Open Shipments
+        Total Account Payables
       </p>
       <div className="flex justify-center items-center flex-wrap">
         <p className="text-gray-600 font-bold text-2xl ml-12">38</p>
         <p className="text-gray-600 font-bold text-2xl ml-16">150M</p>
-        <p className="bg-blue-100 text-blue-500 text-xs p-1 rounded-md ml-2 font-bold">SAR</p>
+        <p className="text-xs p-1 rounded-md ml-2 font-bold"
+            style={{
+              backgroundColor: `${primaryColor}20`,
+              color: primaryColor, 
+            }}>SAR</p>
       </div>
       <div className="flex justify-center">
         <p className="text-gray-600 font-medium mr-20">Total</p>

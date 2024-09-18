@@ -102,7 +102,8 @@ const Page = () => {
           >
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <p className="text-2xl font-bold mt-1 text-black">Roles</p>
+                <p className="text-2xl font-bold mt-1 text-black ml4 ">Roles</p>
+                
                 <hr className="border-gray-700 w-full" />
               </Grid>
               <Grid item xs={6} md={6}>
