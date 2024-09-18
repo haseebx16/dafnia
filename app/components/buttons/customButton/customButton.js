@@ -10,7 +10,7 @@ const CustomButton = ({ title, func }) => {
   return (
     <>
         <button 
-              className="px-4 py-2 text-white text-xl rounded"
+              className="px-2 py-2 text-white text-md rounded"
               onMouseEnter={() => setCreateCompany(true)} 
               onMouseLeave={() => setCreateCompany(false)}
               onClick={func}

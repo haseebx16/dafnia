@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { Button, Grid, TextField } from '@mui/material';
 import {Select, MenuItem, InputLabel, FormControl} from "@mui/material"
 import { useColor } from '../context/ColorContext';
-import CustomButton from '../components/logout-button/button';
+import CustomButton from '../components/buttons/customButton/customButton';
 import { IoMdArrowBack } from "react-icons/io";
-import Layout from '../components/Layout/Layout';
-import CancelButton from '../components/Cancel-Button/CancelButton';
-import RoundedField from '../components/text-field/field';
-import UserDropdown from '../components/Dropdown/UserDropdown';
+import Layout from '../components/layout/layout';
+import CancelButton from '../components/buttons/cancelButton/cancelButton';
+import TextBar from '../components/fields/textField/textBar';
+import UserDropdown from '../components/fields/dropDown/userDropdown';
 
 const page = () => {
 
@@ -32,11 +32,11 @@ const page = () => {
               <form onSubmit="" className='bg-white p-6 pb-8 pt-1 rounded-xl mt-2 min-h-52 '>
                 <Grid container spacing={2} mt={2}>
                   
-                  <RoundedField grids={6} id="User" name="User ID" label="User ID" type="text" />
+                  <TextBar grids={6} id="User" name="User ID" label="User ID" type="text" />
                   
-                  <RoundedField grids={6} id="User-Name" name="User Name" label="User Name" type="text" />
-                  <RoundedField grids={6} id="User-Email" name="User Email" label="User Email" type="text" />
-                  <RoundedField grids={6} id="Department" name="Department" label="Department" type="text" />
+                  <TextBar grids={6} id="User-Name" name="User Name" label="User Name" type="text" />
+                  <TextBar grids={6} id="User-Email" name="User Email" label="User Email" type="text" />
+                  <TextBar grids={6} id="Department" name="Department" label="Department" type="text" />
                   <UserDropdown grids={6} label="Select Role" option1="Inventory" option2="Procurement" option3="Sales" labelSpace="Select Role"/>
                   <UserDropdown grids={6} label="Select Line Manager" option1="Ayan Rabbani" option2="Ali Ahmed" option3="Ahmed Raza" labelSpace="Select Line Manager"/>
                     

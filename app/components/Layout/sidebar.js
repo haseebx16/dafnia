@@ -10,7 +10,7 @@ import { MdOutlineInventory2 } from "react-icons/md";
 import { TbPointFilled } from "react-icons/tb";
 
 const Sidebar = () => {
-  const { primaryColor } = useColor();
+  const { primaryColor, secondaryColor } = useColor();
   const [activeTab, setActiveTab] = useState('');
   const [isInventoryOpen, setIsInventoryOpen] = useState(false); // State to toggle inventory sub-menu
 
@@ -47,7 +47,13 @@ const Sidebar = () => {
   );
 
   return (
-    <aside className={`${font.className} w-64 h-full text-black bg-white flex flex-col`}>
+    <aside  className=
+    {`${font.className} w-64 text-black `} 
+    style={{ background:`linear-gradient(to bottom, white 10%,${secondaryColor} 60%, ${primaryColor} 200%)`,
+    
+    }} 
+    >
+
       <nav className="flex-1 px-4 mt-6 space-y-4">
         {renderLink('/dashboard', FaHome, 'Home')}
         {renderLink('/company', GoGraph, 'Company')}
