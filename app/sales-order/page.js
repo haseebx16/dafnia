@@ -391,9 +391,9 @@ function Page() {
         }}
       >
         <option>Select Number</option>
-        <option>No 1</option>
-        <option>No 2</option>
-        <option>No 3</option>
+        <option>No 01</option>
+        <option>No 02</option>
+        <option>No 03</option>
       </select>
     </div>
 
