@@ -22,6 +22,7 @@ import { font } from "../components/font/poppins";
 import AddButton from "../components/buttons/addButton/addButton";
 import { IoMdAdd } from "react-icons/io";
 
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -39,98 +40,75 @@ function TabPanel(props) {
 }
 
 function Page() {
-  const [formData, setFormData] = useState({
-    businessPartner: "",
-    name: "",
-    contactPerson: "",
-    shipTo: "",
-    no: "",
-    status: "",
-    postingDate: "",
-    dueDate: "",
-    documentDate: "",
-    fromWarehouse: "",
-    toWarehouse: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const [rows, setRows] = useState([
-    {
-      itemNo: 1,
-      description: "",
-      fromWarehouse: "WHS-0001",
-      toWarehouse: "WHS-0001",
-      quantity: "",
-      uomCode: "",
-      uomName: "",
-      moisture: "0.00",
-      rejection: "",
-      grade: "",
-      value: "",
-    },
-  ]);
-
-  const handleInputChange = (index, e) => {
-    const { name, value } = e.target;
-    const updatedRows = [...rows];
-    updatedRows[index][name] = value;
-    setRows(updatedRows);
-  };
-
-  const handleAddRow = () => {
-    setRows([
-      ...rows,
+    const [formData, setFormData] = useState({
+      businessPartner: "",
+      name: "",
+      contactPerson: "",
+      shipTo: "",
+      no: "",
+      status: "",
+      postingDate: "",
+      dueDate: "",
+      documentDate: "",
+      fromWarehouse: "",
+      toWarehouse: "",
+    });
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    };
+  
+    const [rows, setRows] = useState([
       {
-        itemNo: rows.length + 1,
+        itemNo: 1,
         description: "",
-        fromWarehouse: "",
-        toWarehouse: "",
+        fromWarehouse: "WHS-0001",
+        toWarehouse: "WHS-0001",
         quantity: "",
         uomCode: "",
         uomName: "",
-        moisture: "",
+        moisture: "0.00",
         rejection: "",
         grade: "",
         value: "",
       },
     ]);
-  };
-
-  const handleDeleteRow = (index) => {
-    const updatedRows = rows.filter((_, rowIndex) => rowIndex !== index);
-    setRows(updatedRows);
-  };
-  {
-    
-  }
-
-  const [rowsA, setRowsA] = useState([
-    {
-      itemNo: 1,
-      targetpath: "",
-      filename: "",
-      attacheddate: "",
-      freetext: "",
-      copytotargetdocument: "",
-    },
-  ]);
-
-  const handleInputChangeA = (index, e) => {
-    const { name, value } = e.target;
-    const updatedRows = [...rowsA];
-    updatedRows[index][name] = value;
-    setRowsA(updatedRows);
-  };
-
-  const handleAddRowA = () => {
-    setRowsA([
-      ...rowsA,
+  
+    const handleInputChange = (index, e) => {
+      const { name, value } = e.target;
+      const updatedRows = [...rows];
+      updatedRows[index][name] = value;
+      setRows(updatedRows);
+    };
+  
+    const handleAddRow = () => {
+      setRows([
+        ...rows,
+        {
+          itemNo: rows.length + 1,
+          description: "",
+          fromWarehouse: "",
+          toWarehouse: "",
+          quantity: "",
+          uomCode: "",
+          uomName: "",
+          moisture: "",
+          rejection: "",
+          grade: "",
+          value: "",
+        },
+      ]);
+    };
+  
+    const handleDeleteRow = (index) => {
+      const updatedRows = rows.filter((_, rowIndex) => rowIndex !== index);
+      setRows(updatedRows);
+    };
+  
+    const [rowsA, setRowsA] = useState([
       {
-        itemNo: rowsA.length + 1,
+        itemNo: 1,
         targetpath: "",
         filename: "",
         attacheddate: "",
@@ -138,24 +116,61 @@ function Page() {
         copytotargetdocument: "",
       },
     ]);
-  };
-
-  const handleDeleteRowA = (index) => {
-    const updatedRows = rowsA.filter((_, rowIndex) => rowIndex !== index);
-    setRowsA(updatedRows);
-  };
-  {
-    /* Attachment Section Ends here */
-  }
-
-  const { secondaryColor } = useColor();
-  const [tabValue, setTabValue] = useState(0);
-
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
-  const { primaryColor } = useColor();
+  
+    const handleInputChangeA = (index, e) => {
+      const { name, value } = e.target;
+      const updatedRows = [...rowsA];
+      updatedRows[index][name] = value;
+      setRowsA(updatedRows);
+    };
+  
+    const handleAddRowA = () => {
+      setRowsA([
+        ...rowsA,
+        {
+          itemNo: rowsA.length + 1,
+          targetpath: "",
+          filename: "",
+          attacheddate: "",
+          freetext: "",
+          copytotargetdocument: "",
+        },
+      ]);
+    };
+  
+    const handleDeleteRowA = (index) => {
+      const updatedRows = rowsA.filter((_, rowIndex) => rowIndex !== index);
+      setRowsA(updatedRows);
+    };
+  
+    const { secondaryColor, primaryColor } = useColor();
+    const [tabValue, setTabValue] = useState(0);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [showCopyFromDropdown, setShowCopyFromDropdown] = useState(false);
+    const [buttonLabel, setButtonLabel] = useState('Add and Close');
+    const [copyFromOption, setCopyFromOption] = useState('');
+  
+    const handleTabChange = (event, newValue) => {
+      setTabValue(newValue);
+    };
+  
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+  
+    const handleOptionSelect = (label) => {
+      setButtonLabel(label);  // Update the button label to the selected value
+      setShowDropdown(false); // Hide the dropdown after selection
+    };
+  
+    const toggleCopyFromDropdown = () => {
+      setShowCopyFromDropdown(!showCopyFromDropdown);
+    };
+  
+    const handleCopyFromOptionSelect = (option) => {
+      setCopyFromOption(option);
+      setShowCopyFromDropdown(false);
+    };     
 
   return (
     <Layout>
@@ -175,8 +190,8 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-    Sales Order
-  </p>
+  Goods Receipts PO
+    </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 
 
@@ -201,7 +216,7 @@ function Page() {
       }}
     >
       <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Customer:
+      Vendor:
       </label>
       <select
         style={{
@@ -212,10 +227,10 @@ function Page() {
           border: "2px solid #ccc",
         }}
       >
-        <option>Select Customer</option>
-        <option>Customer 1</option>
-        <option>Customer 2</option>
-        <option>Customer 3</option>
+        <option>Select Vendor</option>
+        <option>Vendor 01</option>
+        <option>Vendor 02</option>
+        <option>Vendor 03</option>
       </select>
     </div>
      {/* Name: column */}
@@ -279,9 +294,7 @@ function Page() {
     </select>
   </div>
 
- 
-        {/* Ship To: column */}
-<div
+ <div
   style={{
     display: "flex",
     alignItems: "center",
@@ -292,9 +305,9 @@ function Page() {
   }}
 >
   <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-    Customer Ref No.
+        Vendor Ref No.
   </label>
-  <input type="text" defaultValue="Customer Ref No." style={{ 
+  <input type="text" placeholder="Vendor Ref No." style={{ 
       flex: 2,
       padding: "2px",
       fontSize: "12px",
@@ -302,6 +315,7 @@ function Page() {
       border: "2px solid #ccc",
     }}/>
 </div>
+
   </div>
 
   {/* Right column */}
@@ -400,32 +414,26 @@ function Page() {
 
     {/* Due Date */}
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Delivery Date:
-      </label>
-      <input
-        type="date"
-        id="dDate"
-        name="dDate"
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      />
-    </div>
+  style={{
+    display: "flex",
+    alignItems: "center",
+    padding: "4px",
+    background: secondaryColor,
+    borderRadius: "6px",
+    border: "2px solid #ccc",
+  }}
+>
+  <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+        Due Date:
+  </label>
+  <input type="text" style={{ 
+      flex: 2,
+      padding: "2px",
+      fontSize: "12px",
+      borderRadius: "4px",
+      border: "2px solid #ccc",
+    }}/>
+</div>
     <div
   style={{
     display: "flex",
@@ -462,6 +470,35 @@ function Page() {
     />
   </div>
 </div>
+<div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        padding: "4px",
+        background: secondaryColor,
+        borderRadius: "6px",
+        border: "2px solid #ccc",
+      }}
+    >
+      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+        Incoterms:
+      </label>
+      <select
+        style={{
+          flex: 2,
+          padding: "2px",
+          fontSize: "12px",
+          borderRadius: "4px",
+          border: "2px solid #ccc",
+          backgroundColor: "white",
+        }}
+      >
+        <option>Select Incoterms</option>
+        <option>Incoterms 01</option>
+        <option>Incoterms 02</option>
+        <option>Incoterms 03</option>
+      </select>
+    </div>
   </div>
 </div>
 </Paper>
@@ -497,6 +534,8 @@ function Page() {
     }}
   >
     <Tab label="Content" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
+    <Tab label="Logistics" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
+    <Tab label="Accounting" sx={{ fontWeight: 'bold', fontSize: '12px' , margin:"10px" }} />
     <Tab label="Attachments" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
   </Tabs>
 
@@ -517,10 +556,10 @@ function Page() {
               <TableCell className="text-sm font-bold">S No.</TableCell>
               <TableCell className="text-sm font-bold">Item no.</TableCell>
               <TableCell className="text-sm font-bold">Item Description</TableCell>
-              <TableCell className="text-sm font-bold">UoM Code</TableCell>
               <TableCell className="text-sm font-bold">Quantity</TableCell>
-              <TableCell className="text-sm font-bold">Unit  Price</TableCell>
-              <TableCell className="text-sm font-bold">Tax Code</TableCell>
+              <TableCell className="text-sm font-bold">Moisture</TableCell>
+              <TableCell className="text-sm font-bold">Rejection</TableCell>
+              <TableCell className="text-sm font-bold">Grade</TableCell>
               <TableCell className="text-sm font-bold">Total</TableCell>
               <TableCell className="text-sm font-bold text-center">Action</TableCell>
             </TableRow>
@@ -728,7 +767,350 @@ function Page() {
     </TabPanel>
   </div>
 </Paper>
+<Paper
+      elevation={3}
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid #d0d0d0',
+        borderRadius: '8px',
+        padding: '20px',
+        width: '100%',
+        height: '100%',
+        marginTop: '4px',
+      }}
+    >
+      {/* Main content container with two columns */}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        {/* Left column */}
+        <div style={{ width: '30%' }}>
+          <div className="space-y-2" style={{ width: '100%' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Buyer:
+              </label>
+              <select
+                style={{
+                  width: '230px', // Fixed width for the select field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              >
+                <option>No Sales Employee</option>
+                <option>No Sales Employee 01</option>
+                <option>No Sales Employee 02</option>
+                <option>No Sales Employee 03</option>
+              </select>
+            </div>
 
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Owner
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '230px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+          </div>
+
+          <div
+            style={{
+              alignItems: 'center',
+              padding: '5px',
+              width: '100%',
+            }}
+          >
+            <label style={{ fontWeight: 'bold', fontSize: '12px' }}>Remarks:</label>
+            <input
+              type="text"
+              style={{
+                marginLeft: '60px',
+                width: '80%',
+                height: '80px',
+                padding: '5px',
+                marginTop: '4px',
+                fontSize: '12px',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Right column */}
+        <div style={{ width: '33%' }}>
+          <div className="space-y-2">
+
+            {/* Buttons Section */}
+            <div style={{ display: 'flex', marginTop: '20px' }}>
+              {/* Copy From and Copy To Buttons in one line */}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Buttons Section */}
+      <div style={{  marginTop: '10px' }}>
+  <div style={{ justifyContent: 'space-between', display: 'flex', width: '100%' }}>
+
+    {/* Add and Close and Cancel Buttons */}
+    <div style={{ display: 'flex', gap: '8px' }}> {/* Add a container div with flexbox */}
+      {/* Add and Close Button with Dropdown */}
+      <div
+        style={{
+          position: 'relative', // Added relative positioning for dropdown
+          display: 'inline-block',
+        }}
+      >
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleDropdown}
+        >
+          {buttonLabel}
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+        </button>
+
+        {showDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleOptionSelect('Add and Close')}
+            >
+              Add and Close
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleOptionSelect('Add and View')}
+            >
+              Add and View
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Cancel Button */}
+      <button
+        className="bg-slate-500 hover:bg-slate-600 rounded text-white"
+        style={{
+          padding: '6px 12px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Cancel
+      </button>
+    </div>
+
+    {/* Copy from and Copy to Buttons */}
+    <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
+      <div
+        style={{
+          position: 'relative', // Added relative positioning for dropdown
+        }}
+      >
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleCopyFromDropdown}
+        >
+          Copy from
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+
+        </button>
+          
+        {showCopyFromDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Purchase Request')}
+            >
+              Purchase Order
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Purchase Quotation')}
+            >
+              Purchase Quotation
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Goods Return
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Res.  Invoice
+
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Blanket Agreement
+            </button>
+          </div>
+        )}
+      </div>
+
+      <button
+        style={{
+          padding: '6px 12px',
+          backgroundColor: primaryColor,
+          color: '#fff',
+          border: '2px solid #ccc',
+          borderRadius: '4px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Copy to
+      </button>
+    </div>
+  </div>
+</div>
+
+    </Paper>
   </div>
   </main>
     </Layout>
