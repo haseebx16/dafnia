@@ -197,7 +197,7 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-    Inventory Transfer Request
+    Inventory Transfer 
   </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -939,30 +939,7 @@ function Page() {
         {/* Right column */}
         <div style={{ width: '33%' }}>
           <div className="space-y-2">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Pick and Pack Remarks
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
+            
 
             <div
             style={{
@@ -1091,23 +1068,68 @@ function Page() {
       </button>
     </div>
 
-    {/*  Copy to Button */}
+    {/* Copy from and Copy to Buttons */}
     <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
-      
-
-      <button
+      <div
         style={{
-          padding: '6px 12px',
-          backgroundColor: primaryColor,
-          color: '#fff',
-          border: '2px solid #ccc',
-          borderRadius: '4px',
-          fontSize: '12px',
-          cursor: 'pointer',
+          position: 'relative', // Added relative positioning for dropdown
         }}
       >
-        Copy to
-      </button>
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleCopyFromDropdown}
+        >
+          Copy from
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+
+        </button>
+          
+        {showCopyFromDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+            <button
+              style={{
+                padding: '6px 6px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Inventory Transfer Request')}
+            >
+              Inventory Transfer Request
+            </button>
+            
+          
+          </div>
+        )}
+      </div>
+
+      
     </div>
   </div>
 </div>
