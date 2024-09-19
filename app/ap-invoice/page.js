@@ -805,10 +805,10 @@ function Page() {
                   border: '2px solid #ccc',
                 }}
               >
-                <option>No Sales Employee</option>
-                <option>No Sales Employee 01</option>
-                <option>No Sales Employee 02</option>
-                <option>No Sales Employee 03</option>
+                <option> Select Buyer</option>
+                <option>Buyer 01</option>
+                <option>Buyer 02</option>
+                <option>Buyer 03</option>
               </select>
             </div>
 
@@ -843,6 +843,7 @@ function Page() {
               alignItems: 'center',
               padding: '5px',
               width: '100%',
+              marginTop: '90px',
             }}
           >
             <label style={{ fontWeight: 'bold', fontSize: '12px' }}>Remarks:</label>
@@ -1041,6 +1042,80 @@ function Page() {
               />
             </div>
 
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Total Payment Due
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Applied Account
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Balance Due
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+
             {/* Buttons Section */}
             <div style={{ display: 'flex', marginTop: '20px' }}>
               {/* Copy From and Copy To Buttons in one line */}
@@ -1196,7 +1271,7 @@ function Page() {
               }}
               onClick={() => handleCopyFromOptionSelect('Purchase Request')}
             >
-              Purchase Request
+              Purchase Quotation
             </button>
             <button
               style={{
@@ -1212,7 +1287,23 @@ function Page() {
               }}
               onClick={() => handleCopyFromOptionSelect('Purchase Quotation')}
             >
-              Purchase Quotation
+              Purchase Order
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Goods Receipts PO
             </button>
             <button
               style={{
@@ -1229,6 +1320,22 @@ function Page() {
               onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
             >
               Blanket Agreement
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Landed Cost
             </button>
           </div>
         )}

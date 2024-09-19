@@ -557,9 +557,8 @@ function Page() {
               <TableCell className="text-sm font-bold">Item no.</TableCell>
               <TableCell className="text-sm font-bold">Item Description</TableCell>
               <TableCell className="text-sm font-bold">Quantity</TableCell>
-              <TableCell className="text-sm font-bold">Moisture</TableCell>
               <TableCell className="text-sm font-bold">Rejection</TableCell>
-              <TableCell className="text-sm font-bold">Grade</TableCell>
+              <TableCell className="text-sm font-bold">Value</TableCell>
               <TableCell className="text-sm font-bold">Total</TableCell>
               <TableCell className="text-sm font-bold text-center">Action</TableCell>
             </TableRow>
@@ -595,15 +594,7 @@ function Page() {
                     inputProps={{ style: { fontSize: "12px" } }}
                   />
                 </TableCell>
-                <TableCell>
-                  <TextField
-                    name="toWarehouse"
-                    value={row.toWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
+                
                 <TableCell>
                   <TextField
                     name="quantity"
@@ -973,7 +964,7 @@ function Page() {
     <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
       <div
         style={{
-          position: 'relative', // Added relative positioning for dropdown
+          // position: 'relative', // Added relative positioning for dropdown
         }}
       >
         <button
@@ -989,7 +980,7 @@ function Page() {
           onClick={toggleCopyFromDropdown}
         >
           Copy from
-          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+          {/* <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span> */}
 
         </button>
           

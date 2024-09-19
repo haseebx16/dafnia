@@ -148,14 +148,36 @@ function Page() {
     /* Attachment Section Ends here */
   }
 
-  const { secondaryColor } = useColor();
-  const [tabValue, setTabValue] = useState(0);
 
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
 
-  const { primaryColor } = useColor();
+  const { secondaryColor, primaryColor } = useColor();
+    const [tabValue, setTabValue] = useState(0);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [showCopyFromDropdown, setShowCopyFromDropdown] = useState(false);
+    const [buttonLabel, setButtonLabel] = useState('Add and Close');
+    const [copyFromOption, setCopyFromOption] = useState('');
+  
+    const handleTabChange = (event, newValue) => {
+      setTabValue(newValue);
+    };
+  
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+  
+    const handleOptionSelect = (label) => {
+      setButtonLabel(label);  // Update the button label to the selected value
+      setShowDropdown(false); // Hide the dropdown after selection
+    };
+  
+    const toggleCopyFromDropdown = () => {
+      setShowCopyFromDropdown(!showCopyFromDropdown);
+    };
+  
+    const handleCopyFromOptionSelect = (option) => {
+      setCopyFromOption(option);
+      setShowCopyFromDropdown(false);
+    };
 
   return (
     <Layout>
@@ -728,6 +750,443 @@ function Page() {
     </TabPanel>
   </div>
 </Paper>
+<Paper
+      elevation={3}
+      style={{
+        backgroundColor: 'white',
+        border: '1px solid #d0d0d0',
+        borderRadius: '8px',
+        padding: '20px',
+        width: '100%',
+        height: '100%',
+        marginTop: '4px',
+      }}
+    >
+      {/* Main content container with two columns */}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        {/* Left column */}
+        <div style={{ width: '30%' }}>
+          <div className="space-y-2" style={{ width: '100%' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Sales Employee
+              </label>
+              <select
+                style={{
+                  width: '230px', // Fixed width for the select field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              >
+                <option> Select Sales Employee</option>
+                <option> Sales Employee 01</option>
+                <option> Sales Employee 02</option>
+                <option> Sales Employee 03</option>
+              </select>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Owner
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '230px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+          </div>
+          <div
+            style={{
+              alignItems: 'center',
+              padding: '5px',
+              width: '100%',
+              marginTop: '40px',
+
+            }}
+          >
+            <label style={{ fontWeight: 'bold', fontSize: '12px' }}>Remarks:</label>
+            <input
+              type="text"
+              style={{
+                marginLeft: '60px',
+                width: '80%',
+                height: '80px',
+                padding: '5px',
+                marginTop: '4px',
+                fontSize: '12px',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+              }}
+            />
+          </div>
+          
+        </div>
+
+        {/* Right column */}
+        <div style={{ width: '33%' }}>
+          <div className="space-y-2">
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Total Before Discount
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Discount
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '183px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+              <span style={{ paddingLeft: '8px', fontSize: '12px' }}>%</span>
+            </div>
+
+            
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Freight
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Rounding
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+                placeholder="PKR 0.00"
+              />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Tax
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+              />
+            </div>
+
+            
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '4px',
+                background: secondaryColor,
+                borderRadius: '6px',
+                border: '2px solid #ccc',
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
+                Total
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '200px', // Fixed width for the input field
+                  padding: '2px',
+                  fontSize: '12px',
+                  borderRadius: '4px',
+                  border: '2px solid #ccc',
+                }}
+                placeholder="PKR 0.00"
+              />
+            </div>
+
+            {/* Buttons Section */}
+            <div style={{ display: 'flex', marginTop: '20px' }}>
+              {/* Copy From and Copy To Buttons in one line */}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Buttons Section */}
+      <div style={{  marginTop: '10px' }}>
+  <div style={{ justifyContent: 'space-between', display: 'flex', width: '100%' }}>
+
+    {/* Add and Close and Cancel Buttons */}
+    <div style={{ display: 'flex', gap: '8px' }}> {/* Add a container div with flexbox */}
+      {/* Add and Close Button with Dropdown */}
+      <div
+        style={{
+          position: 'relative', // Added relative positioning for dropdown
+          display: 'inline-block',
+        }}
+      >
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleDropdown}
+        >
+          {buttonLabel}
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+        </button>
+
+        {showDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleOptionSelect('Add and Close')}
+            >
+              Add and Close
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleOptionSelect('Add and View')}
+            >
+              Add and View
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Cancel Button */}
+      <button
+        className="bg-slate-500 hover:bg-slate-600 rounded text-white"
+        style={{
+          padding: '6px 12px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Cancel
+      </button>
+    </div>
+
+    {/* Copy from and Copy to Buttons */}
+    <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
+      <div
+        style={{
+          // position: 'relative', // Added relative positioning for dropdown
+        }}
+      >
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleCopyFromDropdown}
+        >
+          Copy from
+          {/* <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span> */}
+
+        </button>
+          
+        {showCopyFromDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Blanket Agreement
+            </button>
+
+          </div>
+        )}
+      </div>
+
+      <button
+        style={{
+          padding: '6px 12px',
+          backgroundColor: primaryColor,
+          color: '#fff',
+          border: '2px solid #ccc',
+          borderRadius: '4px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Copy to
+      </button>
+    </div>
+  </div>
+</div>
+
+    </Paper>
 
   </div>
   </main>

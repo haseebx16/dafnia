@@ -190,7 +190,7 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-  A/P Credit Memo
+  Delivery
     </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -200,280 +200,453 @@ function Page() {
   className="grid grid-cols-2 mt-2 ml-2 mr-2 gap-80"
   
 >
-  {/* Your content for the top section goes here */}
+        {/* Left Column */}
+        <div style={{ width: "300px" }}>
+          <div className="space-y-2">
+            {/* Opportunity Type */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Opportunity Type:
+              </label>
+              <div style={{ flex: 2, display: "flex", gap: "10px" }}>
+                <input type="radio" id="sales" name="opportunityType" value="sales" />
+                <label htmlFor="sales">Sales</label>
+                <input type="radio" id="purchasing" name="opportunityType" value="purchasing" />
+                <label htmlFor="purchasing">Purchasing</label>
+              </div>
+            </div>
 
+            {/* Business Partner Code */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Business Partner Code:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Code"
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              />
+            </div>
 
-  {/* Left column */}
-  <div className="space-y-2" style={{ width: "400px" }}>
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      Vendor:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-        }}
-      >
-        <option>Select Vendor</option>
-        <option>Vendor 01</option>
-        <option>Vendor 02</option>
-        <option>Vendor 03</option>
-      </select>
-    </div>
-     {/* Name: column */}
+            {/* Business Partner Name */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Business Partner Name:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              />
+            </div>
 
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Name:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-        }}
-      >
-        <option>Select Name</option>
-        <option>Name 1</option>
-        <option>Name 2</option>
-        <option>Name 3</option>
-      </select>
-    </div>
-            {/* Contact Person: column */}
+            {/* Contact Person */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Contact Person:
+              </label>
+              <select
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              >
+                <option>Select Contact Person</option>
+                <option>Person 1</option>
+                <option>Person 2</option>
+                <option>Person 3</option>
+              </select>
+            </div>
 
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      padding: "4px",
-      background: secondaryColor,
-      borderRadius: "6px",
-      border: "2px solid #ccc",
-    }}
-  >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      Contact Person:
-    </label>
-    <select
-      style={{
-        flex: 2,
-        padding: "2px",
-        fontSize: "12px",
-        borderRadius: "4px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <option>Select Contact Person</option>
-      <option>Person 1</option>
-      <option>Person 2</option>
-      <option>Person 3</option>
-    </select>
-  </div>
+            {/* Total Amount Invoiced */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Total Amount Invoiced:
+              </label>
+              <input
+                type="text"
+                placeholder="0.00"
+                disabled
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                  backgroundColor: "#e0e0e0",
+                }}
+              />
+            </div>
 
- <div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "4px",
-    background: secondaryColor,
-    borderRadius: "6px",
-    border: "2px solid #ccc",
-  }}
->
-  <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Vendor Ref No.
-  </label>
-  <input type="text" placeholder="Vendor Ref No." style={{ 
-      flex: 2,
-      padding: "2px",
-      fontSize: "12px",
-      borderRadius: "4px",
-      border: "2px solid #ccc",
-    }}/>
-</div>
+            {/* Business Partner Territory */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Business Partner Territory:
+              </label>
+              <select
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              >
+                <option>Select Territory</option>
+                <option>Territory 1</option>
+                <option>Territory 2</option>
+                <option>Territory 3</option>
+              </select>
+            </div>
 
-  </div>
+            {/* Sales Employee */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Sales Employee:
+              </label>
+              <select
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              >
+                <option>Select Employee</option>
+                <option>Employee 1</option>
+                <option>Employee 2</option>
+                <option>Employee 3</option>
+              </select>
+            </div>
 
-  {/* Right column */}
-  
-  <div className="space-y-2" style={{ width: "400px" }}>
+            {/* Owner */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+                Owner:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Owner"
+                style={{
+                  flex: 2,
+                  padding: "2px",
+                  fontSize: "12px",
+                  borderRadius: "4px",
+                  border: "2px solid #ccc",
+                }}
+              />
+            </div>
 
-    {/* Number Dropdown */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Number:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      >
-        <option>Select Number</option>
-        <option>No 1</option>
-        <option>No 2</option>
-        <option>No 3</option>
-      </select>
-    </div>
+            {/* Display in System Currency */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "4px",
+                background: "#f0f0f0",
+                borderRadius: "6px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <input
+                type="checkbox"
+                id="displayInSystemCurrency"
+                name="displayInSystemCurrency"
+                style={{ marginRight: "10px" }}
+              />
+              <label htmlFor="displayInSystemCurrency" style={{ fontWeight: "bold" }}>
+                Display in System Currency
+              </label>
+            </div>
+          </div>
+        </div>
 
-    {/* Status Dropdown */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Status:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      >
-        <option>Select Status</option>
-        <option>Open</option>
-        <option>Close</option>
-      </select>
-    </div>
+        {/* Right Column */}
+        <div className="space-y-2" style={{ width: "300px" }}>
+          {/* Opportunity Name */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Opportunity Name:
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Name"
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            />
+          </div>
 
-    {/* Posting Date */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Posting Date:
-      </label>
-      <input
-        type="date"
-        id="pDate"
-        name="pDate"
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      />
-    </div>
+          {/* Opportunity No */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Opportunity No:
+            </label>
+            <input
+              type="text"
+              placeholder="Enter No"
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            />
+          </div>
 
-    {/* Due Date */}
-    <div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "4px",
-    background: secondaryColor,
-    borderRadius: "6px",
-    border: "2px solid #ccc",
-  }}
->
-  <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-    Due Date:
-  </label>
-  <input type="text" style={{ 
-      flex: 2,
-      padding: "2px",
-      fontSize: "12px",
-      borderRadius: "4px",
-      border: "2px solid #ccc",
-    }}/>
-</div>
-    <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px", 
-  }}
->
-  {/* Document Date */}
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      padding: "4px",
-      background: secondaryColor,
-      borderRadius: "6px",
-      border: "2px solid #ccc",
-    }}
-  >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      Document Date:
-    </label>
-    <input
-      type="date"
-      id="DocDate"
-      name="DocDate"
-      style={{
-        flex: 2,
-        padding: "2px",
-        fontSize: "12px",
-        borderRadius: "4px",
-        border: "2px solid #ccc",
-        backgroundColor: "white",
-      }}
-    />
-  </div>
-</div>
+          {/* Start Date */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Start Date:
+            </label>
+            <input
+              type="date"
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            />
+          </div>
 
-  </div>
-</div>
-</Paper>
+          {/* Closing Date */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Closing Date:
+            </label>
+            <input
+              type="date"
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            />
+          </div>
+
+          {/* Opportunity Type (Dropdown) */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Opportunity Type:
+            </label>
+            <select
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <option>Select Type</option>
+              <option>Type 1</option>
+              <option>Type 2</option>
+              <option>Type 3</option>
+            </select>
+          </div>
+
+          {/* Remarks */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Remarks:
+            </label>
+            <textarea
+              placeholder="Enter Remarks"
+              rows="3"
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            />
+          </div>
+
+          {/* Owner (Dropdown) */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px",
+              background: "#f0f0f0",
+              borderRadius: "6px",
+              border: "2px solid #ccc",
+            }}
+          >
+            <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              Owner:
+            </label>
+            <select
+              style={{
+                flex: 2,
+                padding: "2px",
+                fontSize: "12px",
+                borderRadius: "4px",
+                border: "2px solid #ccc",
+              }}
+            >
+              <option>Select Owner</option>
+              <option>Owner 1</option>
+              <option>Owner 2</option>
+              <option>Owner 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </Paper>
+
 
 <div className="mt-2 mb-0"></div>
 
@@ -527,11 +700,9 @@ function Page() {
             <TableRow>
               <TableCell className="text-sm font-bold">S No.</TableCell>
               <TableCell className="text-sm font-bold">Item no.</TableCell>
+              <TableCell className="text-sm font-bold">Item Description</TableCell>
               <TableCell className="text-sm font-bold">Quantity</TableCell>
-              <TableCell className="text-sm font-bold">Unit  Price</TableCell>
-              <TableCell className="text-sm font-bold">Discount %</TableCell>
-              <TableCell className="text-sm font-bold">Tax Code</TableCell>
-              <TableCell className="text-sm font-bold">Moisture</TableCell>
+
               <TableCell className="text-sm font-bold">Total</TableCell>
               <TableCell className="text-sm font-bold text-center">Action</TableCell>
             </TableRow>
@@ -558,24 +729,8 @@ function Page() {
                     inputProps={{ style: { fontSize: "12px" } }}
                   />
                 </TableCell>
-                <TableCell>
-                  <TextField
-                    name="fromWarehouse"
-                    value={row.fromWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
-                <TableCell>
-                  <TextField
-                    name="toWarehouse"
-                    value={row.toWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
+                
+                
                 <TableCell>
                   <TextField
                     name="quantity"
@@ -585,15 +740,7 @@ function Page() {
                     inputProps={{ style: { fontSize: "12px" } }}
                   />
                 </TableCell>
-                <TableCell>
-                  <TextField
-                    name="uomCode"
-                    value={row.uomCode}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
+                
                 <TableCell>
                   <TextField
                     name="total"
@@ -767,7 +914,7 @@ function Page() {
               }}
             >
               <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Buyer:
+                Sales Employee
               </label>
               <select
                 style={{
@@ -778,10 +925,10 @@ function Page() {
                   border: '2px solid #ccc',
                 }}
               >
-                <option>No Sales Employee</option>
-                <option>No Sales Employee 01</option>
-                <option>No Sales Employee 02</option>
-                <option>No Sales Employee 03</option>
+                <option> Select Sales Employee</option>
+                <option> Sales Employee 01</option>
+                <option> Sales Employee 02</option>
+                <option> Sales Employee 03</option>
               </select>
             </div>
 
@@ -810,13 +957,12 @@ function Page() {
               />
             </div>
           </div>
-
           <div
             style={{
               alignItems: 'center',
               padding: '5px',
               width: '100%',
-              marginTop: '90px',
+              marginTop: '40px',
 
             }}
           >
@@ -835,268 +981,11 @@ function Page() {
               }}
             />
           </div>
+          
         </div>
 
         {/* Right column */}
-        <div style={{ width: '33%' }}>
-          <div className="space-y-2">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Total Before Discount
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Discount
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '183px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-              <span style={{ paddingLeft: '8px', fontSize: '12px' }}>%</span>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Total Down  Payment
-
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Freight
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Rounding
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-                placeholder="PKR 0.00"
-              />
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Tax
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                WTax Amount
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Total Payment Due
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Applied Account
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Balance Due
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
-
-            {/* Buttons Section */}
-            <div style={{ display: 'flex', marginTop: '20px' }}>
-              {/* Copy From and Copy To Buttons in one line */}
-              
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       {/* Buttons Section */}
@@ -1196,7 +1085,7 @@ function Page() {
     <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
       <div
         style={{
-        //   position: 'relative', // Added relative positioning for dropdown
+          position: 'relative', // Added relative positioning for dropdown
         }}
       >
         <button
@@ -1212,7 +1101,7 @@ function Page() {
           onClick={toggleCopyFromDropdown}
         >
           Copy from
-          {/* <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span> */}
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
 
         </button>
           
@@ -1231,6 +1120,7 @@ function Page() {
               marginBottom: '4px', // Add margin to avoid overlap with button
             }}
           >
+
             <button
               style={{
                 padding: '6px 12px',
@@ -1243,9 +1133,9 @@ function Page() {
                 textAlign: 'left',
                 cursor: 'pointer',
               }}
-              onClick={() => handleCopyFromOptionSelect('Purchase Request')}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
             >
-              Purchase Request
+              Sales Quotation
             </button>
             <button
               style={{
@@ -1259,9 +1149,41 @@ function Page() {
                 textAlign: 'left',
                 cursor: 'pointer',
               }}
-              onClick={() => handleCopyFromOptionSelect('Purchase Quotation')}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
             >
-              Purchase Quotation
+              Sales Order
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Returns
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Res. Invoice
             </button>
             <button
               style={{
@@ -1279,6 +1201,7 @@ function Page() {
             >
               Blanket Agreement
             </button>
+
           </div>
         )}
       </div>

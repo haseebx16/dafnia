@@ -1143,7 +1143,7 @@ function Page() {
     <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
       <div
         style={{
-          position: 'relative', // Added relative positioning for dropdown
+          // position: 'relative', // Added relative positioning for dropdown
         }}
       >
         <button
@@ -1159,7 +1159,7 @@ function Page() {
           onClick={toggleCopyFromDropdown}
         >
           Copy from
-          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+          {/* <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span> */}
 
         </button>
           

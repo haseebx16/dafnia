@@ -190,7 +190,7 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-  A/P Credit Memo
+  A/R Invoice
     </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -216,7 +216,7 @@ function Page() {
       }}
     >
       <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      Vendor:
+      Customer
       </label>
       <select
         style={{
@@ -227,10 +227,10 @@ function Page() {
           border: "2px solid #ccc",
         }}
       >
-        <option>Select Vendor</option>
-        <option>Vendor 01</option>
-        <option>Vendor 02</option>
-        <option>Vendor 03</option>
+        <option>Select Customer</option>
+        <option>Customer 01</option>
+        <option>Customer 02</option>
+        <option>Customer 03</option>
       </select>
     </div>
      {/* Name: column */}
@@ -305,9 +305,9 @@ function Page() {
   }}
 >
   <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Vendor Ref No.
+        Customer Ref No.
   </label>
-  <input type="text" placeholder="Vendor Ref No." style={{ 
+  <input type="text" placeholder="Customer Ref No." style={{ 
       flex: 2,
       padding: "2px",
       fontSize: "12px",
@@ -471,6 +471,7 @@ function Page() {
   </div>
 </div>
 
+
   </div>
 </div>
 </Paper>
@@ -527,11 +528,11 @@ function Page() {
             <TableRow>
               <TableCell className="text-sm font-bold">S No.</TableCell>
               <TableCell className="text-sm font-bold">Item no.</TableCell>
+              <TableCell className="text-sm font-bold">Item Description</TableCell>
               <TableCell className="text-sm font-bold">Quantity</TableCell>
-              <TableCell className="text-sm font-bold">Unit  Price</TableCell>
-              <TableCell className="text-sm font-bold">Discount %</TableCell>
+              <TableCell className="text-sm font-bold">Unit Price</TableCell>
               <TableCell className="text-sm font-bold">Tax Code</TableCell>
-              <TableCell className="text-sm font-bold">Moisture</TableCell>
+              <TableCell className="text-sm font-bold">Tax Amount</TableCell>
               <TableCell className="text-sm font-bold">Total</TableCell>
               <TableCell className="text-sm font-bold text-center">Action</TableCell>
             </TableRow>
@@ -558,15 +559,7 @@ function Page() {
                     inputProps={{ style: { fontSize: "12px" } }}
                   />
                 </TableCell>
-                <TableCell>
-                  <TextField
-                    name="fromWarehouse"
-                    value={row.fromWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
+                
                 <TableCell>
                   <TextField
                     name="toWarehouse"
@@ -580,6 +573,15 @@ function Page() {
                   <TextField
                     name="quantity"
                     value={row.quantity}
+                    onChange={(e) => handleInputChange(index, e)}
+                    size="small"
+                    inputProps={{ style: { fontSize: "12px" } }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <TextField
+                    name="uomCode"
+                    value={row.uomCode}
                     onChange={(e) => handleInputChange(index, e)}
                     size="small"
                     inputProps={{ style: { fontSize: "12px" } }}
@@ -767,7 +769,7 @@ function Page() {
               }}
             >
               <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Buyer:
+                Sales Employee
               </label>
               <select
                 style={{
@@ -778,10 +780,10 @@ function Page() {
                   border: '2px solid #ccc',
                 }}
               >
-                <option>No Sales Employee</option>
-                <option>No Sales Employee 01</option>
-                <option>No Sales Employee 02</option>
-                <option>No Sales Employee 03</option>
+                <option> Select Sales Employee</option>
+                <option> Sales Employee 01</option>
+                <option> Sales Employee 02</option>
+                <option> Sales Employee 03</option>
               </select>
             </div>
 
@@ -811,30 +813,7 @@ function Page() {
             </div>
           </div>
 
-          <div
-            style={{
-              alignItems: 'center',
-              padding: '5px',
-              width: '100%',
-              marginTop: '90px',
-
-            }}
-          >
-            <label style={{ fontWeight: 'bold', fontSize: '12px' }}>Remarks:</label>
-            <input
-              type="text"
-              style={{
-                marginLeft: '60px',
-                width: '80%',
-                height: '80px',
-                padding: '5px',
-                marginTop: '4px',
-                fontSize: '12px',
-                border: '2px solid #ccc',
-                borderRadius: '4px',
-              }}
-            />
-          </div>
+          
         </div>
 
         {/* Right column */}
@@ -1245,7 +1224,7 @@ function Page() {
               }}
               onClick={() => handleCopyFromOptionSelect('Purchase Request')}
             >
-              Purchase Request
+              Purchase Quotation
             </button>
             <button
               style={{
@@ -1261,7 +1240,23 @@ function Page() {
               }}
               onClick={() => handleCopyFromOptionSelect('Purchase Quotation')}
             >
-              Purchase Quotation
+              Purchase Order
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Goods Receipts PO
             </button>
             <button
               style={{
@@ -1278,6 +1273,22 @@ function Page() {
               onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
             >
               Blanket Agreement
+            </button>
+            <button
+              style={{
+                padding: '6px 12px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Blanket Agreement')}
+            >
+              Landed Cost
             </button>
           </div>
         )}
