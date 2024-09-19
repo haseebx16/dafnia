@@ -198,6 +198,8 @@ function Page() {
 {/* Top Section */}
 <div
   className="grid grid-cols-2 mt-2 ml-2 mr-2 gap-80"
+
+  // style={backgroundColor=`${primaryColor}`}
   
 >
         {/* Left Column */}
@@ -209,12 +211,12 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background: `${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
             >
-              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
+              <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px",background:`${secondaryColor}` }}>
                 Opportunity Type:
               </label>
               <div style={{ flex: 2, display: "flex", gap: "10px" }}>
@@ -231,7 +233,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -247,6 +249,7 @@ function Page() {
                   padding: "2px",
                   fontSize: "12px",
                   borderRadius: "4px",
+
                   border: "2px solid #ccc",
                 }}
               />
@@ -258,7 +261,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -285,7 +288,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -315,7 +318,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -333,7 +336,7 @@ function Page() {
                   fontSize: "12px",
                   borderRadius: "4px",
                   border: "2px solid #ccc",
-                  backgroundColor: "#e0e0e0",
+                  
                 }}
               />
             </div>
@@ -344,7 +347,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -374,7 +377,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -404,7 +407,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -421,6 +424,7 @@ function Page() {
                   fontSize: "12px",
                   borderRadius: "4px",
                   border: "2px solid #ccc",
+                  
                 }}
               />
             </div>
@@ -431,7 +435,7 @@ function Page() {
                 display: "flex",
                 alignItems: "center",
                 padding: "4px",
-                background: "#f0f0f0",
+                background:`${secondaryColor}`,
                 borderRadius: "6px",
                 border: "2px solid #ccc",
               }}
@@ -457,7 +461,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -484,7 +488,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -511,7 +515,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -537,7 +541,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -563,7 +567,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -593,7 +597,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -620,7 +624,7 @@ function Page() {
               display: "flex",
               alignItems: "center",
               padding: "4px",
-              background: "#f0f0f0",
+              background:`${secondaryColor}`,
               borderRadius: "6px",
               border: "2px solid #ccc",
             }}
@@ -680,8 +684,8 @@ function Page() {
   >
     <Tab label="Content" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
     <Tab label="Logistics" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
-    <Tab label="Accounting" sx={{ fontWeight: 'bold', fontSize: '12px' , margin:"10px" }} />
-    <Tab label="Attachments" sx={{ fontWeight: 'bold', fontSize: '12px' }} />
+    {/* <Tab label="Accounting" sx={{ fontWeight: 'bold', fontSize: '12px' , margin:"10px" }} />
+    <Tab label="Attachments" sx={{ fontWeight: 'bold', fontSize: '12px' }} /> */}
   </Tabs>
 
   {/* Tab Panels */}
