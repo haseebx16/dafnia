@@ -508,7 +508,7 @@ function Page() {
                       },
                     }}
                   >
-                    <RiDeleteBin6Line size={30} className='mt-1 border-2 border-sky-600 p-1 rounded-full' sx={{ fontSize: "36px", color: `inherit` }} />
+                    <RiDeleteBin6Line size={25} className='mt-1 border-2 border-sky-600 p-1 rounded-full' sx={{ fontSize: "36px", color: `inherit` }} />
                   </Button>
                   <Button
                     onClick={() => handleAddRow(index)}
@@ -518,7 +518,7 @@ function Page() {
                       fontSize: "16px",
                     }}
                   >
-                    <IoMdAdd size={30} className='mt-1 border-2 border-sky-600 p-1 rounded-full' onClick={handleAddRow} />
+                    <IoMdAdd size={25} className='mt-1 border-2 border-sky-600 p-1 rounded-full' onClick={handleAddRow} />
                   </Button>
                 </TableCell>
               </TableRow>
@@ -611,7 +611,7 @@ function Page() {
                       },
                     }}
                   >
-                    <RiDeleteBin6Line size={30} className='mt-1 border-2 border-sky-600 p-1 rounded-full' sx={{ fontSize: "16px", color: `inherit` }} />
+                    <RiDeleteBin6Line size={25} className='mt-1 border-2 border-sky-600 p-1 rounded-full' sx={{ fontSize: "16px", color: `inherit` }} />
                   </Button>
                   <Button
                     onClick={() => handleAddRowA(index)}
@@ -621,7 +621,7 @@ function Page() {
                       fontSize: "16px",
                     }}
                   >
-                    <IoMdAdd size={30} className='mt-1 border-2 border-sky-600 p-1 rounded-full' onClick={handleAddRowA} />
+                    <IoMdAdd size={25} className='mt-1 border-2 border-sky-600 p-1 rounded-full' onClick={handleAddRowA} />
                   </Button>
                 </TableCell>
               </TableRow>
