@@ -188,10 +188,6 @@ const Sidebar = () => {
               {renderLink("/ap-invoice", null, "A/P Invoice", true)}
             </div>
           )}
-<<<<<<< Updated upstream
-=======
-          
->>>>>>> Stashed changes
         </div>
       </nav>
     </aside>
