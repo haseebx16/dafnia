@@ -985,11 +985,7 @@ function Page() {
               }}
             />
           </div>
-          
-        </div>
-
-        {/* Right column */}
-        
+        </div>        
       </div>
 
       {/* Buttons Section */}
