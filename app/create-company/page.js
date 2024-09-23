@@ -85,15 +85,7 @@ const Page = () => {
             <Grid item xs={10}></Grid>
 
             <Grid item xs={1}>
-<<<<<<< Updated upstream
-              <Link href="/company">
-                <CancelButton title="Cancel" className="mt-16" />
-              </Link>
-            </Grid>
-            <Grid item xs={1}>
-              <Link href="/company">
-                <CustomButton title="Save" className="mt-16" />
-=======
+
               <Link href='/company'>
                 <CustomButton title="Cancel" primaryEnabled={false} className='mt-16' classes={`px-4 py-2 bg-slate-500 hover:bg-slate-600 font-medium rounded text-md me-2 mb-2`}/>
               </Link>
@@ -101,7 +93,6 @@ const Page = () => {
             <Grid item xs={1}>
               <Link href='/company'>
                 <CustomButton title="Save" primaryEnabled={true} className='mt-16'/>
->>>>>>> Stashed changes
               </Link>
             </Grid>
 
