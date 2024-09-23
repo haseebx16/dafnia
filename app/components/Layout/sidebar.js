@@ -188,6 +188,21 @@ const Sidebar = () => {
               {renderLink("/ap-invoice", null, "A/P Invoice", true)}
             </div>
           )}
+          {isInventoryOpen && (
+            <div className="mr-4 w-full font-light text-sm">
+              {renderLink('/inventory-transfer', null, 'Inventory Transfer ', true)} {/* Removed the icon */}
+            </div>
+          )}
+          {isInventoryOpen && (
+            <div className="mr-4 w-full font-light text-sm">
+              {renderLink('/goods-receipt', null, 'Goods Receipt ', true)} {/* Removed the icon */}
+            </div>
+          )}
+          {isInventoryOpen && (
+            <div className="mr-4 w-full font-light text-sm">
+              {renderLink('/goods-issue', null, 'Goods Issue ', true)} {/* Removed the icon */}
+            </div>
+          )}
         </div>
       </nav>
     </aside>

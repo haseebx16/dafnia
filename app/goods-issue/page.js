@@ -60,16 +60,13 @@ function Page() {
   const [rows, setRows] = useState([
     {
       itemNo: 1,
-      description: "",
-      fromWarehouse: "WHS-0001",
-      toWarehouse: "WHS-0001",
+      description: "",          
       quantity: "",
-      uomCode: "",
+      total: "",
+      accountcode: "0.00",
+      itemcost: "",
       uomName: "",
-      moisture: "0.00",
-      rejection: "",
-      grade: "",
-      value: "",
+      
     },
   ]);
 
@@ -86,15 +83,11 @@ function Page() {
       {
         itemNo: rows.length + 1,
         description: "",
-        fromWarehouse: "",
-        toWarehouse: "",
         quantity: "",
-        uomCode: "",
-        uomName: "",
-        moisture: "",
-        rejection: "",
-        grade: "",
-        value: "",
+      total: "",
+      accountcode: "0.00",
+      itemcost: "",
+      uomName: "",
       },
     ]);
   };
@@ -197,7 +190,7 @@ function Page() {
         }}
       >
   <p className="text-2xl font-bold text-black mt-3 ml-2">
-    Inventory Transfer Request
+  Goods Issue
   </p>
   <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -210,68 +203,48 @@ function Page() {
   {/* Your content for the top section goes here */}
 
 
-  {/* Left column */}
-  <div className="space-y-2" style={{ width: "400px" }}>
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Business Partner:
-      </label>
-      <select
+ {/* Left column */}
+<div className="space-y-2" style={{ width: "400px" }}>
+  {/* Row for Number and Series */}
+  <div style={{ display: "flex", justifyContent: "space-between", width: "100%", padding: '5px' }}>
+    
+    {/* Number Input */}
+    <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
+      <label style={{ fontWeight: "bold", fontSize: "12px", marginRight: "15px" }}>Number:</label>
+      <input
+        type="text"
         style={{
-          flex: 2,
-          padding: "2px",
+          width: "70%", // Reduced width
+          height: "25px", // Reduced height
+          padding: "4px",
           fontSize: "12px",
-          borderRadius: "4px",
           border: "2px solid #ccc",
+          borderRadius: "4px",
         }}
-      >
-        <option>Select Partner</option>
-        <option>Partner 1</option>
-        <option>Partner 2</option>
-        <option>Partner 3</option>
-      </select>
+      />
     </div>
-     {/* Name: column */}
 
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Name:
-      </label>
-      <select
+    {/* Spacing between Number and Series */}
+    <div style={{ width: "10px" }}></div>
+
+    {/* Series Input */}
+    <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
+      <label style={{ fontWeight: "bold", fontSize: "12px", marginRight: "15px" }}>Series:</label>
+      <input
+        type="text"
         style={{
-          flex: 2,
-          padding: "2px",
+          width: "70%", // Reduced width
+          height: "25px", // Reduced height
+          padding: "4px",
           fontSize: "12px",
-          borderRadius: "4px",
           border: "2px solid #ccc",
+          borderRadius: "4px",
         }}
-      >
-        <option>Select Name</option>
-        <option>Name 1</option>
-        <option>Name 2</option>
-        <option>Name 3</option>
-      </select>
+      />
     </div>
-            {/* Contact Person: column */}
+  </div>
 
+  {/* Name Dropdown */}
   <div
     style={{
       display: "flex",
@@ -280,176 +253,34 @@ function Page() {
       background: secondaryColor,
       borderRadius: "6px",
       border: "2px solid #ccc",
+      width: "100%",
+      marginTop: '10px', // Adds spacing between inputs and dropdown
     }}
   >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      Contact Person:
-    </label>
+    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>Price List:</label>
     <select
       style={{
         flex: 2,
-        padding: "2px",
+        padding: "5px",
         fontSize: "12px",
         borderRadius: "4px",
         border: "2px solid #ccc",
       }}
     >
-      <option>Select Contact Person</option>
-      <option>Person 1</option>
-      <option>Person 2</option>
-      <option>Person 3</option>
+      <option>Select Name</option>
+      <option>Last Purchase Price 1</option>
+      <option>Last Purchase Price 2</option>
+      <option>Last Purchase Price 3</option>
     </select>
   </div>
-
- 
-        {/* Ship To: column */}
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "4px",
-    background: secondaryColor,
-    borderRadius: "6px",
-    border: "2px solid #ccc",
-  }}
->
-  <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-    Ship To:
-  </label>
-  <select
-    style={{
-      flex: 2,
-      padding: "2px",
-      fontSize: "12px",
-      borderRadius: "4px",
-      border: "2px solid #ccc",
-    }}
-  >
-    <option>Select Location</option>
-    <option>Location 1</option>
-    <option>Location 2</option>
-    <option>Location 3</option>
-  </select>
 </div>
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px", 
-  }}
->
-{/* Additional text field below without label */}
-<input
-  type="text"
-  style={{
-    width: "100%",
-    height: "80px",
-    padding: "5px",
-    marginTop: "4px",
-    fontSize: "12px",
-    border: "2px solid #ccc",
-    borderRadius: "4px",
-  }}
-  placeholder="Enter additional info"
-/>
 
-      {/* Price List: column */}
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      padding: "4px",
-      background: secondaryColor,
-      borderRadius: "6px",
-      border: "2px solid #ccc",
-    }}
-  >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-    Price List:
-    </label>
-    <select
-      style={{
-        flex: 2,
-        padding: "2px",
-        fontSize: "12px",
-        borderRadius: "4px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <option>Last Purchase Price</option>
-      <option>Price 1</option>
-      <option>Price 2</option>
-      <option>Price 3</option>
-    </select>
-    </div>
-    </div>
-  </div>
 
   {/* Right column */}
   
   <div className="space-y-2" style={{ width: "400px" }}>
 
-    {/* Number Dropdown */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Number:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      >
-        <option>Select Number</option>
-        <option>No 1</option>
-        <option>No 2</option>
-        <option>No 3</option>
-      </select>
-    </div>
-
-    {/* Status Dropdown */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Status:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      >
-        <option>Select Status</option>
-        <option>Open</option>
-        <option>Close</option>
-      </select>
-    </div>
-
+    
     {/* Posting Date */}
     <div
       style={{
@@ -479,41 +310,7 @@ function Page() {
       />
     </div>
 
-    {/* Due Date */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        Due Date:
-      </label>
-      <input
-        type="date"
-        id="dDate"
-        name="dDate"
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      />
-    </div>
-    <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px", 
-  }}
->
+
   {/* Document Date */}
   <div
     style={{
@@ -542,71 +339,30 @@ function Page() {
       }}
     />
   </div>
-
-  {/* From Warehouse Dropdown */}
   <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      padding: "4px",
-      background: secondaryColor,
-      borderRadius: "6px",
-      border: "2px solid #ccc",
-    }}
-  >
-    <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-      From Warehouse:
-    </label>
-    <select
-      style={{
-        flex: 2,
-        padding: "2px",
-        fontSize: "12px",
-        borderRadius: "4px",
-        border: "2px solid #ccc",
-        backgroundColor: "white",
-      }}
-    >
-      <option>Select Warehouse</option>
-      <option>Warehouse 1</option>
-      <option>Warehouse 2</option>
-      <option>Warehouse 3</option>
-    </select>
-  </div>
-</div>
-
-
-    {/* To Warehouse Dropdown */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "4px",
-        background: secondaryColor,
-        borderRadius: "6px",
-        border: "2px solid #ccc",
-      }}
-    >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px" }}>
-        To Warehouse:
-      </label>
-      <select
-        style={{
-          flex: 2,
-          padding: "2px",
-          fontSize: "12px",
-          borderRadius: "4px",
-          border: "2px solid #ccc",
-          backgroundColor: "white",
-        }}
-      >
-        <option>Select Warehouse</option>
-        <option>Warehouse 1</option>
-        <option>Warehouse 2</option>
-        <option>Warehouse 3</option>
-      </select>
-    </div>
-   
+            style={{
+              alignItems: 'center',
+              padding: '1px',
+              width: '100%',
+            }}
+          >
+            <label style={{ fontWeight: 'bold', fontSize: '12px' }}> Ref. 2:</label>
+            <input
+              type="text"
+              style={{
+                marginLeft: '20px',
+                width: '86%',
+                height: '30px',
+                padding: '5px',
+                marginTop: '4px',
+                fontSize: '12px',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+              }}
+            />
+          </div>
+ 
+  
   </div>
 </div>
 </Paper>
@@ -662,10 +418,13 @@ function Page() {
               <TableCell className="text-sm font-bold">S No.</TableCell>
               <TableCell className="text-sm font-bold">Item no.</TableCell>
               <TableCell className="text-sm font-bold">Description</TableCell>
-              <TableCell className="text-sm font-bold">From Warehouse</TableCell>
-              <TableCell className="text-sm font-bold">To Warehouse</TableCell>
               <TableCell className="text-sm font-bold">Quantity</TableCell>
+              <TableCell className="text-sm font-bold">Total</TableCell>
+              <TableCell className="text-sm font-bold">Account Code</TableCell>
+              <TableCell className="text-sm font-bold">Item Cost</TableCell>
               <TableCell className="text-sm font-bold">UOM Code</TableCell>
+
+
               <TableCell className="text-sm font-bold text-center">Action</TableCell>
             </TableRow>
           </TableHead>
@@ -693,24 +452,6 @@ function Page() {
                 </TableCell>
                 <TableCell>
                   <TextField
-                    name="fromWarehouse"
-                    value={row.fromWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
-                <TableCell>
-                  <TextField
-                    name="toWarehouse"
-                    value={row.toWarehouse}
-                    onChange={(e) => handleInputChange(index, e)}
-                    size="small"
-                    inputProps={{ style: { fontSize: "12px" } }}
-                  />
-                </TableCell>
-                <TableCell>
-                  <TextField
                     name="quantity"
                     value={row.quantity}
                     onChange={(e) => handleInputChange(index, e)}
@@ -718,10 +459,38 @@ function Page() {
                     inputProps={{ style: { fontSize: "12px" } }}
                   />
                 </TableCell>
+
                 <TableCell>
                   <TextField
-                    name="uomCode"
-                    value={row.uomCode}
+                    name="total"
+                    value={row.total}
+                    onChange={(e) => handleInputChange(index, e)}
+                    size="small"
+                    inputProps={{ style: { fontSize: "12px" } }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <TextField
+                    name="accountcode"
+                    value={row.accountcode}
+                    onChange={(e) => handleInputChange(index, e)}
+                    size="small"
+                    inputProps={{ style: { fontSize: "12px" } }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <TextField
+                    name="itemcost"
+                    value={row.accountcode}
+                    onChange={(e) => handleInputChange(index, e)}
+                    size="small"
+                    inputProps={{ style: { fontSize: "12px" } }}
+                  />
+                </TableCell>
+                <TableCell>
+                  <TextField
+                    name="uomName"
+                    value={row.uomName}
                     onChange={(e) => handleInputChange(index, e)}
                     size="small"
                     inputProps={{ style: { fontSize: "12px" } }}
@@ -880,35 +649,28 @@ function Page() {
         {/* Left column */}
         <div style={{ width: '30%' }}>
           <div className="space-y-2" style={{ width: '100%' }}>
-            <div
+          <div
+            style={{
+              alignItems: 'center',
+              padding: '2px',
+              width: '100%',
+            }}
+          >
+            <label style={{ fontWeight: 'bold', fontSize: '12px' }}> Remarks:</label>
+            <input
+              type="text"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
+                marginLeft: '64px',
+                width: '65%',
+                height: '30px',
+                padding: '5px',
+                marginTop: '4px',
+                fontSize: '12px',
                 border: '2px solid #ccc',
+                borderRadius: '4px',
               }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Sales Employee:
-              </label>
-              <select
-                style={{
-                  width: '230px', // Fixed width for the select field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              >
-                <option>No Sales Employee</option>
-                <option>No Sales Employee 01</option>
-                <option>No Sales Employee 02</option>
-                <option>No Sales Employee 03</option>
-              </select>
-            </div>
-
+            />
+          </div>
             
           </div>
 
@@ -939,53 +701,9 @@ function Page() {
         {/* Right column */}
         <div style={{ width: '33%' }}>
           <div className="space-y-2">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '4px',
-                background: secondaryColor,
-                borderRadius: '6px',
-                border: '2px solid #ccc',
-              }}
-            >
-              <label style={{ flex: 1, fontWeight: 'bold', fontSize: '12px' }}>
-                Pick and Pack Remarks
-              </label>
-              <input
-                type="text"
-                style={{
-                  width: '200px', // Fixed width for the input field
-                  padding: '2px',
-                  fontSize: '12px',
-                  borderRadius: '4px',
-                  border: '2px solid #ccc',
-                }}
-              />
-            </div>
+            
 
-            <div
-            style={{
-              alignItems: 'center',
-              padding: '5px',
-              width: '100%',
-            }}
-          >
-            <label style={{ fontWeight: 'bold', fontSize: '12px' }}> Remarks:</label>
-            <input
-              type="text"
-              style={{
-                marginLeft: '37px',
-                width: '76%',
-                height: '30px',
-                padding: '5px',
-                marginTop: '4px',
-                fontSize: '12px',
-                border: '2px solid #ccc',
-                borderRadius: '4px',
-              }}
-            />
-          </div>
+            
 
            
 
@@ -1091,8 +809,71 @@ function Page() {
       </button>
     </div>
 
-    {/*  Copy to Button */}
+    {/* Copy from and Copy to Buttons */}
+    
     <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
+      <div
+        style={{
+          position: 'relative', // Added relative positioning for dropdown
+        }}
+      >
+        <button
+          style={{
+            padding: '6px 12px',
+            backgroundColor: primaryColor,
+            color: '#fff',
+            border: '2px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '12px',
+            cursor: 'pointer',
+          }}
+          onClick={toggleCopyFromDropdown}
+        >
+          Copy from
+          <span style={{ fontSize:'10px', marginLeft:'5px' }}>▼</span>
+
+        </button>
+        
+          
+        {showCopyFromDropdown && (
+          <div
+            style={{
+              position: 'absolute',
+              backgroundColor: primaryColor,
+              color: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              bottom: '100%', // Change from top: '100%' to bottom: '100%'
+              left: '0',
+              minWidth: '120px',
+              zIndex: 1,
+              marginBottom: '4px', // Add margin to avoid overlap with button
+            }}
+          >
+            <button
+              style={{
+                padding: '6px 6px',
+                backgroundColor: primaryColor,
+                color: '#fff',
+                border: '2px solid #ccc',
+                borderRadius: '4px',
+                fontSize: '12px',
+                width: '100%',
+                textAlign: 'left',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleCopyFromOptionSelect('Inventory Transfer Request')}
+            >
+              Inventory Transfer Request
+            </button>
+            
+          
+          </div>
+        )}
+        
+      </div>
+{/*  Copy to Button */}
+<div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
       
 
       <button
@@ -1108,6 +889,8 @@ function Page() {
       >
         Copy to
       </button>
+    </div>
+      
     </div>
   </div>
 </div>
