@@ -17,7 +17,7 @@ import Layout from '../components/layout/Layout';
 import { IoMdAdd } from "react-icons/io";
 import Pagination from '../components/pagination/pagination';
 import TextBar from '../components/fields/textField/textBar';
-import AddButton from '../components/buttons/addButton/addButton';
+import CustomButton from '../components/buttons/customButton/customButton';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -96,7 +96,7 @@ const Page = () => {
       <div className="flex justify-between items-center">
         <p className="text-2xl font-bold mt-1 text-black ml-4">Manage Company</p>
         <Link href="/create-company">
-          <AddButton label="Create Company" fontSize="md" primaryColor={primaryColor}/>
+          <CustomButton title="Create Company" primaryEnabled={true} icon={true} classes={`mr-6 mt-5 ml-4 whitespace-nowrap rounded-md flex items-center w-auto font-bold mb-6`}/>
         </Link>
       </div>
       <hr className="border-gray-700 w-full" />

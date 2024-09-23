@@ -28,7 +28,7 @@ export default function Layout({ children }) {
         </h1>
 
         <Link href='/'>
-          <CustomButton title="Logout" />
+          <CustomButton title="Logout" primaryEnabled={true} padding="6px 8px"/>
         </Link>
       </header>
       <hr className='w-full border-gray-600' />
