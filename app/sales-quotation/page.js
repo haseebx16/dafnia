@@ -11,6 +11,7 @@ import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdo
 import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
 import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
 import SapTable from "../components/tables/sapTable";
+import CustomButton from "../components/buttons/customButton/customButton";
 
 function Page() {
   const [rows, setRows] = useState([
@@ -260,26 +261,29 @@ function Page() {
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <SapDropdownButton
-                    primaryColor={primaryColor}
-                    option1="Add and Close"
-                    option2="Add and View"
-                    onOptionSelect={handleOptionSelect}
-                  />
-                  <SapCancelButton title="Cancel" />
+                <CustomButton 
+                  isDropdown={true} 
+                  option1="Add and View" 
+                  option2="Add and Close" 
+                  onOptionSelect={(option) => console.log(option)} 
+                  primaryEnabled={true} 
+                  padding="6px 12px" 
+                  fontsize="12px" 
+                />
+                  <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
                 </div>
-                <div
+
+                <div  
                   style={{
                     display: "flex",
                     gap: "8px",
                     justifyContent: "space-between",
                   }}
                 >
-                  <SapCopyButton
-                    primaryColor={primaryColor}
-                    title="Copy From"
-                  />
-                  <SapCopyButton primaryColor={primaryColor} title="Copy To" />
+                  <div>
+                  <CustomButton primaryEnabled={true} title="Copy From" padding=" 8px" fontsize="12px"/>
+                  </div>
+                  <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>
                 </div>
               </div>
             </div>

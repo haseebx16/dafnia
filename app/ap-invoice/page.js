@@ -27,6 +27,7 @@ import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdo
 import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
 import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
 import SapCopyFromDropDown from "../components/fields/dropDown/sapCopyFromDropDown";
+import CustomButton from "../components/buttons/customButton/customButton";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -693,16 +694,19 @@ function Page() {
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <SapDropdownButton
-                    primaryColor={primaryColor}
-                    option1="Add and Close"
-                    option2="Add and View"
-                    onOptionSelect={handleOptionSelect}
-                  />
-                  <SapCancelButton title="Cancel" />
+                <CustomButton 
+                  isDropdown={true} 
+                  option1="Add and View" 
+                  option2="Add and Close" 
+                  onOptionSelect={(option) => console.log(option)} 
+                  primaryEnabled={true} 
+                  padding="6px 12px" 
+                  fontsize="12px" 
+                />
+                  <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
                 </div>
 
-                <div
+                <div  
                   style={{
                     display: "flex",
                     gap: "8px",
@@ -710,16 +714,9 @@ function Page() {
                   }}
                 >
                   <div>
-                    <SapCopyFromDropDown
-                      primaryColor={primaryColor}
-                      option1="Purchase Quotation"
-                      option2="Goods Receipts PO"
-                      option3="Blanket Agreement"
-                      option4="Landed Cost"
-                      onOptionSelect={handleOptionSelect}
-                    />
+                  <CustomButton primaryEnabled={true} title="Copy From" padding=" 8px" fontsize="12px"/>
                   </div>
-                  <SapCopyButton primaryColor={primaryColor} title="Copy To" />
+                  <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>
                 </div>
               </div>
             </div>

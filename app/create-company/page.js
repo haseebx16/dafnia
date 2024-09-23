@@ -92,7 +92,7 @@ const Page = () => {
             </Grid>
             <Grid item xs={1}>
               <Link href='/company'>
-                <CustomButton title="Save" primaryEnabled={true} className='mt-16'/>
+                <CustomButton title="Save" primaryEnabled={true} className='mt-16' classes="p-2"/>
               </Link>
             </Grid>
 

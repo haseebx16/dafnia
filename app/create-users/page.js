@@ -12,11 +12,14 @@ import Layout from '../components/layout/layout';
 import CancelButton from '../components/buttons/cancelButton/cancelButton';
 import TextBar from '../components/fields/textField/textBar';
 import UserDropdown from '../components/fields/dropDown/userDropdown';
+import SapDropDown from '../components/fields/dropDown/sapDropDown';
 
 const page = () => {
 
     const [dropdownValue, setDropdownValue] = useState("");
     const [dropdownTwo, setDropdownTwo] = useState('');
+
+    const { secondaryColor } = useColor()
 
     const handleDropdownChange = (event) => setDropdownValue(event.target.value);
     const handleDropdownChangeTwo = (event) => setDropdownTwo(event.target.value);
@@ -37,8 +40,51 @@ const page = () => {
                   <TextBar grids={6} id="User-Name" name="User Name" label="User Name" type="text" />
                   <TextBar grids={6} id="User-Email" name="User Email" label="User Email" type="text" />
                   <TextBar grids={6} id="Department" name="Department" label="Department" type="text" />
-                  <UserDropdown grids={6} label="Select Role" option1="Inventory" option2="Procurement" option3="Sales" labelSpace="Select Role"/>
-                  <UserDropdown grids={6} label="Select Line Manager" option1="Ayan Rabbani" option2="Ali Ahmed" option3="Ahmed Raza" labelSpace="Select Line Manager"/>
+                  <div style={{ display: "flex", marginLeft: '10px', gap: '80px', marginTop: '4px' }}>
+                    <SapDropDown
+                      label="Role"
+                      option="Select Role"
+                      option1="Inventory"
+                      option2="Procurement"
+                      option3="Sales"
+                      secondaryColor={secondaryColor}
+                      containerStyles={{
+                        padding: "4px",
+                        background: secondaryColor,
+                        borderRadius: "6px",
+                        border: "2px solid #ccc",
+                        width: "500px",
+                        margin: "8px 0",
+                        marginLeft: "8px"
+                      }}
+                      labelStyles={{
+                        fontSize: "14px",
+                      }}
+                    />
+                    <SapDropDown
+                      label="Line Manager"
+                      option="Select Line Manager"
+                      option1="Manager A"
+                      option2="Manager B"
+                      option3="Manager C"
+                      secondaryColor={secondaryColor}
+                      containerStyles={{
+                        padding: "4px",
+                        background: secondaryColor,
+                        borderRadius: "6px",
+                        border: "2px solid #ccc",
+                        width: "500px",
+                        margin: "8px 0",
+                        marginLeft: "8px"
+                      }}
+                      labelStyles={{
+                        fontSize: "14px",
+                      }}
+                    />
+                  </div>
+
+              
+                {/* <UserDropdown grids={6} label="Select Line Manager" option1="Ayan Rabbani" option2="Ali Ahmed" option3="Ahmed Raza" labelSpace="Select Line Manager"/> */}
                     
                   <Grid item xs={10}></Grid>
                   <Grid item xs={1} className='mt-44'>
@@ -48,7 +94,7 @@ const page = () => {
               </Grid>
               <Grid item xs={1} className='mt-44'>
                 <Link href='/users'>
-                  <CustomButton title="Save"/>
+                  <CustomButton title="Save" primaryEnabled={true} classes="p-2"/>
                 </Link>
                   </Grid>
                 </Grid>
