@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button, Grid, Typography } from '@mui/material';
-import { ChromePicker } from 'react-color';
+import { ChromePicker, SliderPicker } from 'react-color'; // Correct import for SliderPicker
 import { useColor } from '../context/ColorContext';
 import CustomButton from '../components/buttons/customButton/customButton';
 import TextBar from '../components/fields/textField/textBar';

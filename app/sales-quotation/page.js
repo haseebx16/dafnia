@@ -17,24 +17,19 @@ function Page() {
     {
       itemNo: 1,
       description: "",
-      fromWarehouse: "",
-      toWarehouse: "",
-      quantity: "",
       uomCode: "",
-      uomName: "",
-      moisture: "0.00",
-      rejection: "",
-      grade: "",
-      value: "",
+      quantity: "",
+      unitPrice: "",
+      taxCode: "",
+      total: "",
     },
   ]);
 
   const fieldConfigs = [
-    { name: "itemNo", label: "Item no." },
-    { name: "description", label: "Item Description" },
-    { name: "uomCode", label: "UoM Code" },
+    { name: "itemNo", label: "Item No." },
     { name: "quantity", label: "Quantity" },
     { name: "unitPrice", label: "Unit Price" },
+    { name: "discount", label: "Discount %" },
     { name: "taxCode", label: "Tax Code" },
     { name: "total", label: "Total" },
   ];
@@ -55,12 +50,11 @@ function Page() {
   const handleAddRow = () => {
     const newRow = {
       itemNo: rows.length + 1,
-      item: "",
       description: "",
-      fromWarehouse: "",
-      toWarehouse: "",
-      quantity: "",
       uomCode: "",
+      quantity: "",
+      unitPrice: "",
+      taxCode: "",
       total: "",
     };
     setRows([...rows, newRow]);
@@ -81,7 +75,6 @@ function Page() {
     <Layout>
       <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
         <div className={`${font.className}`}>
-          {/* Title Section */}
           <Paper
             elevation={3}
             style={{
@@ -90,11 +83,10 @@ function Page() {
               borderRadius: "8px",
               padding: "20px",
               width: "100%",
-              height: "100%",
             }}
           >
             <p className="text-2xl font-bold text-black mt-3 ml-2">
-              Sales Order
+              Sales Quotation
             </p>
             <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -128,10 +120,10 @@ function Page() {
                 <SapTextField
                   label="Customer Ref. No"
                   secondaryColor={secondaryColor}
-                  defaultValue="Customer Ref. No"
                 />
               </div>
 
+              {/* Right column */}
               <div className="space-y-2" style={{ width: "400px" }}>
                 <SapDropDown
                   secondaryColor={secondaryColor}
@@ -145,7 +137,8 @@ function Page() {
                   secondaryColor={secondaryColor}
                   label="Status:"
                   option="Select Status"
-                  option2="Open"
+                  option1="Open"
+                  option2="Pending"
                   option3="Closed"
                 />
                 <SapDateField
@@ -154,27 +147,17 @@ function Page() {
                 />
                 <SapDateField
                   secondaryColor={secondaryColor}
-                  label="Due Date"
+                  label="Valid Until"
                 />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "40px",
-                  }}
-                >
-                  <SapDateField
-                    secondaryColor={secondaryColor}
-                    label="Document Date"
-                  />
-                </div>
+                <SapDateField
+                  secondaryColor={secondaryColor}
+                  label="Document Date"
+                />
               </div>
             </div>
           </Paper>
 
           <div className="mt-2 mb-0"></div>
-
-          {/* bottom Tab section */}
 
           <Paper
             elevation={3}
@@ -183,9 +166,7 @@ function Page() {
               border: "1px solid #d0d0d0",
               borderRadius: "8px",
               overflowX: "auto",
-              overflowY: "hidden",
               width: "100%",
-              height: "100%",
             }}
           >
             <Tabs
@@ -194,12 +175,7 @@ function Page() {
               sx={{
                 fontWeight: "bold",
                 fontSize: "14px",
-                ".MuiTab-root": {
-                  padding: "2px 1px",
-                },
-                ".MuiTabs-flexContainer": {
-                  justifyContent: "left",
-                },
+                ".MuiTabs-flexContainer": { justifyContent: "left" },
               }}
             >
               <Tab
@@ -208,7 +184,6 @@ function Page() {
               />
             </Tabs>
 
-            {/* Tab Panels */}
             <div style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
               <SapTable
                 tabValue={tabValue}
@@ -221,6 +196,7 @@ function Page() {
               />
             </div>
           </Paper>
+
           <Paper
             elevation={3}
             style={{
@@ -228,8 +204,6 @@ function Page() {
               border: "1px solid #d0d0d0",
               borderRadius: "8px",
               padding: "20px",
-              width: "100%",
-              height: "100%",
               marginTop: "4px",
             }}
           >
@@ -245,8 +219,6 @@ function Page() {
                     option3="Employee 3"
                   />
                   <SapTextField label="Owner" secondaryColor={secondaryColor} />
-                </div>
-                <div className="mt-2">
                   <SapTextField
                     label="Remarks"
                     secondaryColor={secondaryColor}
@@ -296,7 +268,6 @@ function Page() {
                   />
                   <SapCancelButton title="Cancel" />
                 </div>
-
                 <div
                   style={{
                     display: "flex",
@@ -304,12 +275,10 @@ function Page() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <div>
-                    <SapCopyButton
-                      primaryColor={primaryColor}
-                      title="Copy From"
-                    />
-                  </div>
+                  <SapCopyButton
+                    primaryColor={primaryColor}
+                    title="Copy From"
+                  />
                   <SapCopyButton primaryColor={primaryColor} title="Copy To" />
                 </div>
               </div>
