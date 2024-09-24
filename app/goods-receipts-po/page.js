@@ -27,6 +27,8 @@ import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdo
 import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
 import SapCopyFromDropDown from "../components/fields/dropDown/sapCopyFromDropDown";
 import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
+import CustomButton from "../components/buttons/customButton/customButton";
+import SapTable from "../components/tables/sapTable";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -177,6 +179,15 @@ function Page() {
     setShowCopyFromDropdown(false);
   };
 
+  const fieldConfigs = [
+    { name: "itemNo", label: "Item no." },
+    { name: "discription", label: "Item Description" },
+    { name: "quanity", label: "Quanity" },
+    { name: "rejection", label: "Rejection" },
+    { name: "Value", label: "Value" },
+    { name: "total", label: "Total" },
+  ];
+
   return (
     <Layout>
       <main className="flex-1 p-3 bg-gray-100 flex justify-center items-center">
@@ -307,289 +318,19 @@ function Page() {
                 label="Content"
                 sx={{ fontWeight: "bold", fontSize: "12px" }}
               />
-              <Tab
-                label="Logistics"
-                sx={{ fontWeight: "bold", fontSize: "12px" }}
-              />
-              <Tab
-                label="Accounting"
-                sx={{ fontWeight: "bold", fontSize: "12px", margin: "10px" }}
-              />
-              <Tab
-                label="Attachments"
-                sx={{ fontWeight: "bold", fontSize: "12px" }}
-              />
             </Tabs>
 
             {/* Tab Panels */}
             <div style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
-              <TabPanel
-                value={tabValue}
-                index={0}
-                style={{
-                  padding: "1px",
-                  overflowY: "auto",
-                }}
-              >
-                <div
-                  className="table-container"
-                  style={{ overflowX: "auto", width: "99%" }}
-                >
-                  <Table
-                    component={Paper}
-                    className="shadow-sm shadow-slate-800 px-12"
-                  >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell className="text-sm font-bold">
-                          S No.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Item no.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Item Description
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Quantity
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Rejection
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Value
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Total
-                        </TableCell>
-                        <TableCell className="text-sm font-bold text-center">
-                          Action
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{row.itemNo}</TableCell>
-                          <TableCell>
-                            <TextField
-                              name="itemno."
-                              value={row.item}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small" // Reduced field size
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="description"
-                              value={row.description}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="fromWarehouse"
-                              value={row.fromWarehouse}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-
-                          <TableCell>
-                            <TextField
-                              name="quantity"
-                              value={row.quantity}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="uomCode"
-                              value={row.uomCode}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="total"
-                              value={row.total}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell className="flex justify-center">
-                            <Button
-                              onClick={() => handleDeleteRow(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                                "&:hover": {
-                                  color: "red",
-                                },
-                              }}
-                            >
-                              <RiDeleteBin6Line
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                sx={{ fontSize: "36px", color: `inherit` }}
-                              />
-                            </Button>
-                            <Button
-                              onClick={() => handleAddRow(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                              }}
-                            >
-                              <IoMdAdd
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                onClick={handleAddRow}
-                              />
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </TabPanel>
-
-              {/* Attachments Section */}
-              <TabPanel
-                value={tabValue}
-                index={1}
-                style={{
-                  padding: "1px",
-                  overflowY: "auto",
-                }}
-              >
-                <div className="table-container">
-                  <Table component={Paper} className="shadow-sm shadow-black">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell className="text-sm font-bold">
-                          S No.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Target Path
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          File Name
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Attachment Date
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Free Text
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Copy to Target Doc.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold text-center">
-                          Action
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rowsA.map((row, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{row.itemNo}</TableCell>
-                          <TableCell>
-                            <TextField
-                              name="targetpath"
-                              value={row.targetpath}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="filename"
-                              value={row.filename}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="attacheddate"
-                              value={row.attacheddate}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="freetext"
-                              value={row.freetext}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="copytotargetdocument"
-                              value={row.copytotargetdocument}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell className="flex">
-                            <Button
-                              onClick={() => handleDeleteRowA(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                                "&:hover": {
-                                  color: "red",
-                                },
-                              }}
-                            >
-                              <RiDeleteBin6Line
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                sx={{ fontSize: "16px", color: `inherit` }}
-                              />
-                            </Button>
-                            <Button
-                              onClick={() => handleAddRowA(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                              }}
-                            >
-                              <IoMdAdd
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                onClick={handleAddRowA}
-                              />
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </TabPanel>
+              <SapTable
+                tabValue={tabValue}
+                rows={rows}
+                primaryColor={primaryColor}
+                handleInputChange={handleInputChange}
+                handleDeleteRow={handleDeleteRow}
+                handleAddRow={handleAddRow}
+                fieldConfigs={fieldConfigs}
+              />
             </div>
           </Paper>
           <Paper
@@ -636,16 +377,19 @@ function Page() {
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <SapDropdownButton
-                    primaryColor={primaryColor}
-                    option1="Add and Close"
-                    option2="Add and View"
-                    onOptionSelect={handleOptionSelect}
-                  />
-                  <SapCancelButton title="Cancel" />
+                <CustomButton 
+                  isDropdown={true} 
+                  option1="Add and View" 
+                  option2="Add and Close" 
+                  onOptionSelect={(option) => console.log(option)} 
+                  primaryEnabled={true} 
+                  padding="6px 12px" 
+                  fontsize="12px" 
+                />
+                  <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
                 </div>
-                {/* Copy from and Copy to Buttons */}
-                <div
+
+                <div  
                   style={{
                     display: "flex",
                     gap: "8px",
@@ -653,12 +397,9 @@ function Page() {
                   }}
                 >
                   <div>
-                    <SapCopyButton
-                      primaryColor={primaryColor}
-                      title="Copy From"
-                    />
+                  <CustomButton primaryEnabled={true} title="Copy From" padding=" 8px" fontsize="12px"/>
                   </div>
-                  <SapCopyButton primaryColor={primaryColor} title="Copy To" />
+                  <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>
                 </div>
               </div>
             </div>

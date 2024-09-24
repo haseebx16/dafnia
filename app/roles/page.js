@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import { FormControl, Select, MenuItem, Grid, Paper } from '@mui/material';
 import { useColor } from '../context/ColorContext';
-import { font } from '../components/font/poppins';
 import CheckboxGroup from '../components/checkBox/checkBox';
-import Layout from '../components/layout/layout';
+import Layout from '../components/layout/Layout';
 
 const Page = () => {
   const [role, setRole] = useState('Select A Role');

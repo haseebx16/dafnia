@@ -7,9 +7,6 @@ import { font } from "../components/font/poppins";
 import SapTextField from "../components/fields/sapFields/sapTextField";
 import SapDropDown from "../components/fields/dropDown/sapDropDown";
 import SapDateField from "../components/fields/date/sapDateField";
-import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdownButton";
-import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
-import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
 import SapTable from "../components/tables/sapTable";
 import CustomButton from "../components/buttons/customButton/customButton";
 
@@ -72,10 +69,6 @@ function Page() {
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
-  };
-
-  const handleOptionSelect = (option) => {
-    console.log(option);
   };
 
   return (
@@ -157,18 +150,10 @@ function Page() {
                   secondaryColor={secondaryColor}
                   label="Due Date"
                 />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "40px",
-                  }}
-                >
-                  <SapDateField
-                    secondaryColor={secondaryColor}
-                    label="Document Date"
-                  />
-                </div>
+                <SapDateField
+                  secondaryColor={secondaryColor}
+                  label="Document Date"
+                />
               </div>
             </div>
           </Paper>
@@ -176,7 +161,6 @@ function Page() {
           <div className="mt-2 mb-0"></div>
 
           {/* bottom Tab section */}
-
           <Paper
             elevation={3}
             style={{
@@ -289,15 +273,15 @@ function Page() {
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
-                <CustomButton 
-                  isDropdown={true} 
-                  option1="Add and View" 
-                  option2="Add and Close" 
-                  onOptionSelect={(option) => console.log(option)} 
-                  primaryEnabled={true} 
-                  padding="6px 12px" 
-                  fontsize="12px" 
-                />
+                  <CustomButton 
+                    isDropdown={true} 
+                    option1="Add and View" 
+                    option2="Add and Close" 
+                    onOptionSelect={(option) => console.log(option)} 
+                    primaryEnabled={true} 
+                    padding="6px 12px" 
+                    fontsize="12px" 
+                  />
                   <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
                 </div>
 
@@ -308,10 +292,8 @@ function Page() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <div>
-                  <CustomButton primaryEnabled={true} title="Copy From" padding=" 8px" fontsize="12px"/>
-                  </div>
-                  <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>
+                  <CustomButton primaryEnabled={true} title="Copy From" padding="8px" fontsize="12px"/>
+                  <CustomButton primaryEnabled={true} title="Copy To" padding="8px" fontsize="12px"/>
                 </div>
               </div>
             </div>

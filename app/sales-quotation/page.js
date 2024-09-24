@@ -7,9 +7,6 @@ import { font } from "../components/font/poppins";
 import SapTextField from "../components/fields/sapFields/sapTextField";
 import SapDropDown from "../components/fields/dropDown/sapDropDown";
 import SapDateField from "../components/fields/date/sapDateField";
-import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdownButton";
-import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
-import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
 import SapTable from "../components/tables/sapTable";
 import CustomButton from "../components/buttons/customButton/customButton";
 
@@ -272,7 +269,6 @@ function Page() {
                 />
                   <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
                 </div>
-
                 <div  
                   style={{
                     display: "flex",

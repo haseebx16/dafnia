@@ -1,33 +1,19 @@
 "use client";
 import Layout from "../components/layout/Layout";
 import React, { useState } from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { useColor } from "../context/ColorContext";
 import {
-  Grid,
-  TextField,
-  Button,
   Paper,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
   Tabs,
   Tab,
   Box,
 } from "@mui/material";
 import { font } from "../components/font/poppins";
-import AddButton from "../components/buttons/addButton/addButton";
-import { IoMdAdd } from "react-icons/io";
 import SapDropDown from "../components/fields/dropDown/sapDropDown";
 import SapTextField from "../components/fields/sapFields/sapTextField";
 import SapDateField from "../components/fields/date/sapDateField";
-import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdownButton";
-import SapCancelButton from "../components/buttons/sapCancelButton/SapCancelButton";
-import SapCopyButton from "../components/buttons/sapCopyButton/SapCopyButton";
-import SapCopyFromDropDown from "../components/fields/dropDown/sapCopyFromDropDown";
 import CustomButton from "../components/buttons/customButton/customButton";
+import SapTable from "../components/tables/sapTable";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,24 +32,6 @@ function TabPanel(props) {
 }
 
 function Page() {
-  const [formData, setFormData] = useState({
-    businessPartner: "",
-    name: "",
-    contactPerson: "",
-    shipTo: "",
-    no: "",
-    status: "",
-    postingDate: "",
-    dueDate: "",
-    documentDate: "",
-    fromWarehouse: "",
-    toWarehouse: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const [rows, setRows] = useState([
     {
@@ -112,71 +80,23 @@ function Page() {
     setRows(updatedRows);
   };
 
-  const [rowsA, setRowsA] = useState([
-    {
-      itemNo: 1,
-      targetpath: "",
-      filename: "",
-      attacheddate: "",
-      freetext: "",
-      copytotargetdocument: "",
-    },
-  ]);
-
-  const handleInputChangeA = (index, e) => {
-    const { name, value } = e.target;
-    const updatedRows = [...rowsA];
-    updatedRows[index][name] = value;
-    setRowsA(updatedRows);
-  };
-
-  const handleAddRowA = () => {
-    setRowsA([
-      ...rowsA,
-      {
-        itemNo: rowsA.length + 1,
-        targetpath: "",
-        filename: "",
-        attacheddate: "",
-        freetext: "",
-        copytotargetdocument: "",
-      },
-    ]);
-  };
-
-  const handleDeleteRowA = (index) => {
-    const updatedRows = rowsA.filter((_, rowIndex) => rowIndex !== index);
-    setRowsA(updatedRows);
-  };
-
   const { secondaryColor, primaryColor } = useColor();
   const [tabValue, setTabValue] = useState(0);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [showCopyFromDropdown, setShowCopyFromDropdown] = useState(false);
-  const [buttonLabel, setButtonLabel] = useState("Add and Close");
-  const [copyFromOption, setCopyFromOption] = useState("");
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  const handleOptionSelect = (label) => {
-    setButtonLabel(label); // Update the button label to the selected value
-    setShowDropdown(false); // Hide the dropdown after selection
-  };
-
-  const toggleCopyFromDropdown = () => {
-    setShowCopyFromDropdown(!showCopyFromDropdown);
-  };
-
-  const handleCopyFromOptionSelect = (option) => {
-    setCopyFromOption(option);
-    setShowCopyFromDropdown(false);
-  };
+  const fieldConfigs = [
+    { name: "itemNo", label: "Item no." },
+    { name: "description", label: "Item Description" },
+    { name: "grossQuanity", label: "Gross Quanity" },                     
+    { name: "netQuanity", label: "Net Quanity" },
+    { name: "unitPrice", label: "Unit Price" },
+    { name: "taxCode", label: "Tax Code" },
+    { name: "taxAmount", label: "Tax Amount" },
+    { name: "total", label: "Total" },
+  ];
 
   return (
     <Layout>
@@ -194,8 +114,7 @@ function Page() {
             }}
           >
             <p className="text-2xl font-bold text-black mt-3 ml-2">
-            A/P Invoice
-
+              A/P Invoice
             </p>
             <hr className="border-t-2 border-gray-700 mt-5" />
 
@@ -317,312 +236,19 @@ function Page() {
                 label="Content"
                 sx={{ fontWeight: "bold", fontSize: "12px" }}
               />
-              <Tab
-                label="Logistics"
-                sx={{ fontWeight: "bold", fontSize: "12px" }}
-              />
-              <Tab
-                label="Accounting"
-                sx={{ fontWeight: "bold", fontSize: "12px", margin: "10px" }}
-              />
-              <Tab
-                label="Attachments"
-                sx={{ fontWeight: "bold", fontSize: "12px" }}
-              />
             </Tabs>
 
             {/* Tab Panels */}
             <div style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
-              <TabPanel
-                value={tabValue}
-                index={0}
-                style={{
-                  padding: "1px",
-                  overflowY: "auto",
-                }}
-              >
-                <div
-                  className="table-container"
-                  style={{ overflowX: "auto", width: "99%" }}
-                >
-                  <Table
-                    component={Paper}
-                    className="shadow-sm shadow-slate-800 px-12"
-                  >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell className="text-sm font-bold">
-                          S No.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Item no.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Item Description
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Gross Quantity
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Net Quantity
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Unit Price
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Tax Code
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Tax Amount
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Total
-                        </TableCell>
-                        <TableCell className="text-sm font-bold text-center">
-                          Action
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{row.itemNo}</TableCell>
-                          <TableCell>
-                            <TextField
-                              name="itemno."
-                              value={row.item}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small" // Reduced field size
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="description"
-                              value={row.description}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="fromWarehouse"
-                              value={row.fromWarehouse}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="toWarehouse"
-                              value={row.toWarehouse}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="quantity"
-                              value={row.quantity}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="uomCode"
-                              value={row.uomCode}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="uomCode"
-                              value={row.uomCode}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="total"
-                              value={row.total}
-                              onChange={(e) => handleInputChange(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell className="flex justify-center">
-                            <Button
-                              onClick={() => handleDeleteRow(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                                "&:hover": {
-                                  color: "red",
-                                },
-                              }}
-                            >
-                              <RiDeleteBin6Line
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                sx={{ fontSize: "36px", color: `inherit` }}
-                              />
-                            </Button>
-                            <Button
-                              onClick={() => handleAddRow(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                              }}
-                            >
-                              <IoMdAdd
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                onClick={handleAddRow}
-                              />
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </TabPanel>
-
-              {/* Attachments Section */}
-              <TabPanel
-                value={tabValue}
-                index={1}
-                style={{
-                  padding: "1px",
-                  overflowY: "auto",
-                }}
-              >
-                <div className="table-container">
-                  <Table component={Paper} className="shadow-sm shadow-black">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell className="text-sm font-bold">
-                          S No.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Target Path
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          File Name
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Attachment Date
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Free Text
-                        </TableCell>
-                        <TableCell className="text-sm font-bold">
-                          Copy to Target Doc.
-                        </TableCell>
-                        <TableCell className="text-sm font-bold text-center">
-                          Action
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rowsA.map((row, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{row.itemNo}</TableCell>
-                          <TableCell>
-                            <TextField
-                              name="targetpath"
-                              value={row.targetpath}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="filename"
-                              value={row.filename}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="attacheddate"
-                              value={row.attacheddate}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="freetext"
-                              value={row.freetext}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              name="copytotargetdocument"
-                              value={row.copytotargetdocument}
-                              onChange={(e) => handleInputChangeA(index, e)}
-                              size="small"
-                              inputProps={{ style: { fontSize: "12px" } }}
-                            />
-                          </TableCell>
-                          <TableCell className="flex">
-                            <Button
-                              onClick={() => handleDeleteRowA(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                                "&:hover": {
-                                  color: "red",
-                                },
-                              }}
-                            >
-                              <RiDeleteBin6Line
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                sx={{ fontSize: "16px", color: `inherit` }}
-                              />
-                            </Button>
-                            <Button
-                              onClick={() => handleAddRowA(index)}
-                              sx={{
-                                transition: "background-color 0.3s, color 0.3s",
-                                color: `${primaryColor}`,
-                                fontSize: "16px",
-                              }}
-                            >
-                              <IoMdAdd
-                                size={30}
-                                className="mt-1 border-2 border-sky-600 p-1 rounded-full"
-                                onClick={handleAddRowA}
-                              />
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </TabPanel>
+              <SapTable
+                tabValue={tabValue}
+                rows={rows}
+                primaryColor={primaryColor}
+                handleInputChange={handleInputChange}
+                handleDeleteRow={handleDeleteRow}
+                handleAddRow={handleAddRow}
+                fieldConfigs={fieldConfigs}
+              />
             </div>
           </Paper>
           <Paper
@@ -649,7 +275,10 @@ function Page() {
                     option3="Buyer 3"
                   />
                   <SapTextField label="Owner" secondaryColor={secondaryColor} />
-                  <SapTextField label="Remarks" secondaryColor={secondaryColor} />
+                  <SapTextField
+                    label="Remarks"
+                    secondaryColor={secondaryColor}
+                  />
                 </div>
               </div>
 
@@ -676,10 +305,22 @@ function Page() {
                     secondaryColor={secondaryColor}
                   />
                   <SapTextField label="Tax" secondaryColor={secondaryColor} />
-                  <SapTextField label="WTax Amount" secondaryColor={secondaryColor} />
-                  <SapTextField label="Total Payment Due" secondaryColor={secondaryColor} />
-                  <SapTextField label="Applied Account" secondaryColor={secondaryColor} />
-                  <SapTextField label="Balance Due" secondaryColor={secondaryColor} />
+                  <SapTextField
+                    label="WTax Amount"
+                    secondaryColor={secondaryColor}
+                  />
+                  <SapTextField
+                    label="Total Payment Due"
+                    secondaryColor={secondaryColor}
+                  />
+                  <SapTextField
+                    label="Applied Account"
+                    secondaryColor={secondaryColor}
+                  />
+                  <SapTextField
+                    label="Balance Due"
+                    secondaryColor={secondaryColor}
+                  />
                 </div>
               </div>
             </div>
@@ -694,19 +335,25 @@ function Page() {
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
-                <CustomButton 
-                  isDropdown={true} 
-                  option1="Add and View" 
-                  option2="Add and Close" 
-                  onOptionSelect={(option) => console.log(option)} 
-                  primaryEnabled={true} 
-                  padding="6px 12px" 
-                  fontsize="12px" 
-                />
-                  <CustomButton title="Cancel" primaryEnabled={false} classes={`bg-slate-500 hover:bg-slate-600 rounded`} padding="6px 12px" fontsize="12px"/>
+                  <CustomButton
+                    isDropdown={true}
+                    option1="Add and View"
+                    option2="Add and Close"
+                    onOptionSelect={(option) => console.log(option)}
+                    primaryEnabled={true}
+                    padding="6px 12px"
+                    fontsize="12px"
+                  />
+                  <CustomButton
+                    title="Cancel"
+                    primaryEnabled={false}
+                    classes={`bg-slate-500 hover:bg-slate-600 rounded`}
+                    padding="6px 12px"
+                    fontsize="12px"
+                  />
                 </div>
 
-                <div  
+                <div
                   style={{
                     display: "flex",
                     gap: "8px",
@@ -714,9 +361,19 @@ function Page() {
                   }}
                 >
                   <div>
-                  <CustomButton primaryEnabled={true} title="Copy From" padding=" 8px" fontsize="12px"/>
+                    <CustomButton
+                      primaryEnabled={true}
+                      title="Copy From"
+                      padding=" 8px"
+                      fontsize="12px"
+                    />
                   </div>
-                  <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>
+                  <CustomButton
+                    primaryEnabled={true}
+                    title="Copy To"
+                    padding=" 8px"
+                    fontsize="12px"
+                  />
                 </div>
               </div>
             </div>
