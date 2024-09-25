@@ -384,8 +384,7 @@ function Page() {
                 <div style={{ display: "flex", gap: "8px" }}>
                 <CustomButton 
                   isDropdown={true} 
-                  option1="Add and View" 
-                  option2="Add and Close" 
+                  options={["Add & View", "Add & Close"]}
                   onOptionSelect={(option) => console.log(option)} 
                   primaryEnabled={true} 
                   padding="6px 12px" 
@@ -403,13 +402,14 @@ function Page() {
                 >
                   <div>
                   <div>
-                    <SapCopyFromDropDown
-                      primaryColor={primaryColor}
-                      option1="Purchase Quotation"
-                      option2="Purchase Request"
-                      option3="Blanket Agreement"
-                      onOptionSelect={handleOptionSelect}
-                    />
+                  <CustomButton 
+                    isDropdown={true} 
+                    options={["Purchase Quotation", "Purchase Request", "Blanket Agreement"]}
+                    onOptionSelect={(option) => console.log(option)} 
+                    primaryEnabled={true} 
+                    padding="8px 12px" 
+                    fontsize="12px" 
+                  />
                   </div>
                   </div>
                   <CustomButton primaryEnabled={true} title="Copy To" padding=" 8px" fontsize="12px"/>

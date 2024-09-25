@@ -10,15 +10,14 @@ const CustomButton = ({
   primaryEnabled,
   padding,
   fontsize,
-  option1,
-  option2,
+  options = [],
   onOptionSelect,
   isDropdown = false
 }) => {
 
   const { primaryColor } = useColor();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [value, setValue] = useState(title || "Add and Close");
+  const [value, setValue] = useState(title || "Options");
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -41,10 +40,10 @@ const CustomButton = ({
           fontSize: fontsize
         }}
       >
-        {icon && <IoMdAdd size={24} className='text-white mr-2' />}
+        {icon && <IoMdAdd size={24} className='text-white mr-2' />} 
         {isDropdown ? value : title}
         {isDropdown && <span style={{ fontSize: "10px", marginLeft: "5px" }}>▼</span>}
-      </button>
+      </button> 
 
       {isDropdown && showDropdown && (
         <div
@@ -61,38 +60,25 @@ const CustomButton = ({
             marginBottom: "4px",
           }}
         >
-          <button
-            style={{
-              padding: "6px 12px",
-              backgroundColor: primaryColor,
-              color: "#fff",
-              border: "2px solid #ccc",
-              borderRadius: "4px",
-              fontSize: "12px",
-              width: "100%",
-              textAlign: "left",
-              cursor: "pointer",
-            }}
-            onClick={() => handleOptionSelect(option1)}
-          >
-            {option1}
-          </button>
-          <button
-            style={{
-              padding: "6px 12px",
-              backgroundColor: primaryColor,
-              color: "#fff",
-              border: "2px solid #ccc",
-              borderRadius: "4px",
-              fontSize: "12px",
-              width: "100%",
-              textAlign: "left",
-              cursor: "pointer",
-            }}
-            onClick={() => handleOptionSelect(option2)}
-          >
-            {option2}
-          </button>
+          {options.map((option, index) => (
+            <button
+              key={index}
+              style={{
+                padding: "6px 12px",
+                backgroundColor: primaryColor,
+                color: "#fff",
+                border: "2px solid #ccc",
+                borderRadius: "4px",
+                fontSize: "12px",
+                width: "100%",
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+              onClick={() => handleOptionSelect(option)}
+            >
+              {option}
+            </button>
+          ))}
         </div>
       )}
     </div>

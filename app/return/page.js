@@ -359,8 +359,7 @@ function Page() {
                 <div style={{ display: "flex", gap: "8px" }}>
                 <CustomButton 
                   isDropdown={true} 
-                  option1="Add and View" 
-                  option2="Add and Close" 
+                  options={["Add & View", "Add & Close"]}
                   onOptionSelect={(option) => console.log(option)} 
                   primaryEnabled={true} 
                   padding="6px 12px" 
