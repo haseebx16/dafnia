@@ -5,7 +5,7 @@ import { useColor } from "../context/ColorContext";
 import { Paper, Tabs, Tab, Box } from "@mui/material";
 import { font } from "../components/font/poppins";
 import SapTextField from "../components/fields/sapFields/sapTextField";
-import SapDropDown from "../components/fields/dropDown/sapDropDown";
+import SapDropDown from "../components/fields/dropDown/customDropDown";
 import SapDateField from "../components/fields/date/sapDateField";
 import CustomButton from "../components/buttons/customButton/customButton";
 import SapCopyFromDropDown from "../components/fields/dropDown/sapCopyFromDropDown";

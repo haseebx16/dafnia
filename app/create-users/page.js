@@ -12,7 +12,7 @@ import Layout from '../components/layout/layout';
 import CancelButton from '../components/buttons/cancelButton/cancelButton';
 import TextBar from '../components/fields/textField/textBar';
 import UserDropdown from '../components/fields/dropDown/userDropdown';
-import SapDropDown from '../components/fields/dropDown/sapDropDown';
+import SapDropDown from '../components/fields/dropDown/customDropDown';
 
 const page = () => {
 

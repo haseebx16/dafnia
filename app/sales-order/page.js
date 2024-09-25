@@ -5,7 +5,7 @@ import { useColor } from "../context/ColorContext";
 import { Paper, Tabs, Tab } from "@mui/material";
 import { font } from "../components/font/poppins";
 import SapTextField from "../components/fields/sapFields/sapTextField";
-import SapDropDown from "../components/fields/dropDown/sapDropDown";
+import SapDropDown from "../components/fields/dropDown/customDropDown";
 import SapDateField from "../components/fields/date/sapDateField";
 import SapTable from "../components/tables/sapTable";
 import CustomButton from "../components/buttons/customButton/customButton";
@@ -95,14 +95,11 @@ function Page() {
             <div className="grid grid-cols-2 mt-2 ml-2 mr-2 gap-80">
               {/* Left column */}
               <div className="space-y-2" style={{ width: "400px" }}>
-                <SapDropDown
-                  label="Customer:"
-                  secondaryColor={secondaryColor}
-                  option="Select Customer"
-                  option1="Customer 1"
-                  option2="Customer 2"
-                  option3="Customer 3"
-                />
+              <SapDropDown
+                label="Customers"
+                secondaryColor={secondaryColor}
+                apiUrl="http://localhost:3000/api/users"
+              />
                 <SapDropDown
                   secondaryColor={secondaryColor}
                   label="Name:"

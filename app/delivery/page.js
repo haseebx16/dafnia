@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { font } from "../components/font/poppins";
 import SapDropdownButton from "../components/buttons/sapDropdownButton/sapDropdownButton";
-import SapDropDown from "../components/fields/dropDown/sapDropDown";
+import SapDropDown from "../components/fields/dropDown/customDropDown";
 import SapDateField from "../components/fields/date/sapDateField";
 import SapTextField from "../components/fields/sapFields/sapTextField";
 import SapCopyFromDropDown from "../components/fields/dropDown/sapCopyFromDropDown";
