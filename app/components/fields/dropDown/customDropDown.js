@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Autocomplete, TextField } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import { Autocomplete, TextField } from "@mui/material";
 
 const SapDropDown = ({
   label,
@@ -37,15 +37,22 @@ const SapDropDown = ({
         ...containerStyles,
       }}
     >
-      <label style={{ flex: 1, fontWeight: "bold", fontSize: "12px", ...labelStyles }}>
+      <label
+        style={{
+          flex: 1,
+          fontWeight: "bold",
+          fontSize: "12px",
+          ...labelStyles,
+        }}
+      >
         {label}
       </label>
-      
+
       <Autocomplete
         options={options}
         getOptionLabel={(option) => option.label || option}
         renderInput={(params) => (
-          <TextField 
+          <TextField
             {...params}
             variant="outlined"
             size="small"
@@ -53,7 +60,7 @@ const SapDropDown = ({
               ...params.InputProps,
               style: {
                 padding: "2px 4px",
-                fontSize: "12px", 
+                fontSize: "12px",
                 height: "28px",
               },
             }}
@@ -74,7 +81,7 @@ const SapDropDown = ({
           />
         )}
         style={{ flex: 2 }}
-        {...props}  // Pass remaining props to Autocomplete
+        {...props} // Pass remaining props to Autocomplete
       />
     </div>
   );
