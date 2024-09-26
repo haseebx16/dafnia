@@ -13,10 +13,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useColor } from '../context/ColorContext';
-import Layout from '../components/Layout/Layout';
-import Pagination from '../components/pagination/Pagination';
-import { IoMdAdd } from "react-icons/io";
-import AddButton from '../components/buttons/addButton/addButton';
+import Layout from '../components/layout/Layout';
+import Pagination from '../components/pagination/pagination';
+
 import CustomButton from '../components/buttons/customButton/customButton';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -100,7 +99,7 @@ const Page = () => {
           <CustomButton title="Add Users" primaryEnabled={true} icon={true} classes={`mr-6 mt-5 ml-4 whitespace-nowrap p-2 rounded-md flex items-center w-auto font-bold mb-6`}/>
           </Link>
         </div>
-        <hr className="border-gray-700 w-full" />
+        <hr className="border-gray-700 w-full cursor-default" />
         
         {/* Centering the input field */}
         <div className="w-full flex justify-center mt-8">
